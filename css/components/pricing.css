@@ -1,0 +1,157 @@
+/* pricing.css — Ohio Pricing Tables */
+
+.ohio-pricing {
+  padding: var(--spacing-1000) 0;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-300);
+}
+
+@media (min-width: 992px) {
+  .pricing-grid[data-columns="2"] {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.pricing-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: var(--spacing-500);
+  background: var(--surface-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-2xl);
+  transition: all var(--motion-base) var(--motion-ease);
+}
+
+.pricing-card:hover {
+  border-color: var(--ohio-brand-color);
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+}
+
+.pricing-card.popular {
+  border-color: var(--ohio-brand-color);
+  box-shadow: var(--shadow-card);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: inline-flex;
+  align-items: center;
+  padding: var(--spacing-50) var(--spacing-200);
+  background: var(--ohio-brand-color);
+  color: var(--text-on-brand);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  white-space: nowrap;
+}
+
+.pricing-header {
+  text-align: center;
+  margin-bottom: var(--spacing-400);
+  padding-bottom: var(--spacing-300);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.pricing-name {
+  font-size: var(--ohio-h5);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-200);
+}
+
+.pricing-price {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: var(--spacing-100);
+}
+
+.pricing-price .currency {
+  font-size: var(--ohio-h5);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.pricing-price .amount {
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.pricing-price .period {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.pricing-old-price {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+.pricing-features {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-200);
+  flex: 1;
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-100);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.5;
+}
+
+.pricing-features .check {
+  color: var(--ohio-brand-color);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-features .cross {
+  color: var(--text-muted);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.pricing-card .btn {
+  margin-top: var(--spacing-400);
+  width: 100%;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .ohio-pricing {
+    padding: var(--spacing-800) 0;
+  }
+
+  .pricing-card {
+    padding: var(--spacing-400);
+  }
+}

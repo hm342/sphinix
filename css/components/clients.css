@@ -1,0 +1,94 @@
+/* clients.css — Ohio Clients Logo Bar */
+
+.ohio-clients {
+  padding: var(--spacing-900) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.clients-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-400);
+}
+
+.client-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 60px;
+  padding: var(--spacing-200);
+  opacity: 0.5;
+  filter: grayscale(100%);
+  transition: all var(--motion-base) var(--motion-ease);
+}
+
+.client-logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.client-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+}
+
+.client-logo .logo-light {
+  display: block;
+}
+
+.client-logo .logo-dark {
+  display: none;
+}
+
+[data-theme="dark"] .client-logo .logo-light {
+  display: none;
+}
+
+[data-theme="dark"] .client-logo .logo-dark {
+  display: block;
+}
+
+.clients-more {
+  text-align: center;
+  font-size: var(--ohio-h5);
+  font-weight: 700;
+  color: var(--ohio-brand-color);
+  margin-top: var(--spacing-400);
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .ohio-clients {
+    padding: var(--spacing-700) 0;
+  }
+
+  .clients-grid {
+    gap: var(--spacing-200) var(--spacing-300);
+  }
+
+  .client-logo {
+    min-width: 100px;
+    height: 50px;
+    padding: var(--spacing-100);
+  }
+
+  .clients-more {
+    font-size: var(--ohio-body);
+  }
+}
+
+@media (max-width: 480px) {
+  .client-logo {
+    min-width: 80px;
+    height: 44px;
+  }
+}

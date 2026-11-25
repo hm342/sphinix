@@ -1,0 +1,334 @@
+/* theme-toggle.css — Dark/Light Mode Toggle & System Sync */
+
+.theme-toggle {
+  position: relative;
+}
+
+.theme-toggle::before {
+  content: '';
+  position: absolute;
+  inset: -4px;
+  border-radius: var(--radius-full);
+  background: var(--ohio-brand-gradient);
+  opacity: 0;
+  transition: opacity var(--motion-base) var(--motion-ease);
+  z-index: -1;
+}
+
+.theme-toggle:hover::before {
+  opacity: 0.15;
+}
+
+/* System preference detection */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --surface-page: var(--ohio-dark-strong);
+    --surface-card: var(--ohio-dark-light);
+    --surface-subtle: #1E1E1E;
+    --surface-spark: rgba(230, 85, 38, 0.15);
+    --surface-hover: #2A2A2A;
+    --color-border: var(--ohio-dark-border);
+    --color-border-hover: #3A3A3A;
+    --text-primary: #FFFFFF;
+    --text-secondary: #B0B0B0;
+    --text-muted: #888888;
+    --text-on-dark: #FFFFFF;
+    --text-on-brand: #000000;
+  }
+}
+
+/* Smooth theme transition */
+*,
+*::before,
+*::after {
+  transition: background-color var(--motion-base) var(--motion-ease),
+              border-color var(--motion-base) var(--motion-ease),
+              color var(--motion-base) var(--motion-ease),
+              box-shadow var(--motion-base) var(--motion-ease);
+}
+
+/* Disable transitions during theme switch to prevent flash */
+.theme-switching *,
+.theme-switching *::before,
+.theme-switching *::after {
+  transition: none !important;
+}
+
+/* Theme-aware component adjustments */
+.section--light {
+  background: var(--section-bg-light);
+  color: var(--section-text-light);
+}
+
+.section--dark {
+  background: var(--section-bg-dark);
+  color: var(--section-text-dark);
+}
+
+.section--brand {
+  background: var(--section-bg-brand);
+  color: var(--section-text-brand);
+}
+
+.section--ember {
+  background: var(--section-bg-ember);
+  color: var(--section-text-ember);
+}
+
+.section--coal {
+  background: var(--section-bg-coal);
+  color: var(--section-text-coal);
+}
+
+.section--white {
+  background: var(--section-bg-white);
+  color: var(--section-text-white);
+}
+
+/* Logo switching */
+.light-scheme-logo { display: block; }
+.dark-scheme-logo { display: none; }
+
+[data-theme="dark"] .light-scheme-logo { display: none; }
+[data-theme="dark"] .dark-scheme-logo { display: block; }
+
+/* Client logo switching */
+.client-logo .logo-light { display: block; }
+.client-logo .logo-dark { display: none; }
+
+[data-theme="dark"] .client-logo .logo-light { display: none; }
+[data-theme="dark"] .client-logo .logo-dark { display: block; }
+
+/* Hero counters - ensure visibility in both themes */
+.counter-item {
+  background: var(--surface-card);
+  border-color: var(--color-border);
+}
+
+.counter-item:hover {
+  border-color: var(--ohio-brand-color);
+}
+
+/* Form elements */
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--input-bg);
+  border-color: var(--input-border-color);
+  color: var(--input-text);
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--input-border-focus);
+}
+
+.form-input::placeholder {
+  color: var(--input-placeholder);
+}
+
+/* Buttons */
+.btn-primary {
+  background: var(--ohio-brand-color);
+  border-color: var(--ohio-brand-color);
+  color: var(--text-on-brand);
+}
+
+.btn-primary:hover {
+  background: var(--ohio-brand-hover);
+  border-color: var(--ohio-brand-hover);
+}
+
+.btn-secondary {
+  background: transparent;
+  border-color: var(--text-primary);
+  color: var(--text-primary);
+}
+
+.btn-secondary:hover {
+  background: var(--text-primary);
+  color: var(--text-on-dark);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--color-border);
+  color: var(--text-primary);
+}
+
+.btn-outline:hover {
+  border-color: var(--ohio-brand-color);
+  color: var(--ohio-brand-color);
+}
+
+.btn-on-dark {
+  background: var(--surface-card);
+  border-color: var(--surface-card);
+  color: var(--text-primary);
+}
+
+.btn-on-dark:hover {
+  background: var(--surface-spark);
+  border-color: var(--surface-spark);
+}
+
+.btn-ghost {
+  background: transparent;
+  border-color: transparent;
+  color: var(--text-primary);
+}
+
+.btn-ghost:hover {
+  background: var(--surface-hover);
+}
+
+/* Cards and panels */
+.panel,
+.card,
+.blog-card,
+.pricing-card,
+.testimonial-card,
+.icon-box,
+.counter-item,
+.stat-item {
+  background: var(--surface-card);
+  border-color: var(--color-border);
+}
+
+.panel:hover,
+.card:hover,
+.blog-card:hover,
+.pricing-card:hover,
+.testimonial-card:hover,
+.icon-box:hover,
+.counter-item:hover,
+.stat-item:hover {
+  border-color: var(--ohio-brand-color);
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Mega menu */
+.mega-menu-panel {
+  background: var(--surface-card);
+  border-color: var(--color-border);
+}
+
+/* Hamburger popup */
+.hamburger-popup,
+.mobile-menu-overlay {
+  background: var(--surface-page);
+}
+
+[data-theme="dark"] .hamburger-popup,
+[data-theme="dark"] .mobile-menu-overlay {
+  background: var(--ohio-dark-strong);
+}
+
+/* Search popup */
+.search-popup {
+  background: var(--surface-page);
+}
+
+[data-theme="dark"] .search-popup {
+  background: var(--ohio-dark-strong);
+}
+
+/* Video modal */
+.video-modal-card {
+  background: var(--color-black);
+}
+
+/* Cookie consent */
+.cookie-consent {
+  background: var(--surface-card);
+  border-color: var(--color-border);
+}
+
+/* Mobile sticky dock */
+.mobile-sticky-dock {
+  background: rgba(24, 24, 24, 0.94);
+  border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+[data-theme="dark"] .mobile-sticky-dock {
+  background: rgba(0, 0, 0, 0.94);
+}
+
+/* Scrollbar theming */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-subtle);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--ohio-brand-color);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ohio-brand-hover);
+}
+
+/* Selection */
+::selection {
+  background: var(--ohio-brand-color);
+  color: var(--text-on-brand);
+}
+
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--ohio-brand-color);
+  outline-offset: 2px;
+}
+
+/* Skip link */
+.skip-link {
+  background: var(--color-black);
+  color: var(--text-on-dark);
+}
+
+[data-theme="dark"] .skip-link {
+  background: var(--text-on-dark);
+  color: var(--color-black);
+}
+
+/* Custom cursor */
+.cursor-outer,
+.cursor-inner {
+  border-color: var(--ohio-brand-color);
+}
+
+.cursor-inner {
+  background: var(--ohio-brand-color);
+}
+
+.cursor-inner svg {
+  color: var(--text-on-brand);
+}
+
+.cursor-inner.cursor-link {
+  transform: scale(1.5);
+  background: transparent;
+  border-width: 2px;
+}
+
+.cursor-inner.cursor-link svg {
+  color: var(--ohio-brand-color);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,80 @@
+/* stats.css — Ohio Stats Counters */
+
+.ohio-stats {
+  padding: var(--spacing-900) 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-300);
+}
+
+@media (min-width: 992px) {
+  .stats-grid[data-columns="4"] {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-100);
+  padding: var(--spacing-300);
+}
+
+.stat-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background: var(--surface-spark);
+  border-radius: var(--radius-xl);
+  color: var(--ohio-brand-color);
+}
+
+.stat-value {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  font-family: var(--font-primary);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1;
+  color: var(--text-primary);
+}
+
+.stat-value .suffix {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 700;
+  color: var(--ohio-brand-color);
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+/* ==========================================================================
+   RESPONSIVE
+   ========================================================================== */
+@media (max-width: 768px) {
+  .ohio-stats {
+    padding: var(--spacing-700) 0;
+  }
+
+  .stats-grid {
+    gap: var(--spacing-200);
+  }
+
+  .stat-item {
+    padding: var(--spacing-200);
+  }
+}
