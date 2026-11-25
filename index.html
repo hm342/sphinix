@@ -201,6 +201,51 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       #site-header, #nav-pill, #site-header *, .hero-canvas *, .service-carousel-card, .service-carousel-card * {
         transition-duration: 0.01ms !important;
       }
+      .industry-name,
+      .industry-arrow {
+        transition: color 200ms ease-out, opacity 200ms ease-out !important;
+        transform: none !important;
+      }
+      .industry-item:hover .industry-name,
+      .industry-item:focus-visible .industry-name,
+      .industry-item:hover .industry-arrow,
+      .industry-item:focus-visible .industry-arrow {
+        transform: none !important;
+      }
+      #testimonial-stage {
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    #testimonial-stage {
+      transition: opacity 300ms ease;
+    }
+
+    /* Industries List Interaction */
+    .industry-name {
+      transition: color 200ms ease-out, transform 200ms ease-out;
+    }
+    .industry-arrow {
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity 200ms ease-out, transform 200ms ease-out, color 200ms ease-out;
+    }
+    .industry-item:hover .industry-name,
+    .industry-item:focus-visible .industry-name {
+      color: #E85D2A;
+      transform: translateX(6px);
+    }
+    .industry-item:hover .industry-arrow,
+    .industry-item:focus-visible .industry-arrow {
+      opacity: 1;
+      transform: translateX(0);
+      color: #E85D2A;
+    }
+    @media (max-width: 767px) {
+      .industry-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
     }
 
     /* Client Family Dual Opposing Marquee Carousel */
@@ -1099,103 +1144,105 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         </div>
       </section>
 
-      <!-- Industries We Serve — Editorial Index -->
-      <section id="industries" class="py-20 lg:py-24 px-6 bg-[#F7F6F4] border-b border-[#E4E4E7]">
+      <!-- Industries -->
+      <section id="industries" class="py-20 lg:py-24 px-6 bg-[#F7F6F4] border-b border-[#D4D0C8]">
         <div class="max-w-7xl mx-auto flex flex-col gap-10 lg:gap-12">
+          <h2 class="home-hero-font font-semibold text-[30px] sm:text-[38px] lg:text-[42px] leading-[1.1] tracking-[-0.025em] text-[#18181B]">
+            Industries <span class="text-[#E85D2A]">we work with</span>
+          </h2>
 
-          <!-- Editorial Header + Integrated 150+ Typographic Stat -->
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end pb-8 border-b border-[#E4E4E7]">
-            <div class="lg:col-span-7 flex flex-col gap-3">
-              <span class="home-hero-font text-[14px] font-semibold text-[#A83300]">Industries &amp; Sectors</span>
-              <h2 class="home-hero-font font-semibold text-[30px] sm:text-[38px] lg:text-[42px] leading-[1.1] tracking-[-0.025em] text-[#18181B] text-balance">
-                Different industries. <span class="text-[#E85D2A]">One growth partner.</span>
-              </h2>
-              <p class="home-hero-font text-[16px] leading-[1.6] text-[#52525B] max-w-[52ch]">
-                Over 9+ years, we have partnered with businesses across diverse sectors to grow their audience and drive measurable results.
-              </p>
-            </div>
-
-            <div class="lg:col-span-5 flex lg:justify-end">
-              <div class="flex items-baseline gap-3.5">
-                <span class="home-hero-font text-[42px] sm:text-[52px] font-semibold leading-none tracking-[-0.03em] text-[#18181B] tabular-nums">150+</span>
-                <span class="home-hero-font text-[14px] leading-[1.45] text-[#52525B] max-w-[18ch]">businesses scaled across diverse sectors</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Two-Column Editorial Industry List -->
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16">
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">01</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Healthcare</span>
+          <ul class="grid grid-cols-1 md:grid-cols-3 gap-x-10 lg:gap-x-14 border-t border-[#D4D0C8]">
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">01</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Healthcare &amp; Hospitals</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">02</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">E-Commerce</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">02</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Retail &amp; E-commerce</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">03</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Real Estate</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">03</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Manufacturing &amp; Export</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">04</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Jewelry</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">04</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Real Estate</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">05</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Manufacturing</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">05</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Jewelry &amp; Lifestyle</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">06</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Education</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">06</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Education &amp; Coaching</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">07</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Hospitality</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">07</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Marine &amp; Industrial</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-
-            <a href="work/index.html" class="group flex items-center justify-between py-5 sm:py-6 px-2 -mx-2 rounded-sm border-b border-[#E4E4E7] hover:bg-[#EFECE6]/60 transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-              <span class="flex items-baseline gap-4 min-w-0">
-                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums w-6 shrink-0">08</span>
-                <span class="home-hero-font text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] text-[#18181B] group-hover:text-[#E85D2A] transition-colors duration-200 truncate">Marine &amp; Export</span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">08</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Professional Services</span>
               </span>
-              <span class="material-symbols-outlined text-[20px] text-[#71717A] group-hover:text-[#E85D2A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-200 shrink-0" aria-hidden="true">north_east</span>
-            </a>
-          </div>
-
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">09</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Hospitality &amp; Travel</span>
+              </span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">10</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Startups &amp; SMBs</span>
+              </span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">11</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">Scrap &amp; Recycling</span>
+              </span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+            <li tabindex="0" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
+              <span class="flex items-baseline gap-3.5 min-w-0">
+                <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">12</span>
+                <span class="industry-name home-hero-font font-medium text-[18px] sm:text-[19px] text-[#18181B]">FMCG &amp; Food</span>
+              </span>
+              <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
+            </li>
+          </ul>
         </div>
       </section>
 
       <!-- Client Feedback & Review Highlights (Grounded in Company Profile) -->
       <section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
-        <div class="max-w-5xl mx-auto bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-8 md:p-14 flex flex-col items-center text-center gap-8">
+        <div id="testimonial-carousel" class="max-w-5xl mx-auto bg-light-surface-container-lowest border border-light-outline-variant rounded-xl p-8 md:p-14 flex flex-col items-center text-center gap-8" aria-roledescription="carousel" aria-label="Client testimonials">
           <div class="flex flex-col items-center gap-3">
             <span class="font-body text-[14px] font-semibold text-[#A83300]">Don’t Just Take Our Word For It</span>
             <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
@@ -1205,18 +1252,18 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 
           <!-- Category Filter Tabs -->
           <div class="flex flex-wrap items-center justify-center gap-2" role="tablist" aria-label="Client review themes">
-            <button type="button" data-tab="0" class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md bg-light-primary text-light-on-primary transition-colors duration-state-change">Video &amp; Healthcare</button>
-            <button type="button" data-tab="1" class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md bg-light-surface-container-low text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Social &amp; Engagement</button>
-            <button type="button" data-tab="2" class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md bg-light-surface-container-low text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Team &amp; Support</button>
+            <button type="button" role="tab" aria-selected="true" data-tab="0" class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md bg-light-primary text-light-on-primary transition-colors duration-state-change">Video &amp; Healthcare</button>
+            <button type="button" role="tab" aria-selected="false" data-tab="1" class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md bg-light-surface-container-low text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Social &amp; Engagement</button>
+            <button type="button" role="tab" aria-selected="false" data-tab="2" class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md bg-light-surface-container-low text-light-on-surface-variant hover:text-light-on-surface transition-colors duration-state-change">Team &amp; Support</button>
           </div>
 
           <!-- Active Review Highlight -->
           <div class="w-full flex items-center justify-between gap-6">
-            <button id="prev-testimonial" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Previous review highlight" class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-secondary hover:text-light-on-secondary transition-colors duration-state-change">
+            <button id="prev-testimonial" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Previous testimonial" class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-secondary hover:text-light-on-secondary transition-colors duration-state-change shrink-0">
               <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_back</span>
             </button>
 
-            <div class="max-w-2xl mx-auto flex flex-col items-center gap-4">
+            <div id="testimonial-stage" aria-live="off" class="max-w-2xl mx-auto min-h-[148px] sm:min-h-[124px] flex flex-col items-center justify-center gap-4">
               <p id="testimonial-quote" class="font-body text-body-lg text-light-on-surface text-pretty">
                 Clients highlight our professional video production and healthcare promotion campaigns that build patient trust and strengthen community visibility.
               </p>
@@ -1226,18 +1273,17 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
               </div>
             </div>
 
-            <button id="next-testimonial" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Next review highlight" class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-secondary hover:text-light-on-secondary transition-colors duration-state-change">
+            <button id="next-testimonial" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Next testimonial" class="hidden sm:inline-flex items-center justify-center w-10 h-10 rounded-full border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-secondary hover:text-light-on-secondary transition-colors duration-state-change shrink-0">
               <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
             </button>
           </div>
 
-          <div class="flex items-center gap-3">
+          <div class="flex items-center justify-center">
             <div class="flex items-center gap-1.5">
               <button type="button" data-tab-dot="0" aria-label="Slide 1" class="testimonial-dot w-6 h-1.5 rounded-full bg-light-primary transition-colors duration-state-change"></button>
               <button type="button" data-tab-dot="1" aria-label="Slide 2" class="testimonial-dot w-6 h-1.5 rounded-full bg-light-outline-variant transition-colors duration-state-change"></button>
               <button type="button" data-tab-dot="2" aria-label="Slide 3" class="testimonial-dot w-6 h-1.5 rounded-full bg-light-outline-variant transition-colors duration-state-change"></button>
             </div>
-            <span id="testimonial-counter" class="font-mono text-mono-sm text-light-outline tabular-nums">1 — 3</span>
           </div>
         </div>
       </section>
@@ -1611,7 +1657,10 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       window.addEventListener('resize', () => renderServices(servicePage));
       renderServices(0);
 
-      // Client Feedback Highlights (data.md)
+      // Client Feedback Highlights (4.5s auto-rotation, 300ms fade, hover/focus/visibility pause)
+      const TESTIMONIAL_AUTOPLAY_MS = 4500;
+      const TESTIMONIAL_RESUME_DELAY_MS = 1000;
+
       const testimonials = [
         {
           quote: 'Clients highlight our professional video production and healthcare promotion campaigns that build patient trust and strengthen community visibility.',
@@ -1631,50 +1680,168 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       ];
 
       let current = 0;
+      let autoplayTimer = null;
+      let resumeTimer = null;
+      let fadeTimer = null;
+      let isHovered = false;
+      let hasFocusInside = false;
+
+      const carouselEl = document.getElementById('testimonial-carousel');
+      const stageEl = document.getElementById('testimonial-stage');
       const quoteEl = document.getElementById('testimonial-quote');
       const authorEl = document.getElementById('testimonial-author');
       const roleEl = document.getElementById('testimonial-role');
-      const counterEl = document.getElementById('testimonial-counter');
       const tabs = document.querySelectorAll('.testimonial-tab');
       const dots = document.querySelectorAll('.testimonial-dot');
+      const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-      function render(index) {
-        current = (index + testimonials.length) % testimonials.length;
-        const item = testimonials[current];
+      function updateAriaLive() {
+        if (!stageEl) return;
+        const pausedOrReduced = reducedMotionQuery.matches || isHovered || hasFocusInside || document.hidden;
+        stageEl.setAttribute('aria-live', pausedOrReduced ? 'polite' : 'off');
+      }
+
+      function clearTimers() {
+        if (autoplayTimer !== null) {
+          clearInterval(autoplayTimer);
+          autoplayTimer = null;
+        }
+        if (resumeTimer !== null) {
+          clearTimeout(resumeTimer);
+          resumeTimer = null;
+        }
+      }
+
+      function startAutoplay() {
+        clearTimers();
+        if (reducedMotionQuery.matches || isHovered || hasFocusInside || document.hidden) {
+          updateAriaLive();
+          return;
+        }
+        updateAriaLive();
+        autoplayTimer = setInterval(() => {
+          render(current + 1, false);
+        }, TESTIMONIAL_AUTOPLAY_MS);
+      }
+
+      function scheduleResume() {
+        clearTimers();
+        updateAriaLive();
+        if (reducedMotionQuery.matches || isHovered || hasFocusInside || document.hidden) return;
+        resumeTimer = setTimeout(() => {
+          resumeTimer = null;
+          startAutoplay();
+        }, TESTIMONIAL_RESUME_DELAY_MS);
+      }
+
+      function applySlideContent(index) {
+        const item = testimonials[index];
         quoteEl.textContent = item.quote;
         authorEl.textContent = item.author;
         roleEl.textContent = item.role;
-        counterEl.textContent = (current + 1) + ' — ' + testimonials.length;
 
         tabs.forEach((tab, idx) => {
-          if (idx === current) {
-            tab.classList.remove('bg-light-surface-container-low', 'text-light-on-surface-variant');
-            tab.classList.add('bg-light-primary', 'text-light-on-primary');
-          } else {
-            tab.classList.remove('bg-light-primary', 'text-light-on-primary');
-            tab.classList.add('bg-light-surface-container-low', 'text-light-on-surface-variant');
-          }
+          const active = idx === index;
+          tab.setAttribute('aria-selected', String(active));
+          tab.classList.toggle('bg-light-primary', active);
+          tab.classList.toggle('text-light-on-primary', active);
+          tab.classList.toggle('bg-light-surface-container-low', !active);
+          tab.classList.toggle('text-light-on-surface-variant', !active);
         });
 
         dots.forEach((dot, idx) => {
-          if (idx === current) {
-            dot.classList.remove('bg-light-outline-variant');
-            dot.classList.add('bg-light-primary');
-          } else {
-            dot.classList.remove('bg-light-primary');
-            dot.classList.add('bg-light-outline-variant');
-          }
+          const active = idx === index;
+          dot.classList.toggle('bg-light-primary', active);
+          dot.classList.toggle('bg-light-outline-variant', !active);
         });
       }
 
+      function render(index, isManual = true) {
+        const nextIndex = (index + testimonials.length) % testimonials.length;
+        if (nextIndex === current && !isManual) return;
+        current = nextIndex;
+
+        if (fadeTimer !== null) {
+          clearTimeout(fadeTimer);
+          fadeTimer = null;
+        }
+
+        if (reducedMotionQuery.matches || !stageEl) {
+          applySlideContent(current);
+          if (stageEl) stageEl.style.opacity = '1';
+        } else {
+          stageEl.style.opacity = '0';
+          fadeTimer = setTimeout(() => {
+            fadeTimer = null;
+            applySlideContent(current);
+            stageEl.style.opacity = '1';
+          }, 150);
+        }
+
+        if (isManual) {
+          startAutoplay();
+        }
+      }
+
       tabs.forEach((tab) => {
-        tab.addEventListener('click', () => render(Number(tab.dataset.tab)));
+        tab.addEventListener('click', () => render(Number(tab.dataset.tab), true));
       });
       dots.forEach((dot) => {
-        dot.addEventListener('click', () => render(Number(dot.dataset.tabDot)));
+        dot.addEventListener('click', () => render(Number(dot.dataset.tabDot), true));
       });
-      document.getElementById('prev-testimonial').addEventListener('click', () => render(current - 1));
-      document.getElementById('next-testimonial').addEventListener('click', () => render(current + 1));
+      document.getElementById('prev-testimonial').addEventListener('click', () => render(current - 1, true));
+      document.getElementById('next-testimonial').addEventListener('click', () => render(current + 1, true));
+
+      if (carouselEl) {
+        carouselEl.addEventListener('mouseenter', () => {
+          isHovered = true;
+          clearTimers();
+          updateAriaLive();
+        });
+        carouselEl.addEventListener('mouseleave', () => {
+          isHovered = false;
+          scheduleResume();
+        });
+        carouselEl.addEventListener('focusin', () => {
+          hasFocusInside = true;
+          clearTimers();
+          updateAriaLive();
+        });
+        carouselEl.addEventListener('focusout', (e) => {
+          if (e.relatedTarget && carouselEl.contains(e.relatedTarget)) return;
+          hasFocusInside = false;
+          scheduleResume();
+        });
+      }
+
+      document.addEventListener('visibilitychange', () => {
+        if (document.hidden) {
+          clearTimers();
+          updateAriaLive();
+        } else {
+          startAutoplay();
+        }
+      });
+
+      reducedMotionQuery.addEventListener('change', () => {
+        if (reducedMotionQuery.matches) {
+          clearTimers();
+          if (stageEl) stageEl.style.opacity = '1';
+        } else {
+          startAutoplay();
+        }
+        updateAriaLive();
+      });
+
+      window.addEventListener('pagehide', () => {
+        clearTimers();
+        if (fadeTimer !== null) {
+          clearTimeout(fadeTimer);
+          fadeTimer = null;
+        }
+      });
+
+      startAutoplay();
     })();
   </script>
 
