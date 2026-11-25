@@ -115,52 +115,37 @@
     }
     .about-hero-h1 {
       font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
-      font-size: clamp(2.35rem, 1.65rem + 2.4vw, 3.875rem);
+      font-size: clamp(2.4rem, 1.6rem + 2.6vw, 4rem);
       font-weight: 600;
       line-height: 1.05;
       letter-spacing: -0.028em;
     }
 
-    @keyframes aboutFadeUp {
-      from { opacity: 0; transform: translateY(12px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes aboutFadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .about-anim-up {
-      animation: aboutFadeUp 520ms cubic-bezier(0.22, 1, 0.36, 1) both;
-    }
-    .about-anim-fade {
-      animation: aboutFadeIn 600ms ease 80ms both;
-    }
-    .about-stat-1 { animation: aboutFadeUp 480ms cubic-bezier(0.22, 1, 0.36, 1) 120ms both; }
-    .about-stat-2 { animation: aboutFadeUp 480ms cubic-bezier(0.22, 1, 0.36, 1) 180ms both; }
-    .about-stat-3 { animation: aboutFadeUp 480ms cubic-bezier(0.22, 1, 0.36, 1) 240ms both; }
-    .about-stat-4 { animation: aboutFadeUp 480ms cubic-bezier(0.22, 1, 0.36, 1) 300ms both; }
-
-    /* Solid clean navbar sitting above subpage hero banner */
+        /* Compact sticky header: seamless over hero top -> pure white on scroll */
     #site-header {
-      background-color: #FFFFFF;
-      border-bottom: 1px solid #E4E4E7;
-      transition: box-shadow 240ms ease;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
     }
     #site-header.header-scrolled {
+      background-color: #FFFFFF;
+      border-bottom-color: #E4E4E7;
       box-shadow: 0 2px 14px -2px rgba(32, 32, 32, 0.06);
     }
 
     #nav-pill {
+      background-color: rgba(244, 232, 213, 0.78);
+      border: 1px solid rgba(218, 200, 174, 0.6);
+      transition: background-color 240ms ease, border-color 240ms ease;
+    }
+    #site-header.header-scrolled #nav-pill {
       background-color: #F4F2EE;
-      border: 1px solid #E6E3DC;
+      border-color: #E6E3DC;
     }
 
     @media (prefers-reduced-motion: reduce) {
       #site-header, #site-header * {
         transition-duration: 0.01ms !important;
-      }
-      .about-anim-up, .about-anim-fade, .about-stat-1, .about-stat-2, .about-stat-3, .about-stat-4 {
-        animation: none !important;
       }
     }
     .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -175,18 +160,15 @@
       <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
-        <a href="../index.html" class="flex items-center gap-2.5 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md">
-          <div class="header-logo-mark w-8 h-8 rounded-full bg-[#202020] flex items-center justify-center shrink-0 group-hover:bg-[#E85C27] transition-colors duration-150">
-            <span class="header-logo-bolt material-symbols-outlined text-[17px] text-[#E85C27] group-hover:text-white transition-colors duration-150" aria-hidden="true">bolt</span>
-          </div>
-          <span class="flex flex-col leading-none font-body">
-            <span class="header-wordmark-title font-extrabold text-[17px] tracking-[-0.025em] text-[#202020] leading-tight">Sphinix</span>
-            <span class="header-wordmark-sub font-semibold text-[10px] tracking-[0.08em] text-[#A83300] leading-tight">Marketing</span>
-          </span>
+        <a href="../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
+          <img src="../images/sphinix_logo.webp" alt="Sphinix Marketing" class="site-logo-img h-9 sm:h-10 w-auto object-contain transition-[filter] duration-200" loading="eager" decoding="async">
         </a>
 
         <!-- Centered Translucent Beige Capsule Navigation -->
         <nav id="nav-pill" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-0.5 px-2 py-1 rounded-full backdrop-blur-sm">
+          <a href="../index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Home
+          </a>
           <a href="../about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             About
           </a>
@@ -299,6 +281,7 @@
       <!-- Mobile Drawer -->
       <nav id="mobile-menu" class="hidden lg:hidden border-t border-light-outline-variant bg-white shadow-lg" aria-label="Mobile Navigation">
         <div class="px-5 py-4 flex flex-col font-body">
+          <a href="../index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Home</a>
           <a href="../about/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">About</a>
           <div>
             <button type="button" id="mobile-services-btn" class="w-full flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">
@@ -328,67 +311,64 @@
       </nav>
     </header>
 
-    <main class="flex-1">
+    <main class="flex-1 -mt-20">
 
-      <!-- Editorial Two-Column About Hero -->
-      <section class="bg-[#F7F6F4] py-16 lg:py-24 px-6 border-b border-[#E4E4E7]">
-        <div class="max-w-7xl mx-auto flex flex-col gap-12 lg:gap-16">
+      <!-- Unified Full-Section Illustrated About Hero -->
+      <section class="relative bg-[#F7F6F4] border-b border-[#E4E4E7] overflow-hidden">
+        <!-- Main Hero Composition -->
+        <div class="relative min-h-[500px] lg:min-h-[580px] flex items-center">
+          <!-- Full-Section Office Illustration -->
+          <img src="../images/subpage_hero_agency.jpg" alt="Sphinix Marketing team collaborating on digital strategy and analytics" class="absolute inset-0 w-full h-full object-cover object-right lg:object-[75%_center]" loading="eager" decoding="async">
+          <!-- Warm Off-White Editorial Readability Fade (no dark muddy overlay) -->
+          <div class="absolute inset-0 bg-[#F7F6F4]/85 lg:hidden" aria-hidden="true"></div>
+          <div class="hidden lg:block absolute inset-0" style="background: linear-gradient(90deg, #F7F6F4 0%, #F7F6F4 36%, rgba(247,246,244,0.92) 48%, rgba(247,246,244,0.52) 64%, rgba(247,246,244,0.08) 84%, rgba(247,246,244,0) 100%);" aria-hidden="true"></div>
 
-          <!-- Two-Column Composition (~55% Left / ~45% Right) -->
-          <div class="grid grid-cols-1 lg:grid-cols-[55fr_45fr] gap-10 lg:gap-12 items-center">
-
-            <!-- Left Column: Eyebrow, Headline, Intro, CTA -->
-            <div class="about-anim-up flex flex-col items-start gap-6">
+          <!-- Editorial Content -->
+          <div class="relative z-10 max-w-7xl mx-auto w-full px-6 pt-32 pb-16 lg:pt-36 lg:pb-20">
+            <div class="max-w-2xl flex flex-col items-start gap-5">
               <span class="about-editorial-font text-[14px] font-semibold text-[#A83300]">
                 About Sphinix Marketing · Est. 2017
               </span>
 
-              <h1 class="about-hero-h1 text-[#18181B] max-w-[16ch]">
-                Shaping digital success &amp; delivering the <span class="text-[#E85D2A]">WOW factor.</span>
+              <h1 class="about-hero-h1 text-[#18181B]">
+                Shaping digital success.<br>
+                Delivering the <span class="text-[#E85D2A]">WOW</span> factor.
               </h1>
 
-              <p class="about-editorial-font text-[17px] sm:text-[18px] leading-[1.6] text-[#52525B] max-w-[48ch]">
+              <p class="about-editorial-font text-[17px] sm:text-[18px] leading-[1.6] text-[#3F3F46] max-w-[46ch]">
                 We started our journey in 2017 with a clear purpose: to provide affordable, high-impact digital marketing and web development for growing businesses. 9+ years on, we empower 150+ brands worldwide.
               </p>
 
-              <div class="pt-2 flex flex-wrap items-center gap-6">
-                <a href="#our-story" class="group inline-flex items-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white about-editorial-font font-semibold text-[15px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                  <span>Explore Our Story</span>
-                  <span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
-                </a>
-                <a href="../contact/index.html" class="about-editorial-font font-semibold text-[15px] text-[#18181B] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded">
-                  Partner With Us
+              <div class="pt-2">
+                <a href="#our-story" class="group inline-flex items-center gap-2 pb-1 border-b border-[#18181B] hover:border-[#A83300] text-[#18181B] hover:text-[#A83300] about-editorial-font font-semibold text-[16px] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <span>Explore our story</span>
+                  <span class="material-symbols-outlined text-[18px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">arrow_outward</span>
                 </a>
               </div>
             </div>
-
-            <!-- Right Column: Editorial Agency Visual -->
-            <div class="about-anim-fade flex items-center justify-center">
-              <img src="../images/subpage_hero_agency.jpg" alt="Sphinix Marketing team collaborating on digital strategy and analytics" class="w-full max-w-[460px] lg:max-w-full h-auto rounded-lg object-cover" loading="eager" decoding="async">
-            </div>
-
           </div>
+        </div>
 
-          <!-- Horizontal Statistics Row -->
-          <div class="pt-10 border-t border-[#E4E4E7] grid grid-cols-2 lg:grid-cols-4 gap-y-8 lg:divide-x lg:divide-[#E4E4E7]">
-            <div class="about-stat-1 flex flex-col gap-1 lg:pr-8">
-              <span class="about-editorial-font text-[34px] sm:text-[42px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">9+</span>
+        <!-- Clean Horizontal Statistics Strip -->
+        <div class="relative z-10 bg-[#F7F6F4] border-t border-[#E4E4E7]">
+          <div class="max-w-7xl mx-auto px-6 py-8 lg:py-9 grid grid-cols-2 lg:grid-cols-4 gap-y-6 lg:divide-x lg:divide-[#E4E4E7]">
+            <div class="flex flex-col gap-1 lg:pr-8">
+              <span class="about-editorial-font text-[32px] sm:text-[38px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">9+</span>
               <span class="about-editorial-font text-[14px] text-[#52525B] pt-1">Years of Experience</span>
             </div>
-            <div class="about-stat-2 flex flex-col gap-1 lg:px-8">
-              <span class="about-editorial-font text-[34px] sm:text-[42px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">150+</span>
+            <div class="flex flex-col gap-1 lg:px-8">
+              <span class="about-editorial-font text-[32px] sm:text-[38px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">150+</span>
               <span class="about-editorial-font text-[14px] text-[#52525B] pt-1">Happy Clients Worldwide</span>
             </div>
-            <div class="about-stat-3 flex flex-col gap-1 lg:px-8">
-              <span class="about-editorial-font text-[34px] sm:text-[42px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">700+</span>
+            <div class="flex flex-col gap-1 lg:px-8">
+              <span class="about-editorial-font text-[32px] sm:text-[38px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">700+</span>
               <span class="about-editorial-font text-[14px] text-[#52525B] pt-1">Projects Delivered</span>
             </div>
-            <div class="about-stat-4 flex flex-col gap-1 lg:pl-8">
-              <span class="about-editorial-font text-[34px] sm:text-[42px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">15+</span>
+            <div class="flex flex-col gap-1 lg:pl-8">
+              <span class="about-editorial-font text-[32px] sm:text-[38px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">15+</span>
               <span class="about-editorial-font text-[14px] text-[#52525B] pt-1">Industries Served</span>
             </div>
           </div>
-
         </div>
       </section>
 
@@ -421,18 +401,22 @@
               <!-- Mission & Vision Cards -->
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-light-outline-variant">
                 <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
-                  <div class="w-10 h-10 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange">
-                    <span class="material-symbols-outlined text-title-md" aria-hidden="true">flag</span>
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
+                      <span class="material-symbols-outlined text-[18px]" aria-hidden="true">flag</span>
+                    </div>
+                    <h3 class="font-title text-title-md text-light-on-surface">Our Mission</h3>
                   </div>
-                  <h3 class="font-title text-title-md text-light-on-surface">Our Mission</h3>
                   <p class="font-body text-body-sm text-light-on-surface-variant">Empowering businesses through innovative and effective digital marketing solutions.</p>
                 </div>
 
                 <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
-                  <div class="w-10 h-10 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange">
-                    <span class="material-symbols-outlined text-title-md" aria-hidden="true">visibility</span>
+                  <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
+                      <span class="material-symbols-outlined text-[18px]" aria-hidden="true">visibility</span>
+                    </div>
+                    <h3 class="font-title text-title-md text-light-on-surface">Our Vision</h3>
                   </div>
-                  <h3 class="font-title text-title-md text-light-on-surface">Our Vision</h3>
                   <p class="font-body text-body-sm text-light-on-surface-variant">Shaping digital success for businesses and deliver the WOW factor through our services.</p>
                 </div>
               </div>
@@ -441,7 +425,7 @@
         </div>
       </section>
 
-      <!-- What Sets Us Apart (4 Key Pillars) -->
+      <!-- What Sets Us Apart (3 Key Pillars) -->
       <section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
         <div class="max-w-7xl mx-auto flex flex-col gap-12">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -458,8 +442,9 @@
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4 hover:border-light-primary transition-colors duration-state-change">
-              <div class="w-12 h-12 rounded bg-light-surface border border-light-outline-variant flex items-center justify-center text-brand-orange">
-                <span class="material-symbols-outlined text-title-lg" aria-hidden="true">groups</span>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">01 · In-House Team</span>
+                <span class="material-symbols-outlined text-[18px] text-[#71717A]" aria-hidden="true">groups</span>
               </div>
               <h3 class="font-title text-title-lg text-light-on-surface">Expert In-House Team</h3>
               <p class="font-body text-body-md text-light-on-surface-variant">
@@ -468,8 +453,9 @@
             </div>
 
             <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4 hover:border-light-primary transition-colors duration-state-change">
-              <div class="w-12 h-12 rounded bg-light-surface border border-light-outline-variant flex items-center justify-center text-brand-orange">
-                <span class="material-symbols-outlined text-title-lg" aria-hidden="true">account_tree</span>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">02 · Methodology</span>
+                <span class="material-symbols-outlined text-[18px] text-[#71717A]" aria-hidden="true">account_tree</span>
               </div>
               <h3 class="font-title text-title-lg text-light-on-surface">Proven Systematic Processes</h3>
               <p class="font-body text-body-md text-light-on-surface-variant">
@@ -478,8 +464,9 @@
             </div>
 
             <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4 hover:border-light-primary transition-colors duration-state-change">
-              <div class="w-12 h-12 rounded bg-light-surface border border-light-outline-variant flex items-center justify-center text-brand-orange">
-                <span class="material-symbols-outlined text-title-lg" aria-hidden="true">precision_manufacturing</span>
+              <div class="flex items-center justify-between">
+                <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">03 · Technology</span>
+                <span class="material-symbols-outlined text-[18px] text-[#71717A]" aria-hidden="true">precision_manufacturing</span>
               </div>
               <h3 class="font-title text-title-lg text-light-on-surface">Industry-Best Tools &amp; Software</h3>
               <p class="font-body text-body-md text-light-on-surface-variant">

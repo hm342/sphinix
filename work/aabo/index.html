@@ -110,19 +110,35 @@
       letter-spacing: -0.028em;
     }
 
-    /* Solid clean navbar sitting above subpage hero banner */
+        /* Compact sticky header: seamless over hero top -> pure white on scroll */
     #site-header {
-      background-color: #FFFFFF;
-      border-bottom: 1px solid #E4E4E7;
-      transition: box-shadow 240ms ease;
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
     }
     #site-header.header-scrolled {
+      background-color: #FFFFFF;
+      border-bottom-color: #E4E4E7;
       box-shadow: 0 2px 14px -2px rgba(32, 32, 32, 0.06);
     }
 
     #nav-pill {
+      background-color: rgba(244, 232, 213, 0.78);
+      border: 1px solid rgba(218, 200, 174, 0.6);
+      transition: background-color 240ms ease, border-color 240ms ease;
+    }
+    #site-header.header-scrolled #nav-pill {
       background-color: #F4F2EE;
-      border: 1px solid #E6E3DC;
+      border-color: #E6E3DC;
+    }
+    body.has-dark-hero #site-header:not(.header-scrolled) .site-logo-img {
+      filter: invert(1) hue-rotate(180deg);
+    }
+    body.has-dark-hero #site-header:not(.header-scrolled) .header-book-call {
+      color: #FF9F7A;
+    }
+    body.has-dark-hero #site-header:not(.header-scrolled) .header-book-call:hover {
+      color: #FFFFFF;
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -134,7 +150,7 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-light-surface text-light-on-surface font-body antialiased">
+<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
@@ -142,18 +158,15 @@
       <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
-        <a href="../../index.html" class="flex items-center gap-2.5 shrink-0 group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md">
-          <div class="header-logo-mark w-8 h-8 rounded-full bg-[#202020] flex items-center justify-center shrink-0 group-hover:bg-[#E85C27] transition-colors duration-150">
-            <span class="header-logo-bolt material-symbols-outlined text-[17px] text-[#E85C27] group-hover:text-white transition-colors duration-150" aria-hidden="true">bolt</span>
-          </div>
-          <span class="flex flex-col leading-none font-body">
-            <span class="header-wordmark-title font-extrabold text-[17px] tracking-[-0.025em] text-[#202020] leading-tight">Sphinix</span>
-            <span class="header-wordmark-sub font-semibold text-[10px] tracking-[0.08em] text-[#A83300] leading-tight">Marketing</span>
-          </span>
+        <a href="../../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
+          <img src="../../images/sphinix_logo.webp" alt="Sphinix Marketing" class="site-logo-img h-9 sm:h-10 w-auto object-contain transition-[filter] duration-200" loading="eager" decoding="async">
         </a>
 
         <!-- Centered Translucent Beige Capsule Navigation -->
         <nav id="nav-pill" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-0.5 px-2 py-1 rounded-full backdrop-blur-sm">
+          <a href="../../index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Home
+          </a>
           <a href="../../about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             About
           </a>
@@ -295,10 +308,10 @@
       </nav>
     </header>
 
-    <main class="flex-1">
+    <main class="flex-1 -mt-20">
 
       <!-- Case Study Hero Header -->
-      <section class="relative py-20 lg:py-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
+      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
         <img src="../../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
         <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
         <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
@@ -409,24 +422,33 @@
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
-              <span class="material-symbols-outlined text-title-lg text-brand-orange">palette</span>
+            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3.5">
+              <span class="inline-flex items-center gap-2 font-mono text-[11.5px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">palette</span>
+                <span>01 · Brand Identity</span>
+              </span>
               <h3 class="font-title text-title-lg text-light-on-surface">Brand System &amp; Collateral</h3>
               <p class="font-body text-body-md text-light-on-surface-variant">
                 Crafted the typographic logo, digital guidelines, retail display banners, and user instruction manual with crisp diagrams.
               </p>
             </div>
 
-            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
-              <span class="material-symbols-outlined text-title-lg text-brand-orange">devices</span>
+            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3.5">
+              <span class="inline-flex items-center gap-2 font-mono text-[11.5px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">devices</span>
+                <span>02 · Web &amp; Funnel</span>
+              </span>
               <h3 class="font-title text-title-lg text-light-on-surface">Web &amp; Conversion Funnel</h3>
               <p class="font-body text-body-md text-light-on-surface-variant">
                 Engineered an ultra-fast product landing page with live feature previews, FAQ accordion, and WhatsApp ordering pipeline.
               </p>
             </div>
 
-            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
-              <span class="material-symbols-outlined text-title-lg text-brand-orange">videocam</span>
+            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3.5">
+              <span class="inline-flex items-center gap-2 font-mono text-[11.5px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">videocam</span>
+                <span>03 · Video &amp; Ads</span>
+              </span>
               <h3 class="font-title text-title-lg text-light-on-surface">Launch Video &amp; Social Ads</h3>
               <p class="font-body text-body-md text-light-on-surface-variant">
                 Shot studio video content highlighting real-world safety scenarios and ran geo-targeted Meta ad campaigns across key urban markets.
