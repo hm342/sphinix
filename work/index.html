@@ -304,23 +304,25 @@
       </nav>
     </header>
 
-        <main id="main-content" class="flex-1 -mt-[84px]">
+            <main id="main-content" class="flex-1 -mt-[84px]">
 
-      <!-- Split Editorial Work Header & Filter Tabs -->
+      <!-- Top Split Header: Left Short Quote / Right Concise Paragraph + Categories -->
       <section class="bg-[#F7F6F4] pt-28 sm:pt-32 pb-10 lg:pt-36 lg:pb-12 px-6 border-b border-[#E4E4E7]">
-        <div class="max-w-7xl mx-auto flex flex-col gap-6">
-          <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Clients &amp; Case Studies</span>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
-            <h1 class="lg:col-span-6 font-display font-semibold text-[36px] sm:text-[46px] lg:text-[54px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
-              150+ clients across <span class="text-[#E85D2A]">15+ industries.</span>
-            </h1>
-            <p class="lg:col-span-6 font-body text-[16.5px] leading-[1.6] text-[#52525B] max-w-[48ch]">
-              Select any client below to open its project showcase page with campaign video and visuals.
+        <div class="max-w-7xl mx-auto flex flex-col gap-8">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-end">
+            <div class="lg:col-span-6 flex flex-col gap-2">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Our Work · Est. 2017</span>
+              <h1 class="font-display font-semibold text-[34px] sm:text-[44px] lg:text-[52px] leading-[1.05] tracking-[-0.028em] text-[#18181B] text-balance">
+                “Good work needs <span class="text-[#E85D2A]">no explanation.”</span>
+              </h1>
+            </div>
+            <p class="lg:col-span-6 font-body text-[16.5px] leading-[1.65] text-[#52525B] max-w-[52ch]">
+              Since 2017, Sphinix Marketing has partnered with 150+ businesses across 15+ industries on campaigns, websites, social media, and video production. Pick a category or open any project below to see the case study, video, and visuals.
             </p>
           </div>
 
-          <!-- Accessible Filter Tabs -->
-          <div id="work-filter-tabs" class="pt-3 flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter projects by category">
+          <!-- Work Category Filter Pills -->
+          <div id="work-filter-tabs" class="pt-2 flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter projects by category">
             <button type="button" role="tab" aria-selected="true" aria-controls="projects-grid" data-filter="all" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-[#A83300] text-white border border-[#A83300] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">All Work</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="projects-grid" data-filter="iot" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">Tech &amp; Product</button>
             <button type="button" role="tab" aria-selected="false" aria-controls="projects-grid" data-filter="healthcare" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">Healthcare &amp; Services</button>
@@ -331,194 +333,50 @@
         </div>
       </section>
 
-      <!-- 4-Column Clickable Work Showcase Grid -->
+      <!-- 4-In-A-Row 3:4 Cover Image Cards (No description, cover image only) -->
       <section class="py-16 lg:py-20 px-6 bg-[#FFFFFF] border-b border-[#E4E4E7]">
         <div class="max-w-7xl mx-auto">
-          <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10" aria-live="polite">
+          <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" aria-live="polite">
 
-            <!-- 1. aabo. -->
+            <!-- 1. aabo. (3:4 cover image only card) -->
             <article data-category="iot" class="project-card">
-              <a href="aabo/index.html" class="group flex flex-col gap-3.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
-                <div class="aspect-[4/3] rounded-lg border bg-[#18181B] text-white border-white/10 p-6 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-[#FF9F7A]">01 · Case Study</span>
-                    <span class="font-mono text-[10.5px] text-white/55">Video + Gallery</span>
-                  </div>
-                  <div class="my-auto py-3">
-                    <div class="inline-flex items-center gap-1.5"><span class="font-display font-bold text-[34px] tracking-tight text-white">aabo</span><span class="w-2.5 h-2.5 rounded-full bg-[#E85D2A] -mt-5" aria-hidden="true"></span></div>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 pt-3 border-t border-current/10">
-                    <span class="font-mono text-[11px] text-white/55">[ADD REAL CAMPAIGN POSTER]</span>
-                  </div>
-                  <!-- Optional real poster: replace poster stage with image asset for aabo -->
-                </div>
-                <div class="flex flex-col gap-1">
-                  <div class="flex items-center justify-between gap-3">
-                    <h2 class="font-headline font-semibold text-[18px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
-                      aabo.
-                    </h2>
-                    <span class="material-symbols-outlined text-[18px] text-[#A83300] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 font-mono text-[11.5px] text-[#52525B]">
-                    <span>Tech & Product</span>
-                    <span>[ADD SERVICES]</span>
-                  </div>
-                </div>
+              <a href="aabo/index.html" aria-label="View aabo. case study" class="group block aspect-[3/4] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+                <img src="../images/work/aabo-cover.png" alt="aabo. project cover poster" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="eager" decoding="async">
               </a>
             </article>
 
-            <!-- 2. WeConnect Care -->
+            <!-- 2. WeConnect Care (3:4 cover image only card) -->
             <article data-category="healthcare" class="project-card">
-              <a href="weconnect-care/index.html" class="group flex flex-col gap-3.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
-                <div class="aspect-[4/3] rounded-lg border bg-[#FFF8F1] text-[#18181B] border-[#E4E4E7] p-6 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-[#A83300]">02 · Case Study</span>
-                    <span class="font-mono text-[10.5px] text-[#52525B]">Video + Gallery</span>
-                  </div>
-                  <div class="my-auto py-3">
-                    <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-[#18181B]">WeConnect<br><span class="text-[#A83300]">Care</span></span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 pt-3 border-t border-current/10">
-                    <span class="font-mono text-[11px] text-[#52525B]">[ADD REAL CAMPAIGN POSTER]</span>
-                  </div>
-                  <!-- Optional real poster: replace poster stage with image asset for weconnect-care -->
-                </div>
-                <div class="flex flex-col gap-1">
-                  <div class="flex items-center justify-between gap-3">
-                    <h2 class="font-headline font-semibold text-[18px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
-                      WeConnect Care
-                    </h2>
-                    <span class="material-symbols-outlined text-[18px] text-[#A83300] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 font-mono text-[11.5px] text-[#52525B]">
-                    <span>Healthcare & Services</span>
-                    <span>[ADD SERVICES]</span>
-                  </div>
-                </div>
+              <a href="weconnect-care/index.html" aria-label="View WeConnect Care case study" class="group block aspect-[3/4] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+                <img src="../images/work/weconnect-care-cover.png" alt="WeConnect Care project cover poster" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="eager" decoding="async">
               </a>
             </article>
 
-            <!-- 3. Saurashtra Group -->
+            <!-- 3. Saurashtra Group (3:4 cover image only card) -->
             <article data-category="industrial" class="project-card">
-              <a href="saurashtra-group/index.html" class="group flex flex-col gap-3.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
-                <div class="aspect-[4/3] rounded-lg border bg-[#F7F6F4] text-[#18181B] border-[#D4D0C8] p-6 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-[#A83300]">03 · Case Study</span>
-                    <span class="font-mono text-[10.5px] text-[#52525B]">Video + Gallery</span>
-                  </div>
-                  <div class="my-auto py-3">
-                    <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-[#18181B]">Saurashtra<br>Group</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 pt-3 border-t border-current/10">
-                    <span class="font-mono text-[11px] text-[#52525B]">[ADD REAL CAMPAIGN POSTER]</span>
-                  </div>
-                  <!-- Optional real poster: replace poster stage with image asset for saurashtra-group -->
-                </div>
-                <div class="flex flex-col gap-1">
-                  <div class="flex items-center justify-between gap-3">
-                    <h2 class="font-headline font-semibold text-[18px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
-                      Saurashtra Group
-                    </h2>
-                    <span class="material-symbols-outlined text-[18px] text-[#A83300] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 font-mono text-[11.5px] text-[#52525B]">
-                    <span>Manufacturing & Trade</span>
-                    <span>[ADD SERVICES]</span>
-                  </div>
-                </div>
+              <a href="saurashtra-group/index.html" aria-label="View Saurashtra Group case study" class="group block aspect-[3/4] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+                <img src="../images/work/saurashtra-group-cover.png" alt="Saurashtra Group project cover poster" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="eager" decoding="async">
               </a>
             </article>
 
-            <!-- 4. Veer Jewellers -->
+            <!-- 4. Veer Jewellers (3:4 cover image only card) -->
             <article data-category="jewelry ecommerce" class="project-card">
-              <a href="veer-jewellers/index.html" class="group flex flex-col gap-3.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
-                <div class="aspect-[4/3] rounded-lg border bg-[#202020] text-white border-white/10 p-6 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-[#FF9F7A]">04 · Case Study</span>
-                    <span class="font-mono text-[10.5px] text-white/55">Video + Gallery</span>
-                  </div>
-                  <div class="my-auto py-3">
-                    <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-white">Veer<br><span class="text-[#FF9F7A]">Jewellers</span></span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 pt-3 border-t border-current/10">
-                    <span class="font-mono text-[11px] text-white/55">[ADD REAL CAMPAIGN POSTER]</span>
-                  </div>
-                  <!-- Optional real poster: replace poster stage with image asset for veer-jewellers -->
-                </div>
-                <div class="flex flex-col gap-1">
-                  <div class="flex items-center justify-between gap-3">
-                    <h2 class="font-headline font-semibold text-[18px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
-                      Veer Jewellers
-                    </h2>
-                    <span class="material-symbols-outlined text-[18px] text-[#A83300] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 font-mono text-[11.5px] text-[#52525B]">
-                    <span>Jewelry & Retail</span>
-                    <span>[ADD SERVICES]</span>
-                  </div>
-                </div>
+              <a href="veer-jewellers/index.html" aria-label="View Veer Jewellers case study" class="group block aspect-[3/4] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+                <img src="../images/work/veer-jewellers-cover.png" alt="Veer Jewellers project cover poster" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="eager" decoding="async">
               </a>
             </article>
 
-            <!-- 5. Kothari Agencies -->
+            <!-- 5. Kothari Agencies (3:4 cover image only card) -->
             <article data-category="industrial ecommerce" class="project-card">
-              <a href="kothari-agencies/index.html" class="group flex flex-col gap-3.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
-                <div class="aspect-[4/3] rounded-lg border bg-[#EFECE8] text-[#18181B] border-[#D4D0C8] p-6 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-[#A83300]">05 · Case Study</span>
-                    <span class="font-mono text-[10.5px] text-[#52525B]">Video + Gallery</span>
-                  </div>
-                  <div class="my-auto py-3">
-                    <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-[#18181B]">Kothari<br>Agencies</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 pt-3 border-t border-current/10">
-                    <span class="font-mono text-[11px] text-[#52525B]">[ADD REAL CAMPAIGN POSTER]</span>
-                  </div>
-                  <!-- Optional real poster: replace poster stage with image asset for kothari-agencies -->
-                </div>
-                <div class="flex flex-col gap-1">
-                  <div class="flex items-center justify-between gap-3">
-                    <h2 class="font-headline font-semibold text-[18px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
-                      Kothari Agencies
-                    </h2>
-                    <span class="material-symbols-outlined text-[18px] text-[#A83300] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 font-mono text-[11.5px] text-[#52525B]">
-                    <span>Trade & Distribution</span>
-                    <span>[ADD SERVICES]</span>
-                  </div>
-                </div>
+              <a href="kothari-agencies/index.html" aria-label="View Kothari Agencies case study" class="group block aspect-[3/4] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+                <img src="../images/work/kothari-agencies-cover.png" alt="Kothari Agencies project cover poster" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
               </a>
             </article>
 
-            <!-- 6. Riyom Jewels -->
+            <!-- 6. Riyom Jewels (3:4 cover image only card) -->
             <article data-category="jewelry" class="project-card">
-              <a href="riyom-jewels/index.html" class="group flex flex-col gap-3.5 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
-                <div class="aspect-[4/3] rounded-lg border bg-[#1C1C1E] text-white border-white/10 p-6 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
-                  <div class="flex items-center justify-between gap-2">
-                    <span class="font-mono text-[11px] font-medium uppercase tracking-[0.08em] text-[#FF9F7A]">06 · Case Study</span>
-                    <span class="font-mono text-[10.5px] text-white/55">Video + Gallery</span>
-                  </div>
-                  <div class="my-auto py-3">
-                    <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-white">Riyom<br><span class="text-[#FF9F7A]">Jewels</span></span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 pt-3 border-t border-current/10">
-                    <span class="font-mono text-[11px] text-white/55">[ADD REAL CAMPAIGN POSTER]</span>
-                  </div>
-                  <!-- Optional real poster: replace poster stage with image asset for riyom-jewels -->
-                </div>
-                <div class="flex flex-col gap-1">
-                  <div class="flex items-center justify-between gap-3">
-                    <h2 class="font-headline font-semibold text-[18px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
-                      Riyom Jewels
-                    </h2>
-                    <span class="material-symbols-outlined text-[18px] text-[#A83300] shrink-0 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
-                  </div>
-                  <div class="flex items-center justify-between gap-2 font-mono text-[11.5px] text-[#52525B]">
-                    <span>Jewelry & Lifestyle</span>
-                    <span>[ADD SERVICES]</span>
-                  </div>
-                </div>
+              <a href="riyom-jewels/index.html" aria-label="View Riyom Jewels case study" class="group block aspect-[3/4] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+                <img src="../images/work/riyom-jewels-cover.png" alt="Riyom Jewels project cover poster" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.03]" loading="lazy" decoding="async">
               </a>
             </article>
 
@@ -753,7 +611,7 @@
         });
       }
 
-                        // Accessible Filter Tabs + Keyboard Navigation + URL Hash Support
+                              // Accessible Filter Tabs + Keyboard Navigation + URL Hash Support
       const filterBtns = Array.from(document.querySelectorAll('.filter-btn'));
       const projectCards = Array.from(document.querySelectorAll('.project-card'));
       const emptyState = document.getElementById('projects-empty');
