@@ -99,3 +99,45 @@ Grounded in independent inspection of all 11 HTML pages (`index.html`, `about/in
 - **`index.html` Lower Sections**: Unify `#products`, `#industries`, Testimonials, `#insights`, and `#contact` to `Manrope`; shift the featured `SocialSuite` card in `#products` from heavy `#A83300` orange to `#18181B` deep charcoal with `#E85D2A` accents; refine `#insights` 3-row typographic list and `#contact` conversion block.
 - **`about/index.html`**: Unify lower sections (`#our-story`, 3 Pillars, Dual Facilities, Dark CTA) to `Manrope` and convert the 3 Pillars into a hairline-divided editorial grid (`divide-x` on desktop).
 - **`404.html`**: Align to `#F7F6F4` warm editorial canvas with Manrope `404` display and hairline-divided 3-link recovery list.
+
+---
+
+## 5. Work & Case Study 4-Role Redesign Spec (Social Panga Reference Adaptation)
+
+Modeled on `socialpanga.com/projects/` and `socialpanga.com/projects/guardians-of-the-heart-2-0-manipal-hospitals/`, adapted to Sphinix's `Manrope`, `JetBrains Mono`, `#F7F6F4` / `#FFFFFF` / `#18181B` / `#ECEBE9` / `#E85D2A` / `#A83300` tokens and `h-[84px]` sticky header. Zero invented copy or metrics (`[ADD ...]` markers preserved).
+
+### 5.1 Work Listing (`work/index.html`)
+1. **Compact Split Hero (`bg-[#F7F6F4] pt-32 pb-12 lg:pt-36 lg:pb-14 px-6 border-b border-[#E4E4E7]`)**:
+   - Remove the dark flagship `aabo` banner so the filter bar and 4-col grid sit above the fold.
+   - `grid-cols-1 lg:grid-cols-12 gap-6 items-end`: Left (`lg:col-span-6`) Manrope `<h1>` (`Selected Work.` / `150+ clients across 15+ industries.`); Right (`lg:col-span-6`) 2-line editorial intro + anchor link to Client Family.
+2. **Service Category Filter Bar (`role="tablist"`, `aria-label="Filter projects by service"`)**:
+   - Pills: `All` · `Branding` · `Social & Creative` · `Performance Ads` · `SEO & Content` · `Video Production` · `Web & UI/UX`.
+   - Active: `bg-[#A83300] text-white border border-[#A83300]`. Inactive: `bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300]`.
+   - Deep-link hash support (`#branding`, `#video-production`, etc.).
+3. **4-Column Clickable Poster Grid (`bg-[#FFFFFF] py-16 lg:py-20 px-6 border-b border-[#E4E4E7]`)**:
+   - `grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-10`.
+   - Every tile is a semantic `<a href="<slug>/index.html" class="project-card group flex flex-col gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2 rounded-lg">`.
+   - Poster frame: `aspect-[4/5] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4] relative` with `scale-[1.03]` image hover (`duration-300 ease-out`) and desktop-only subtle hover scrim (`hidden lg:flex opacity-0 group-hover:opacity-100 group-focus-visible:opacity-100`).
+   - **Touch/Mobile & WCAG Legibility**: Always-visible caption row below the poster (`flex items-baseline justify-between gap-2 pt-0.5`): Client Name (`font-headline font-semibold text-[17px] text-[#18181B] group-hover:text-[#A83300]`) + Service Tag (`font-mono text-[11px] uppercase tracking-[0.06em] text-[#71717A]`) + `north_east` icon (`text-[#A83300]`).
+4. **Below-Grid Sections**: Retain ruled 18-brand **Client Family** directory (`bg-[#F7F6F4]`) and **Start A Project** CTA (`bg-[#FFF8F1]`).
+
+### 5.2 Case Study Detail (`work/<slug>/index.html`, starting with `work/aabo/index.html`)
+1. **Band 0 — Logo + Brief Split (`bg-[#F7F6F4] pt-32 pb-14 px-6 border-b border-[#E4E4E7]`)**:
+   - Breadcrumb (`Home / Work / <Client>`) in `JetBrains Mono 12px`.
+   - `grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center`:
+     - Left (`lg:col-span-4`): Clean framed brand lockup card (`bg-white border border-[#E4E4E7] rounded-xl p-8 min-h-[180px] flex items-center justify-center`) + compact meta line (`Client · Industry · Services` in `JetBrains Mono 11.5px`).
+     - Right (`lg:col-span-8`): Uppercase mono label (`Case Study · [ADD DISCIPLINE]` in `#A83300`) + Manrope `<h1>` + 1-paragraph `[ADD VERIFIED CAMPAIGN STORY FOR <CLIENT>]`.
+2. **Band 1 — `#ECEBE9` 16:9 Editorial Video Showcase (`bg-[#ECEBE9] py-14 lg:py-20 px-6 border-b border-[#E4E4E7]`)**:
+   - Centered `max-w-6xl mx-auto aspect-video rounded-xl overflow-hidden bg-[#18181B] border border-[#D4D0C8] relative`:
+     - Hybrid stage supporting YouTube/Vimeo `<iframe>` OR HTML5 `<video controls playsinline poster="...">` via `data-video-type` / `data-video-src`.
+     - **Clean Fallback/Placeholder UI**: Poster `<img>` + gradient scrim (`from-[#18181B]/80 via-[#18181B]/20 to-transparent`) + centered play button (`w-16 h-16 rounded-full bg-[#A83300] text-white`, `aria-label="Play campaign video"`) + bottom-left mono badge (`[ADD REAL CAMPAIGN VIDEO URL OR MP4]`).
+3. **Band 2 — White Full-Width & Multi-Image Gallery (`bg-[#FFFFFF] py-16 lg:py-20 px-6 border-b border-[#E4E4E7]`)**:
+   - `max-w-6xl mx-auto flex flex-col gap-6`:
+     - Primary full-width `aspect-[16/9]` frame (`rounded-xl overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]`).
+     - Secondary `grid-cols-1 md:grid-cols-2 gap-6` strip of `aspect-[4/3]` frames (`[ADD REAL CAMPAIGN IMAGE]` alt markers).
+4. **Band 3 — Horizontal "Our Work" Related Projects Strip (`bg-[#F7F6F4] py-16 lg:py-20 px-6 border-b border-[#E4E4E7]`)**:
+   - `max-w-7xl mx-auto flex flex-col gap-8`:
+     - Header: `Our Work` + `View All Projects →` link to `../index.html`.
+     - Track: `flex lg:grid lg:grid-cols-4 gap-6 overflow-x-auto lg:overflow-visible snap-x snap-mandatory no-scrollbar` — each card (`min-w-[260px] sm:min-w-[280px] lg:min-w-0 snap-start`) links to a sibling `/work/<slug>/index.html` with `aspect-[4/3]` thumbnail, Manrope title, and 2-line `[ADD ...]` summary.
+5. **Band 4 — Warm Editorial Closing CTA (`bg-[#FFF8F1] py-16 px-6`)**: `Start A Project →`.
+

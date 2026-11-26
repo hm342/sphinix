@@ -16,6 +16,6 @@
 - [x] **MEDIUM (Phase 1 Audit — RESOLVED 2026-11-25):** Fix weak dark/light visual rhythm across subpages and `contact/index.html` (now `#F7F6F4` FAQ -> `#FFFFFF` footer).
 - [ ] **CRITICAL (Phase 3 Regression):** `products/index.html:553` has `text-light-on-secondary/80` (`#FFFFFF` at 80%) on `bg-[#FFF8F1]` cream background (~1.04:1 contrast — illegible).
 - [ ] **HIGH (Phase 3 Regression):** `services/social-media-marketing/index.html:473` has an unclosed `<section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">` wrapping `<section class="py-20 px-6 bg-[#18181B]...">` (`<section>:6` vs `</section>:5`).
-- [ ] **HIGH (Phase 3 Contrast):** `bg-[#E85D2A] text-white` buttons (`index.html:1357`, `blog/index.html:527`, `products/index.html:510`, `work/index.html:356`, `work/aabo/index.html:469`) fail WCAG AA at 3.51:1 for 14px–15px text.
-- [ ] **MEDIUM (Phase 3 Functional):** `work/index.html:332` (`data-filter="ecommerce"`) matches 0 cards in `#projects-grid` (empty grid with no fallback message), and 5 of 6 project cards (`work/index.html:390-483`) remain unlinked.
+- [ ] **HIGH (Phase 3 Contrast):** `bg-[#E85D2A] text-white` buttons (`index.html:1357`, `blog/index.html:527`, `products/index.html:510`) fail WCAG AA at 3.51:1 for 14px–15px text. (`work/index.html:351` and `work/aabo/index.html:513` fixed to `#A83300`).
+- [x] **HIGH (Work Redesign — RESOLVED 2026-11-26):** `work/index.html` rebuilt to `lg:grid-cols-4` clickable typographic poster grid linking all 6 case studies + Client Family featured links, dark banner and all 7 stock images removed, always-visible captions + `#A83300` contrast + `h-[84px]` header + non-interactive `.case-video-stage` verified across all 7 pages.
 

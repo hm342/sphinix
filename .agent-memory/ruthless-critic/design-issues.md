@@ -91,3 +91,23 @@
   - `contact/index.html:491–550`: White FAQ section (`bg-light-surface-container-lowest`) sits directly above white `<footer>` (`bg-light-surface-container-lowest`) with only a 1px border separating them.
 - **Fix:** Introduce purposeful dark `#18181B`/`#202020` or warm `#FFF8F1` focal bands to break up consecutive light/white runs and differentiate page cadences.
 
+## 10. [PHASE 1 — Work & Case Study Redesign Plan Audit (2026-11-26)]
+Audit of `implementation_plan.md` against `work/index.html`, `work/aabo/index.html`, `data.md`, and `images/`:
+1. **[CRITICAL] Zero Real Assets & Fabricated Case Study Copy:**
+   - `images/` contains only 14 generic/service files (`hero_agency_team.jpg`, `impact_collaboration.jpg`, `insight_featured_card.jpg`, `sphinix_logo.webp`, `subpage_hero_agency.jpg`, `svc_01_social.jpg`..`svc_08_dev.jpg`, `video_showcase_reel.jpg`). Zero client logos, zero campaign stills, zero `.mp4` videos.
+   - `data.md` contains zero campaign narratives/metrics for `aabo`, `WeConnect Care`, `Saurashtra Group`, `Veer Jewellers`, `Kothari Agencies`, or `Riyom Jewels` (only names in Section 9). Existing `work/aabo/index.html:340-452` contains fabricated hardware/packaging/ads claims.
+   - Creating 6 pages × (1 poster + 1 video + 3 gallery images) = 30 media slots with stock `svc_*.jpg` photos will produce cheap, repetitive AI-slop wallpaper.
+2. **[CRITICAL] Broken / Fake Interactive Video Boxes:**
+   - Plan §2 Band 1 proposes "a clean interactive video poster frame (`[ADD REAL CAMPAIGN VIDEO URL OR MP4]`)" when no video exists. A fake play button with no video is a dead control (same defect as `#agency-reel`). Must render a non-interactive editorial media placeholder (`[ADD REAL CAMPAIGN VIDEO URL OR MP4]`) with commented `<video>`/`<iframe>` template until real media exists.
+3. **[HIGH] Hover-Only Labels Break Touch/Mobile & Keyboard Accessibility:**
+   - Plan §1 & Open Decision #3 propose hover-only title overlays on `aspect-[4/5]` tiles. Fails touch devices and WCAG 2.1. Every tile must have an always-visible caption/footer bar (Client Name + Service Tag + `→`).
+4. **[HIGH] `aspect-[4/5]` Cropping Stock Landscape Images & 6-Page Placeholder Bloat:**
+   - `images/*.jpg` are landscape/square. Forcing them into `aspect-[4/5]` crops illustrations awkwardly. Use `aspect-[4/3]` or typographic editorial poster cards with `[ADD REAL CAMPAIGN POSTER]` frames until real posters exist.
+5. **[HIGH] Hallucinated Clients & Header Height Mismatch on `work/index.html`:**
+   - `work/index.html:157` uses `h-20` (80px), not `h-[84px]` as claimed in `implementation_plan.md:3`.
+   - `work/index.html:448-520` currently lists unverified clients (`Alang Marine`, `Nirmaan Realty`, `Nicro Metals`, `Durva Gastro Care`, `VASTRA`, `Shivalik`, `Saffron`, `Nilambag`) absent from `data.md:634-658`. Must restrict Client Family to the 24 verified names in `data.md:634-658`.
+   - Every filter tab must match >=1 project card or render an accessible empty state.
+6. **[MEDIUM] Contrast & Horizontal Strip Accessibility:**
+   - Enforce `#A83300` (5.84:1) on all white-text buttons/active pills (`#E85D2A` + white = 3.51:1 WCAG AA fail).
+   - Band 3 `overflow-x-auto` strip must remain keyboard-focusable with visible scroll affordances.
+
