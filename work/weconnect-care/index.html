@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WeConnect Care Case Study — Sphinix Marketing</title>
+  <meta name="description" content="Case study video and campaign visuals for WeConnect Care with Sphinix Marketing.">
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+  /** @type {import('tailwindcss').Config} */
+  globalThis.tailwind = globalThis.tailwind || {};
+  globalThis.tailwind.config = {
+    darkMode: 'class',
+    theme: {
+      extend: {
+        colors: {
+          'brand-orange': '#E85D2A',
+          'brand-charcoal': '#1C1C1E',
+          'success': '#16A34A',
+          'warning': '#D97706',
+          'light-primary': '#A83300',
+          'light-on-primary': '#FFFFFF',
+          'light-primary-container': '#E85D2A',
+          'light-on-primary-container': '#232323',
+          'light-secondary': '#1C1C1E',
+          'light-on-secondary': '#FFFFFF',
+          'light-secondary-container': '#EBE8E2',
+          'light-on-secondary-container': '#18181B',
+          'light-tertiary': '#00628B',
+          'light-on-tertiary': '#FFFFFF',
+          'light-background': '#F7F6F4',
+          'light-on-background': '#18181B',
+          'light-surface': '#F7F6F4',
+          'light-on-surface': '#18181B',
+          'light-surface-container-lowest': '#FFFFFF',
+          'light-surface-container-low': '#F2F0EC',
+          'light-surface-container': '#EBE8E2',
+          'light-surface-container-high': '#E2DFD7',
+          'light-on-surface-variant': '#52525B',
+          'light-outline': '#71717A',
+          'light-outline-variant': '#E4E4E7',
+          'light-error': '#BA1A1A',
+          'light-on-error': '#FFFFFF',
+        },
+        borderRadius: {
+          'sm': '4px',
+          'DEFAULT': '6px',
+          'md': '8px',
+          'lg': '12px',
+          'xl': '16px',
+          'full': '9999px',
+        },
+        spacing: {
+          'gutter-xs': '4px',
+          'gutter-sm': '8px',
+          'gutter-md': '16px',
+          'gutter-lg': '24px',
+          'gutter-xl': '32px',
+          'section': '80px',
+          'page-margin': '24px',
+        },
+        fontFamily: {
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
+        'mono': ['"JetBrains Mono"', 'monospace'],
+      },
+        fontSize: {
+        'display-xl': ['52px', { lineHeight: '58px', letterSpacing: '-0.028em', fontWeight: '700' }],
+        'display-xl-mobile': ['36px', { lineHeight: '42px', letterSpacing: '-0.025em', fontWeight: '700' }],
+        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.025em', fontWeight: '600' }],
+        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '-0.02em', fontWeight: '600' }],
+        'headline-lg-mobile': ['24px', { lineHeight: '30px', letterSpacing: '-0.015em', fontWeight: '600' }],
+        'headline-md': ['24px', { lineHeight: '30px', letterSpacing: '-0.015em', fontWeight: '600' }],
+        'title-lg': ['22px', { lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'title-md': ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '600' }],
+        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
+        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
+        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
+        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
+        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
+        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.02em', fontWeight: '500' }],
+      },
+        transitionDuration: {
+          'state-change': '150ms',
+          'surface-enter': '250ms',
+          'surface-exit': '150ms',
+        },
+        transitionTimingFunction: {
+          'state-change': 'ease-out',
+          'surface-enter': 'cubic-bezier(0.2, 0, 0, 1)',
+          'surface-exit': 'cubic-bezier(0.3, 0, 1, 1)',
+        },
+      },
+    },
+  };
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
+  <style>
+    .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
+
+    .hero-headline {
+      font-size: clamp(2.15rem, 1.35rem + 2.3vw, 3.25rem);
+      line-height: 1.08;
+      letter-spacing: -0.028em;
+    }
+
+        /* Compact sticky header: seamless over hero top -> pure white on scroll */
+    #site-header {
+      background-color: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
+    }
+    #site-header.header-scrolled {
+      background-color: #FFFFFF;
+      border-bottom-color: #E4E4E7;
+      box-shadow: 0 2px 14px -2px rgba(32, 32, 32, 0.06);
+    }
+
+    #nav-pill {
+      background-color: rgba(244, 232, 213, 0.78);
+      border: 1px solid rgba(218, 200, 174, 0.6);
+      transition: background-color 240ms ease, border-color 240ms ease;
+    }
+    #site-header.header-scrolled #nav-pill {
+      background-color: #F4F2EE;
+      border-color: #E6E3DC;
+    }
+    body.has-dark-hero #site-header:not(.header-scrolled) .site-logo-img {
+      filter: invert(1) hue-rotate(180deg);
+    }
+    body.has-dark-hero #site-header:not(.header-scrolled) .header-book-call {
+      color: #FF9F7A;
+    }
+    body.has-dark-hero #site-header:not(.header-scrolled) .header-book-call:hover {
+      color: #FFFFFF;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #site-header, #site-header * {
+        transition-duration: 0.01ms !important;
+      }
+    }
+    .no-scrollbar::-webkit-scrollbar { display: none; }
+    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+  </style>
+</head>
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
+  <div class="min-h-screen flex flex-col">
+
+    <!-- Top Navigation Bar -->
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
+
+        <!-- Wordmark Logo -->
+        <a href="../../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
+          <img src="../../images/sphinix_logo.webp" alt="Sphinix Marketing" class="site-logo-img h-9 sm:h-10 w-auto object-contain transition-[filter] duration-200" loading="eager" decoding="async">
+        </a>
+
+        <!-- Centered Translucent Beige Capsule Navigation -->
+        <nav id="nav-pill" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-0.5 px-2 py-1 rounded-full backdrop-blur-sm">
+          <a href="../../index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Home
+          </a>
+          <!-- Services with Accessible Mega Menu -->
+          <div class="relative" id="services-nav-item">
+            <button type="button" id="services-nav-btn" aria-haspopup="true" aria-expanded="false" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+              Services
+              <span id="services-chevron" class="material-symbols-outlined text-[16px] text-[#52525B] transition-transform duration-150" aria-hidden="true">keyboard_arrow_down</span>
+            </button>
+
+            <!-- Mega Menu Panel -->
+            <div id="services-mega" class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[540px] bg-white border border-light-outline-variant rounded-xl shadow-lg shadow-black/8 opacity-0 invisible translate-y-1 transition-all duration-200 ease-out pointer-events-none">
+              <div class="p-4 grid grid-cols-2 gap-1">
+                <a href="../../services/social-media-marketing/index.html" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">campaign</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">Social Media</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Reels, strategy &amp; paid social</span>
+                  </span>
+                </a>
+                <a href="../../services/seo/index.html" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">search</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">SEO &amp; Organic</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Technical SEO &amp; authority building</span>
+                  </span>
+                </a>
+                <a href="../../services/index.html#google-ads" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">ads_click</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">Google Ads</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Search, display &amp; YouTube ROAS</span>
+                  </span>
+                </a>
+                <a href="../../services/index.html#branding" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">palette</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">Branding &amp; Design</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Logo, guidelines &amp; identity</span>
+                  </span>
+                </a>
+                <a href="../../services/index.html#video" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">videocam</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">Video Production</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Reels, films &amp; motion graphics</span>
+                  </span>
+                </a>
+                <a href="../../services/index.html#ecommerce" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">storefront</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">E-Commerce</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Marketplace catalog &amp; storefront ads</span>
+                  </span>
+                </a>
+                <a href="../../services/index.html#email" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">mail</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">Email Marketing</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Drip sequences &amp; $36 avg. ROI</span>
+                  </span>
+                </a>
+                <a href="../../services/index.html#dev" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                  <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">code</span>
+                  <span class="flex flex-col gap-0.5">
+                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">Web &amp; App Dev</span>
+                    <span class="font-body text-[12px] text-[#444444] leading-snug">Responsive sites &amp; custom builds</span>
+                  </span>
+                </a>
+              </div>
+              <div class="border-t border-light-outline-variant px-4 py-2.5 flex items-center justify-between bg-[#FAF8F5] rounded-b-xl">
+                <span class="font-body text-[12px] text-[#52525B]">150+ clients across 15+ industries</span>
+                <a href="../../services/index.html" class="font-body font-semibold text-[13px] text-[#A83300] hover:text-[#202020] flex items-center gap-1 transition-colors duration-150">
+                  View all services
+                  <span class="material-symbols-outlined text-[15px]" aria-hidden="true">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a href="../../work/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Work
+          </a>
+          <a href="../../about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            About
+          </a>
+          <a href="../../blog/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Insights
+          </a>
+          <a href="../../contact/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Contact
+          </a>
+        </nav>
+
+        <!-- Right CTA Actions -->
+        <div class="flex items-center gap-4 shrink-0">
+          <a href="../../contact/index.html" class="header-book-call hidden md:inline-flex items-center font-body font-semibold text-[14px] text-[#A83300] hover:text-[#202020] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded">
+            Book a Call
+          </a>
+          <a href="../../contact/index.html" class="inline-flex items-center justify-center px-4 py-2 rounded-[6px] bg-[#A83300] hover:bg-[#202020] text-white font-body font-semibold text-[14px] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            Partner With Us
+          </a>
+          <button id="mobile-menu-btn" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden inline-flex items-center justify-center w-10 h-10 rounded-[6px] border border-[#DFD4C3] bg-white/80 text-[#202020] hover:bg-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            <span id="mobile-menu-icon" class="material-symbols-outlined text-[20px]">menu</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Mobile Drawer -->
+      <nav id="mobile-menu" class="hidden lg:hidden border-t border-light-outline-variant bg-white shadow-lg" aria-label="Mobile Navigation">
+        <div class="px-5 py-4 flex flex-col font-body">
+          <a href="../../index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Home</a>
+          <div>
+            <button type="button" id="mobile-services-btn" class="w-full flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">
+              Services
+              <span id="mobile-services-chevron" class="material-symbols-outlined text-[18px] text-[#52525B] transition-transform duration-150">keyboard_arrow_down</span>
+            </button>
+            <div id="mobile-services-panel" class="hidden flex-col pl-4 py-2 gap-0.5">
+              <a href="../../services/social-media-marketing/index.html" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Social Media Marketing</a>
+              <a href="../../services/seo/index.html" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">SEO &amp; Organic</a>
+              <a href="../../services/index.html#google-ads" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Google Ads</a>
+              <a href="../../services/index.html#branding" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Branding &amp; Design</a>
+              <a href="../../services/index.html#video" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Video Production</a>
+              <a href="../../services/index.html#ecommerce" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">E-Commerce</a>
+              <a href="../../services/index.html#email" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Email Marketing</a>
+              <a href="../../services/index.html#dev" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Web &amp; App Dev</a>
+            </div>
+          </div>
+          <a href="../../work/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Work</a>
+          <a href="../../about/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">About</a>
+          <a href="../../blog/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Insights</a>
+          <a href="../../contact/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Contact</a>
+          <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+            <a href="../../contact/index.html" class="w-full text-center py-2.5 rounded-[6px] border border-[#A83300] font-semibold text-[14px] text-[#A83300] hover:bg-[#FFF8F1] transition-colors">Book a Call</a>
+            <a href="../../contact/index.html" class="w-full text-center py-2.5 rounded-[6px] bg-[#A83300] text-white font-semibold text-[14px] hover:bg-[#202020] transition-colors">Partner With Us</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main-content" class="flex-1 -mt-[84px]">
+
+      <!-- Band 0: Brand Lockup & Campaign Brief Split (Reference Top Section) -->
+      <section class="bg-[#F7F6F4] pt-28 sm:pt-32 pb-14 lg:pt-36 lg:pb-16 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-6xl mx-auto flex flex-col gap-8">
+          <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-[12px] text-[#52525B]">
+            <a href="../../index.html" class="hover:text-[#A83300]">Home</a>
+            <span>/</span>
+            <a href="../index.html" class="hover:text-[#A83300]">Work</a>
+            <span>/</span>
+            <span class="text-[#18181B]">WeConnect Care</span>
+          </nav>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            <!-- Left: Framed Brand Logo / Wordmark Lockup + Compact Meta -->
+            <div class="lg:col-span-4 flex flex-col gap-4">
+              <div class="bg-white border border-[#E4E4E7] rounded-xl p-8 min-h-[190px] flex flex-col items-center justify-center text-center gap-2">
+                <span class="font-display font-bold text-[24px] tracking-tight text-[#18181B]">WeConnect Care</span>
+                <span class="font-mono text-[11px] text-[#52525B]">[ADD CLIENT LOGO FILE]</span>
+              </div>
+              <dl class="grid grid-cols-2 gap-x-4 gap-y-2 pt-2 border-t border-[#D4D0C8] font-mono text-[11.5px]">
+                <div>
+                  <dt class="text-[#71717A] uppercase tracking-[0.06em]">Sector</dt>
+                  <dd class="text-[#18181B] font-medium mt-0.5">Healthcare & Services</dd>
+                </div>
+                <div>
+                  <dt class="text-[#71717A] uppercase tracking-[0.06em]">Services</dt>
+                  <dd class="text-[#18181B] font-medium mt-0.5">[ADD SERVICES]</dd>
+                </div>
+              </dl>
+            </div>
+
+            <!-- Right: Discipline Eyebrow + Narrative Brief -->
+            <div class="lg:col-span-8 flex flex-col gap-4">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
+                Case Study · Healthcare & Services
+              </span>
+              <h1 class="font-display font-semibold text-[34px] sm:text-[42px] lg:text-[48px] leading-[1.08] tracking-[-0.028em] text-[#18181B] text-balance">
+                WeConnect Care <span class="text-[#E85D2A]">Campaign Showcase</span>
+              </h1>
+              <p class="font-body text-[16.5px] leading-[1.7] text-[#3F3F46] max-w-[64ch]">
+                [ADD VERIFIED CAMPAIGN BRIEF, WHAT SPHINIX MARKETING BUILT FOR WECONNECT CARE, CHANNELS USED, AND MEASURABLE OUTCOME]
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 1: Campaign Video Showcase (16:9 Stage, Reference Dark-Cream Video Band) -->
+      <section class="bg-[#ECEBE9] py-14 lg:py-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-6xl mx-auto flex flex-col gap-4">
+          <div class="flex items-center justify-between gap-4">
+            <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-[#52525B]">Campaign Video</span>
+            <span class="font-mono text-[11.5px] text-[#52525B]">16:9 Showcase</span>
+          </div>
+
+          <!-- Add YouTube embed URL (https://www.youtube.com/embed/...) OR local MP4 path (../../videos/weconnect-care.mp4) to data-video-src -->
+          <div class="case-video-stage aspect-video w-full rounded-xl overflow-hidden bg-[#18181B] border border-[#D4D0C8] flex items-center justify-center p-8 text-center" data-video-src="" data-video-title="WeConnect Care Campaign Video" data-video-poster="">
+            <div class="max-w-md flex flex-col items-center gap-3">
+              <span class="w-12 h-12 rounded-full border border-white/20 bg-white/5 flex items-center justify-center" aria-hidden="true">
+                <span class="material-symbols-outlined text-[24px] text-[#FF9F7A]">play_arrow</span>
+              </span>
+              <span class="font-mono text-[11.5px] uppercase tracking-[0.08em] text-[#FF9F7A]">16:9 Campaign Video Slot</span>
+              <p class="font-display font-semibold text-[22px] sm:text-[26px] leading-[1.2] text-white">
+                WeConnect Care Video Showcase
+              </p>
+              <p class="font-mono text-[12px] text-white/70">
+                [ADD REAL YOUTUBE EMBED URL OR MP4 FILE IN data-video-src]
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 2: Full-Width & 2-Up Campaign Image Gallery (Reference Clean White Gallery Band) -->
+      <section class="bg-[#FFFFFF] py-16 lg:py-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-6xl mx-auto flex flex-col gap-6">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-2">
+            <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">Project Gallery</span>
+            <span class="font-mono text-[11.5px] text-[#52525B]">Campaign Stills, Creatives &amp; Screens</span>
+          </div>
+
+          <!-- Primary Full-Width Showcase Image Frame -->
+          <div class="aspect-[16/9] w-full rounded-xl border border-[#E4E4E7] bg-[#F7F6F4] p-8 flex flex-col items-center justify-center text-center gap-2 overflow-hidden">
+            <span class="font-mono text-[11.5px] uppercase tracking-[0.08em] text-[#A83300]">Primary Feature Visual (16:9)</span>
+            <p class="font-body text-[15px] text-[#52525B] max-w-lg">
+              [ADD REAL FULL-WIDTH CAMPAIGN SCREENSHOT OR KEY VISUAL FOR WECONNECT CARE]
+            </p>
+            <!-- Replace this container body with full-width campaign image for weconnect-care -->
+          </div>
+
+          <!-- Supporting 2-Column Visual Gallery -->
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="aspect-[4/3] rounded-xl border border-[#E4E4E7] bg-[#F7F6F4] p-6 flex flex-col items-center justify-center text-center gap-2 overflow-hidden">
+              <span class="font-mono text-[11px] uppercase tracking-[0.08em] text-[#52525B]">Supporting Visual 01 (4:3)</span>
+              <p class="font-body text-[14.5px] text-[#52525B] max-w-sm">
+                [ADD REAL SOCIAL CREATIVE, PACKAGING, OR AD MOCKUP FOR WECONNECT CARE]
+              </p>
+              <!-- Replace this container body with supporting gallery image 01 for weconnect-care -->
+            </div>
+
+            <div class="aspect-[4/3] rounded-xl border border-[#E4E4E7] bg-[#F7F6F4] p-6 flex flex-col items-center justify-center text-center gap-2 overflow-hidden">
+              <span class="font-mono text-[11px] uppercase tracking-[0.08em] text-[#52525B]">Supporting Visual 02 (4:3)</span>
+              <p class="font-body text-[14.5px] text-[#52525B] max-w-sm">
+                [ADD REAL WEBSITE SCREEN, REEL STILL, OR CAMPAIGN REPORT FOR WECONNECT CARE]
+              </p>
+              <!-- Replace this container body with supporting gallery image 02 for weconnect-care -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 3: Horizontal "Our Work" Related Projects Strip (Reference Footer-Adjacent Carousel/Strip) -->
+      <section class="bg-[#F7F6F4] py-16 lg:py-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-8">
+          <div class="flex items-end justify-between gap-4">
+            <div class="flex flex-col gap-1">
+              <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">More Projects</span>
+              <h2 class="font-display font-semibold text-[28px] sm:text-[32px] leading-[1.15] tracking-[-0.025em] text-[#18181B]">
+                Our Work
+              </h2>
+            </div>
+            <div class="flex items-center gap-4 shrink-0">
+              <span class="font-mono text-[11px] text-[#52525B] lg:hidden">Swipe →</span>
+              <a href="../index.html" class="font-mono text-[12.5px] font-semibold text-[#A83300] hover:text-[#18181B] inline-flex items-center gap-1 transition-colors">
+                <span>All Projects</span>
+                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">arrow_forward</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="flex lg:grid lg:grid-cols-4 gap-6 overflow-x-auto pb-3 snap-x snap-mandatory" aria-label="Related projects">
+            <a href="../aabo/index.html" class="snap-start shrink-0 w-[76vw] sm:w-[44vw] lg:w-auto group flex flex-col gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+              <div class="aspect-[4/3] rounded-lg border bg-[#18181B] text-white border-white/10 p-5 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.06em] text-[#FF9F7A]">Tech & Product</span>
+                <div class="my-auto py-2">
+                  <div class="inline-flex items-center gap-1.5"><span class="font-display font-bold text-[34px] tracking-tight text-white">aabo</span><span class="w-2.5 h-2.5 rounded-full bg-[#E85D2A] -mt-5" aria-hidden="true"></span></div>
+                </div>
+                <span class="font-mono text-[10.5px] text-white/55">[ADD REAL POSTER]</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="font-headline font-semibold text-[17px] text-[#18181B] group-hover:text-[#A83300] transition-colors">aabo.</h3>
+                  <span class="material-symbols-outlined text-[16px] text-[#A83300]" aria-hidden="true">north_east</span>
+                </div>
+                <p class="font-body text-[13.5px] leading-[1.5] text-[#52525B] line-clamp-2">[ADD 1-LINE PROJECT SUMMARY FOR AABO.]</p>
+              </div>
+            </a>
+            <a href="../saurashtra-group/index.html" class="snap-start shrink-0 w-[76vw] sm:w-[44vw] lg:w-auto group flex flex-col gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+              <div class="aspect-[4/3] rounded-lg border bg-[#F7F6F4] text-[#18181B] border-[#D4D0C8] p-5 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.06em] text-[#A83300]">Manufacturing & Trade</span>
+                <div class="my-auto py-2">
+                  <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-[#18181B]">Saurashtra<br>Group</span>
+                </div>
+                <span class="font-mono text-[10.5px] text-[#52525B]">[ADD REAL POSTER]</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="font-headline font-semibold text-[17px] text-[#18181B] group-hover:text-[#A83300] transition-colors">Saurashtra Group</h3>
+                  <span class="material-symbols-outlined text-[16px] text-[#A83300]" aria-hidden="true">north_east</span>
+                </div>
+                <p class="font-body text-[13.5px] leading-[1.5] text-[#52525B] line-clamp-2">[ADD 1-LINE PROJECT SUMMARY FOR SAURASHTRA GROUP]</p>
+              </div>
+            </a>
+            <a href="../veer-jewellers/index.html" class="snap-start shrink-0 w-[76vw] sm:w-[44vw] lg:w-auto group flex flex-col gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+              <div class="aspect-[4/3] rounded-lg border bg-[#202020] text-white border-white/10 p-5 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.06em] text-[#FF9F7A]">Jewelry & Retail</span>
+                <div class="my-auto py-2">
+                  <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-white">Veer<br><span class="text-[#FF9F7A]">Jewellers</span></span>
+                </div>
+                <span class="font-mono text-[10.5px] text-white/55">[ADD REAL POSTER]</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="font-headline font-semibold text-[17px] text-[#18181B] group-hover:text-[#A83300] transition-colors">Veer Jewellers</h3>
+                  <span class="material-symbols-outlined text-[16px] text-[#A83300]" aria-hidden="true">north_east</span>
+                </div>
+                <p class="font-body text-[13.5px] leading-[1.5] text-[#52525B] line-clamp-2">[ADD 1-LINE PROJECT SUMMARY FOR VEER JEWELLERS]</p>
+              </div>
+            </a>
+            <a href="../kothari-agencies/index.html" class="snap-start shrink-0 w-[76vw] sm:w-[44vw] lg:w-auto group flex flex-col gap-3 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] focus-visible:ring-offset-2">
+              <div class="aspect-[4/3] rounded-lg border bg-[#EFECE8] text-[#18181B] border-[#D4D0C8] p-5 flex flex-col justify-between transition-transform duration-300 group-hover:-translate-y-0.5">
+                <span class="font-mono text-[10.5px] uppercase tracking-[0.06em] text-[#A83300]">Trade & Distribution</span>
+                <div class="my-auto py-2">
+                  <span class="font-display font-bold text-[26px] leading-tight tracking-tight text-[#18181B]">Kothari<br>Agencies</span>
+                </div>
+                <span class="font-mono text-[10.5px] text-[#52525B]">[ADD REAL POSTER]</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <div class="flex items-center justify-between gap-2">
+                  <h3 class="font-headline font-semibold text-[17px] text-[#18181B] group-hover:text-[#A83300] transition-colors">Kothari Agencies</h3>
+                  <span class="material-symbols-outlined text-[16px] text-[#A83300]" aria-hidden="true">north_east</span>
+                </div>
+                <p class="font-body text-[13.5px] leading-[1.5] text-[#52525B] line-clamp-2">[ADD 1-LINE PROJECT SUMMARY FOR KOTHARI AGENCIES]</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Band 4: Closing CTA -->
+      <section class="py-16 lg:py-20 px-6 bg-[#FFF8F1]">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
+          <div class="flex flex-col gap-2 max-w-xl">
+            <h2 class="font-display font-semibold text-[28px] sm:text-[34px] leading-[1.12] tracking-[-0.025em] text-[#18181B]">
+              Want to discuss a similar project?
+            </h2>
+            <p class="font-body text-[15.5px] leading-[1.6] text-[#52525B]">
+              Talk to our team about branding, social media, video shoots, websites, or performance ads.
+            </p>
+          </div>
+          <div class="flex flex-wrap items-center gap-4">
+            <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[15px] transition-colors">
+              <span>Start A Project</span>
+              <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+            </a>
+            <a href="../index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] border border-[#D4D0C8] bg-white text-[#18181B] font-semibold text-[15px] hover:border-[#A83300] transition-colors">
+              Back To All Work
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- Multi-Office Footer -->
+    <footer class="bg-light-surface-container-lowest border-t border-light-outline-variant py-16 px-6">
+      <div class="max-w-7xl mx-auto flex flex-col gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="flex flex-col gap-3">
+            <span class="font-title text-title-md text-light-on-surface">Head Office</span>
+            <p class="font-body text-body-md text-light-on-surface-variant">
+              B-3, Shantiniketan Complex,<br>
+              Parimal Chowk, Waghawadi Road,<br>
+              Bhavnagar - 364001, Gujarat, India
+            </p>
+            <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">+91 7048239155</span>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <span class="font-title text-title-md text-light-on-surface">Creative Studio</span>
+            <p class="font-body text-body-md text-light-on-surface-variant">
+              Swastik Complex,<br>
+              Mokhdaji Circle,<br>
+              Bhavnagar, Gujarat, India
+            </p>
+            <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">+91 9081711900</span>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <span class="font-title text-title-md text-light-on-surface">Products &amp; Web</span>
+            <ul class="flex flex-col gap-2 font-body text-body-md text-light-on-surface-variant">
+              <li><a href="../../products/index.html#chatbox360" class="hover:text-light-primary">ChatBox 360 Suite</a></li>
+              <li><a href="../../products/index.html#social360" class="hover:text-light-primary">Social 360 Suite</a></li>
+              <li><a href="../../products/index.html#aajkagraphic" class="hover:text-light-primary">Aaj Ka Graphic</a></li>
+              <li><a href="../../services/index.html" class="hover:text-light-primary">All Services</a></li>
+            </ul>
+          </div>
+
+          <div class="flex flex-col gap-3">
+            <span class="font-title text-title-md text-light-on-surface">Stay Updated</span>
+            <p class="font-body text-body-md text-light-on-surface-variant">Direct updates and product questions: info@sphinixmarketing.com</p>
+            <form class="newsletter-form flex gap-2" novalidate>
+              <input type="email" placeholder="Work email" aria-label="Work email address" class="flex-1 min-w-0 px-3 py-2 rounded border border-light-outline-variant bg-light-surface text-light-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
+              <button type="submit" class="px-4 py-2 rounded bg-light-secondary text-light-on-secondary font-label text-label-md hover:bg-light-primary transition-colors duration-state-change">
+                Join
+              </button>
+            </form>
+            <p class="newsletter-status font-body text-[12px] text-[#52525B]" aria-live="polite"></p>
+          </div>
+        </div>
+
+        <div class="pt-8 border-t border-light-outline-variant flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p class="font-label text-label-md text-light-outline">© 2026 Sphinix Marketing. Results Driven Agency. All rights reserved.</p>
+          <div class="flex flex-wrap items-center gap-6 font-label text-label-md text-light-on-surface-variant">
+            <a href="../../about/index.html" class="hover:text-light-primary">About</a>
+            <a href="../../services/index.html" class="hover:text-light-primary">Services</a>
+            <a href="../../products/index.html" class="hover:text-light-primary">Products</a>
+            <a href="../index.html" class="text-light-primary font-semibold">Work</a>
+            <a href="../../blog/index.html" class="hover:text-light-primary">Insights</a>
+            <a href="../../contact/index.html" class="hover:text-light-primary">Contact</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  </div>
+
+  <script>
+    (function () {
+      // ─── Navbar JS ───────────────────────────────────────────────
+      // Scroll: seamless transparent hero header → pure white header
+      const siteHeader = document.getElementById('site-header');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenuIcon = document.getElementById('mobile-menu-icon');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      function updateHeader() {
+        const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
+        siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
+      }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = '[ADD NEWSLETTER ENDPOINT] Please email info@sphinixmarketing.com directly.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#A83300]';
+          input.value = '';
+        });
+      });
+
+      window.addEventListener('scroll', updateHeader, { passive: true });
+      updateHeader();
+
+      // Mobile menu toggle
+      if (mobileMenuBtn && mobileMenu) {
+        mobileMenuBtn.addEventListener('click', () => {
+          const isOpen = !mobileMenu.classList.contains('hidden');
+          mobileMenu.classList.toggle('hidden', isOpen);
+          mobileMenuIcon.textContent = isOpen ? 'menu' : 'close';
+          mobileMenuBtn.setAttribute('aria-expanded', String(!isOpen));
+          updateHeader();
+        });
+      }
+
+      // Mobile services accordion
+      const mobileServicesBtn = document.getElementById('mobile-services-btn');
+      const mobileServicesPanel = document.getElementById('mobile-services-panel');
+      const mobileServicesChevron = document.getElementById('mobile-services-chevron');
+      if (mobileServicesBtn && mobileServicesPanel) {
+        mobileServicesBtn.addEventListener('click', () => {
+          const isOpen = mobileServicesPanel.classList.contains('flex');
+          mobileServicesPanel.classList.toggle('hidden', isOpen);
+          mobileServicesPanel.classList.toggle('flex', !isOpen);
+          mobileServicesPanel.classList.toggle('flex-col', !isOpen);
+          mobileServicesChevron.style.transform = isOpen ? '' : 'rotate(180deg)';
+        });
+      }
+
+      // Desktop mega menu
+      const servicesNavItem = document.getElementById('services-nav-item');
+      const servicesNavBtn = document.getElementById('services-nav-btn');
+      const servicesMega = document.getElementById('services-mega');
+      const servicesChevron = document.getElementById('services-chevron');
+
+      function openMega() {
+        servicesMega.classList.remove('opacity-0', 'invisible', 'translate-y-1');
+        servicesMega.classList.add('opacity-100', 'visible', 'translate-y-0');
+        servicesMega.style.pointerEvents = 'auto';
+        servicesChevron.style.transform = 'rotate(180deg)';
+        servicesNavBtn.setAttribute('aria-expanded', 'true');
+      }
+      function closeMega() {
+        servicesMega.classList.add('opacity-0', 'invisible', 'translate-y-1');
+        servicesMega.classList.remove('opacity-100', 'visible', 'translate-y-0');
+        servicesMega.style.pointerEvents = 'none';
+        servicesChevron.style.transform = '';
+        servicesNavBtn.setAttribute('aria-expanded', 'false');
+      }
+
+      let megaCloseTimer;
+      if (servicesNavItem) {
+        servicesNavItem.addEventListener('mouseenter', () => { clearTimeout(megaCloseTimer); openMega(); });
+        servicesNavItem.addEventListener('mouseleave', () => { megaCloseTimer = setTimeout(closeMega, 120); });
+        servicesNavBtn.addEventListener('click', () => {
+          servicesMega.classList.contains('invisible') ? openMega() : closeMega();
+        });
+        servicesNavItem.addEventListener('focusout', (e) => {
+          if (e.relatedTarget && !servicesNavItem.contains(e.relatedTarget)) closeMega();
+        });
+        document.addEventListener('click', (e) => { if (!servicesNavItem.contains(e.target)) closeMega(); });
+        document.addEventListener('keydown', (e) => {
+          if (e.key === 'Escape') {
+            closeMega();
+            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+              mobileMenu.classList.add('hidden');
+              mobileMenuIcon.textContent = 'menu';
+              mobileMenuBtn.setAttribute('aria-expanded', 'false');
+              updateHeader();
+            }
+          }
+        });
+      }
+    
+      // Hybrid Video Stage Hydrator (renders YouTube/Vimeo iframe or HTML5 video when data-video-src is set)
+      document.querySelectorAll('.case-video-stage').forEach((stage) => {
+        const src = (stage.dataset.videoSrc || '').trim();
+        if (!src) return;
+        const title = stage.dataset.videoTitle || 'Campaign Video';
+        const poster = (stage.dataset.videoPoster || '').trim();
+        stage.innerHTML = '';
+        stage.classList.remove('p-8', 'text-center');
+        if (/youtube\.com|youtu\.be|vimeo\.com/i.test(src)) {
+          const iframe = document.createElement('iframe');
+          iframe.src = src;
+          iframe.title = title;
+          iframe.className = 'w-full h-full border-0';
+          iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+          iframe.allowFullscreen = true;
+          iframe.loading = 'lazy';
+          stage.appendChild(iframe);
+        } else {
+          const video = document.createElement('video');
+          video.src = src;
+          video.controls = true;
+          video.playsInline = true;
+          video.preload = 'metadata';
+          if (poster) video.poster = poster;
+          video.className = 'w-full h-full object-cover';
+          video.setAttribute('aria-label', title);
+          stage.appendChild(video);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
