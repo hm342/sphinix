@@ -387,36 +387,31 @@
       <!-- Section 1: Interactive 4-Word Hero + Dynamic Description Box -->
       <section class="bg-[#18181B] text-white pt-32 sm:pt-36 pb-16 lg:pb-24 px-6 border-b border-white/10">
         <div class="max-w-6xl mx-auto flex flex-col gap-6">
-          <h1 class="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-[#FF9F7A]">
-            Sphinix Insights · Hover or Select a Word
-          </h1>
+          <h1 class="sr-only">Sphinix Marketing Insights</h1>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-            <!-- Left Column: 4 Stacked Outlined/Solid Words -->
-            <div id="pillar-stack" class="lg:col-span-6 flex flex-col items-start gap-1 sm:gap-2" role="group" aria-label="Insights focus areas">
-              <button type="button" data-pillar="why" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+            <!-- Left Column: Giant 4 Stacked Outlined/Solid Words -->
+            <div id="pillar-stack" class="lg:col-span-7 flex flex-col items-start gap-1 sm:gap-2" role="group" aria-label="Insights focus areas">
+              <button type="button" data-pillar="why" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[72px] sm:text-[98px] lg:text-[124px] leading-[0.86] tracking-[-0.04em] focus-visible:outline-none">
                 WHY
               </button>
-              <button type="button" data-pillar="how" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+              <button type="button" data-pillar="how" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[72px] sm:text-[98px] lg:text-[124px] leading-[0.86] tracking-[-0.04em] focus-visible:outline-none">
                 HOW
               </button>
-              <button type="button" data-pillar="what" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+              <button type="button" data-pillar="what" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[72px] sm:text-[98px] lg:text-[124px] leading-[0.86] tracking-[-0.04em] focus-visible:outline-none">
                 WHAT
               </button>
-              <button type="button" data-pillar="who" aria-pressed="true" class="pillar-word is-active text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+              <button type="button" data-pillar="who" aria-pressed="true" class="pillar-word is-active text-left font-display font-extrabold uppercase text-[72px] sm:text-[98px] lg:text-[124px] leading-[0.86] tracking-[-0.04em] focus-visible:outline-none">
                 WHO
               </button>
             </div>
 
-            <!-- Right Column: Dynamic Speech Bubble Card -->
-            <div class="lg:col-span-6">
-              <div class="relative bg-white text-[#18181B] rounded-2xl p-8 sm:p-10 lg:p-12 min-h-[250px] flex flex-col justify-center gap-3 shadow-xl">
-                <span id="pillar-pointer" class="hidden lg:block absolute -left-2.5 w-5 h-5 bg-white rotate-45" style="top: 78%;" aria-hidden="true"></span>
-                <span id="pillar-tag" class="font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">
-                  04 · WHO IT IS FOR
-                </span>
-                <p id="pillar-desc" class="font-body text-[17px] sm:text-[18.5px] leading-[1.65] text-[#18181B]" aria-live="polite">
-                  Built for business owners and marketing teams who want plain numbers from Google Ads, Meta campaigns, technical SEO, and WhatsApp workflows before scaling budget.
+            <!-- Right Column: Tall White Speech Bubble Card (No Numbering, Black Text + Quotes + Bold) -->
+            <div class="lg:col-span-5">
+              <div class="relative bg-white text-[#18181B] rounded-2xl p-8 sm:p-10 lg:p-12 min-h-[360px] sm:min-h-[420px] lg:min-h-[460px] flex flex-col justify-center shadow-xl">
+                <span id="pillar-pointer" class="hidden lg:block absolute -left-2.5 w-5 h-5 bg-white rotate-45" style="top: 85%;" aria-hidden="true"></span>
+                <p id="pillar-desc" class="font-body text-[18px] sm:text-[20px] leading-[1.65] text-[#18181B]" aria-live="polite">
+                  “Built for <strong>business owners and marketing teams</strong> who want plain numbers from <strong>Google Ads, Meta campaigns, technical SEO, and WhatsApp workflows</strong> before scaling budget.”
                 </p>
               </div>
             </div>
@@ -791,32 +786,27 @@
         });
       }
 
-            // Interactive 4-Word Hero Stack (hover, focus, and click update active word + speech bubble)
+      // Interactive 4-Word Hero Stack (hover, focus, and click update active word + speech bubble)
       const PILLAR_CONTENT = {
         why: {
-          tag: '01 · WHY WE WRITE',
-          top: '14%',
-          desc: 'We publish practical field notes instead of agency buzzwords—documenting what actually changes ad spend efficiency, search indexing, and conversion follow-up.'
+          top: '12%',
+          html: '“We publish <strong>practical field notes</strong> instead of agency buzzwords—documenting what actually changes <strong>ad spend efficiency, search indexing, and conversion follow-up</strong>.”'
         },
         how: {
-          tag: '02 · HOW WE WORK',
-          top: '36%',
-          desc: 'From negative-keyword cleanups and technical SEO crawls to WhatsApp API routing in ChatBox 360 Suite, we share the exact checklists our Bhavnagar team uses.'
+          top: '37%',
+          html: '“From <strong>negative-keyword cleanups</strong> and <strong>technical SEO crawls</strong> to WhatsApp API routing in <strong>ChatBox 360 Suite</strong>, we share the exact checklists our Bhavnagar team uses.”'
         },
         what: {
-          tag: '03 · WHAT YOU WILL READ',
-          top: '58%',
-          desc: 'Short breakdowns across Google Ads, Meta Ads, Local SEO, e-commerce feeds, and retention emails—written to be read in 5 minutes and applied immediately.'
+          top: '62%',
+          html: '“Short breakdowns across <strong>Google Ads, Meta Ads, Local SEO, e-commerce feeds, and retention emails</strong>—written to be read in 5 minutes and applied immediately.”'
         },
         who: {
-          tag: '04 · WHO IT IS FOR',
-          top: '78%',
-          desc: 'Built for business owners and marketing teams who want plain numbers from Google Ads, Meta campaigns, technical SEO, and WhatsApp workflows before scaling budget.'
+          top: '85%',
+          html: '“Built for <strong>business owners and marketing teams</strong> who want plain numbers from <strong>Google Ads, Meta campaigns, technical SEO, and WhatsApp workflows</strong> before scaling budget.”'
         }
       };
 
       const pillarBtns = Array.from(document.querySelectorAll('.pillar-word'));
-      const pillarTag = document.getElementById('pillar-tag');
       const pillarDesc = document.getElementById('pillar-desc');
       const pillarPointer = document.getElementById('pillar-pointer');
 
@@ -828,8 +818,7 @@
           btn.classList.toggle('is-active', active);
           btn.setAttribute('aria-pressed', String(active));
         });
-        if (pillarTag) pillarTag.textContent = data.tag;
-        if (pillarDesc) pillarDesc.textContent = data.desc;
+        if (pillarDesc) pillarDesc.innerHTML = data.html;
         if (pillarPointer) pillarPointer.style.top = data.top;
       }
 
