@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -150,12 +150,12 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -309,35 +309,30 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
-      <!-- Hero Header Section -->
-      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
-        <img src="../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
-          <div class="flex items-center gap-2">
-            <span class="font-body text-[14px] font-semibold text-[#FF9F7A]">Proprietary Software Suites</span>
-            <span class="font-mono text-mono-sm text-white/75">Built To Make A Difference</span>
+      <!-- Warm Editorial Products Hero -->
+      <section class="bg-[#F7F6F4] pt-32 pb-16 lg:pt-36 lg:pb-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-6">
+          <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Proprietary Software Suites · Built To Make A Difference</span>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+            <h1 class="lg:col-span-7 font-display font-semibold text-[36px] sm:text-[46px] lg:text-[52px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
+              We don’t just market businesses. <span class="text-[#E85D2A]">We build tools for them.</span>
+            </h1>
+            <p class="lg:col-span-5 font-body text-[16.5px] leading-[1.6] text-[#52525B] max-w-[44ch]">
+              Sphinix Marketing develops proprietary SaaS applications that streamline communication, automate festival marketing, and supercharge multi-platform publishing.
+            </p>
           </div>
 
-          <h1 class="hero-headline font-body font-bold text-white max-w-4xl text-balance">
-            We don’t just market businesses. <span class="text-[#FF8A5C]">We build tools for them.</span>
-          </h1>
-
-          <p class="font-body text-body-lg text-[#E4E4E7] max-w-3xl text-pretty">
-            Sphinix Marketing develops proprietary SaaS applications that streamline communication, automate festival marketing, and supercharge multi-platform social media publishing.
-          </p>
-
           <!-- Quick Navigation Pills -->
-          <div class="pt-6 flex flex-wrap gap-3">
-            <a href="#chatbox360" class="px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 font-label text-label-md text-light-on-surface hover:border-light-primary hover:text-[#FF9F7A] transition-colors">
+          <div class="pt-4 flex flex-wrap gap-3">
+            <a href="#chatbox360" class="px-5 py-2 rounded-full border border-[#D4D0C8] bg-white font-label text-label-md text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors">
               ChatBox 360 Suite (WhatsApp API)
             </a>
-            <a href="#aajkagraphic" class="px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 font-label text-label-md text-light-on-surface hover:border-light-primary hover:text-[#FF9F7A] transition-colors">
+            <a href="#aajkagraphic" class="px-5 py-2 rounded-full border border-[#D4D0C8] bg-white font-label text-label-md text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors">
               Aaj Ka Graphic (Post Maker)
             </a>
-            <a href="#social360" class="px-5 py-2 rounded-full border border-white/20 bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 font-label text-label-md text-light-on-surface hover:border-light-primary hover:text-[#FF9F7A] transition-colors">
+            <a href="#social360" class="px-5 py-2 rounded-full border border-[#D4D0C8] bg-white font-label text-label-md text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors">
               Social 360 Suite (AI Platform)
             </a>
           </div>
@@ -345,7 +340,7 @@
       </section>
 
       <!-- Product 1: ChatBox 360 Suite -->
-      <section id="chatbox360" class="py-20 px-6 bg-light-surface border-b border-light-outline-variant scroll-mt-20">
+      <section id="chatbox360" class="py-20 px-6 bg-light-surface border-b border-light-outline-variant scroll-mt-[84px]">
         <div class="max-w-7xl mx-auto flex flex-col gap-12">
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
             <div class="lg:col-span-5 flex flex-col gap-6">
@@ -441,7 +436,7 @@
       </section>
 
       <!-- Product 2: Aaj Ka Graphic -->
-      <section id="aajkagraphic" class="py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant scroll-mt-20">
+      <section id="aajkagraphic" class="py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant scroll-mt-[84px]">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           <div class="lg:col-span-5 flex flex-col gap-6">
             <div class="flex items-center gap-3">
@@ -498,79 +493,64 @@
         </div>
       </section>
 
-      <!-- Product 3: Social 360 Suite -->
-      <section id="social360" class="py-20 px-6 bg-light-surface border-b border-light-outline-variant scroll-mt-20">
-        <div class="max-w-7xl mx-auto flex flex-col gap-12">
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-            <div class="lg:col-span-5 flex flex-col gap-6">
-              <div class="flex items-center gap-3">
-                <span class="w-12 h-12 rounded bg-light-surface-container-lowest border border-light-outline-variant flex items-center justify-center text-brand-orange">
-                  <span class="material-symbols-outlined text-title-lg">share</span>
-                </span>
-                <div>
-                  <span class="font-mono text-mono-sm text-light-primary">AI Marketing Platform</span>
-                  <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface">Social 360 Suite</h2>
-                </div>
-              </div>
-
-              <p class="font-body text-body-lg text-light-on-surface-variant">
-                AI-powered social media management, bulk scheduling, visual content calendars, and comprehensive team analytics in one unified cloud workspace.
-              </p>
-
-              <div class="pt-2">
-                <a href="https://www.social360suite.in" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-brand-charcoal transition-colors">
-                  <span>Experience Social 360 Suite</span>
-                  <span class="material-symbols-outlined text-title-sm">open_in_new</span>
-                </a>
-              </div>
+      <!-- Product 3: Social 360 Suite (Dark Showcase Band) -->
+      <section id="social360" class="py-20 px-6 bg-[#18181B] text-white border-b border-[#27272A] scroll-mt-[84px]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div class="lg:col-span-5 flex flex-col gap-6">
+            <div class="flex flex-col gap-2">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">AI Marketing Platform</span>
+              <h2 class="font-display font-semibold text-[32px] sm:text-[38px] leading-[1.1] tracking-[-0.025em] text-white">Social 360 Suite</h2>
             </div>
 
-            <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div class="p-6 rounded-xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-2">
-                <div class="flex items-center gap-2 text-brand-orange">
-                  <span class="material-symbols-outlined text-title-md">auto_awesome</span>
-                  <h3 class="font-title text-title-md text-light-on-surface">AI Studio</h3>
-                </div>
-                <p class="font-body text-body-sm text-light-on-surface-variant">Generate compelling captions, hashtag clusters, and creative copy tailored to each social channel.</p>
-              </div>
+            <p class="font-body text-[16.5px] leading-[1.65] text-white/75">
+              AI-powered social media management, bulk scheduling, visual content calendars, and comprehensive team analytics in one unified cloud workspace.
+            </p>
 
-              <div class="p-6 rounded-xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-2">
-                <div class="flex items-center gap-2 text-brand-orange">
-                  <span class="material-symbols-outlined text-title-md">sync</span>
-                  <h3 class="font-title text-title-md text-light-on-surface">Multi-Platform Publishing</h3>
-                </div>
-                <p class="font-body text-body-sm text-light-on-surface-variant">Simultaneously publish posts, reels, and carousels across Instagram, Facebook, LinkedIn, X, and Pinterest.</p>
-              </div>
+            <div class="pt-2">
+              <a href="https://www.social360suite.in" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[15px] transition-colors">
+                <span>Experience Social 360 Suite</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">open_in_new</span>
+              </a>
+            </div>
+          </div>
 
-              <div class="p-6 rounded-xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-2">
-                <div class="flex items-center gap-2 text-brand-orange">
-                  <span class="material-symbols-outlined text-title-md">calendar_today</span>
-                  <h3 class="font-title text-title-md text-light-on-surface">Visual Social Calendar</h3>
-                </div>
-                <p class="font-body text-body-sm text-light-on-surface-variant">Drag-and-drop interactive calendar to plan your weekly and monthly social media campaigns at a glance.</p>
-              </div>
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-2 border-t border-white/15">
+            <div class="py-6 border-b border-white/15 flex flex-col gap-2">
+              <span class="font-mono text-[12px] font-semibold text-[#E85D2A]">01 · AI Studio</span>
+              <h3 class="font-title font-semibold text-[18px] text-white">AI Content Studio</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Generate compelling captions, hashtag clusters, and creative copy tailored to each social channel.</p>
+            </div>
 
-              <div class="p-6 rounded-xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-2">
-                <div class="flex items-center gap-2 text-brand-orange">
-                  <span class="material-symbols-outlined text-title-md">groups</span>
-                  <h3 class="font-title text-title-md text-light-on-surface">Team Collaboration</h3>
-                </div>
-                <p class="font-body text-body-sm text-light-on-surface-variant">Role-based approval workflows, client feedback notes, and automated performance analytics exports.</p>
-              </div>
+            <div class="py-6 border-b border-white/15 flex flex-col gap-2">
+              <span class="font-mono text-[12px] font-semibold text-[#E85D2A]">02 · Publishing</span>
+              <h3 class="font-title font-semibold text-[18px] text-white">Multi-Platform Publishing</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Simultaneously publish posts, reels, and carousels across Instagram, Facebook, LinkedIn, X, and Pinterest.</p>
+            </div>
+
+            <div class="py-6 border-b border-white/15 flex flex-col gap-2">
+              <span class="font-mono text-[12px] font-semibold text-[#E85D2A]">03 · Planning</span>
+              <h3 class="font-title font-semibold text-[18px] text-white">Visual Social Calendar</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Drag-and-drop interactive calendar to plan your weekly and monthly social media campaigns at a glance.</p>
+            </div>
+
+            <div class="py-6 border-b border-white/15 flex flex-col gap-2">
+              <span class="font-mono text-[12px] font-semibold text-[#E85D2A]">04 · Teams</span>
+              <h3 class="font-title font-semibold text-[18px] text-white">Team Collaboration</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Role-based approval workflows, client feedback notes, and automated performance analytics exports.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA -->
-      <section class="py-20 px-6 bg-brand-charcoal text-light-on-secondary">
+      <!-- Warm Editorial CTA -->
+      <section class="py-20 px-6 bg-[#FFF8F1] border-b border-[#E4E4E7]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div class="flex flex-col gap-4 max-w-xl">
-            <span class="font-body text-[14px] font-semibold text-brand-orange">Experience Our Tools</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-secondary">
+          <div class="flex flex-col gap-3 max-w-xl">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Experience Our Tools</span>
+            <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-[#18181B]">
               Need a personalized software demonstration?
             </h2>
-            <p class="font-body text-body-lg text-light-on-secondary/80">
+            <p class="font-body text-body-lg text-[#52525B]">
               Our software engineers and product strategists will walk you through ChatBox 360 Suite or Social 360 live.
             </p>
           </div>
@@ -658,6 +638,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 

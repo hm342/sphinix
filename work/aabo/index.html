@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -150,12 +150,12 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -308,149 +308,144 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
-      <!-- Case Study Hero Header -->
-      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
-        <img src="../../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
-          <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-mono-sm text-white/75">
-            <a href="../../index.html" class="hover:text-[#FF9F7A]">Home</a>
-            <span>/</span>
-            <a href="../index.html" class="hover:text-[#FF9F7A]">Work</a>
-            <span>/</span>
-            <span class="text-white">aabo</span>
-          </nav>
+      <!-- Warm Editorial Case Study Hero -->
+      <section class="bg-[#F7F6F4] pt-32 pb-16 lg:pt-36 lg:pb-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-[12px] text-[#71717A]">
+              <a href="../../index.html" class="hover:text-[#A83300]">Home</a>
+              <span>/</span>
+              <a href="../index.html" class="hover:text-[#A83300]">Work</a>
+              <span>/</span>
+              <span class="text-[#18181B]">aabo</span>
+            </nav>
 
-          <div class="flex items-center gap-3">
-            <div class="flex items-center gap-1.5 text-white">
-              <span class="font-display text-display-lg tracking-tight">aabo</span>
-              <span class="w-3 h-3 rounded-full bg-brand-orange -mt-6"></span>
+            <div class="flex items-center gap-3">
+              <div class="flex items-center gap-1.5 text-[#18181B]">
+                <span class="font-display font-bold text-[28px] tracking-tight">aabo</span>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#E85D2A] -mt-4" aria-hidden="true"></span>
+              </div>
+              <span class="px-3 py-1 rounded-full bg-white border border-[#D4D0C8] font-mono text-[11.5px] text-[#A83300]">
+                IoT Smart Safety
+              </span>
             </div>
-            <span class="px-3 py-1 rounded-full bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 font-label text-label-sm text-[#FF9F7A]">
-              IoT Smart Safety
-            </span>
+
+            <h1 class="font-display font-semibold text-[34px] sm:text-[44px] lg:text-[50px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
+              Building a modern identity for <span class="text-[#E85D2A]">smart connected safety.</span>
+            </h1>
+
+            <p class="font-body text-[17px] leading-[1.6] text-[#52525B] max-w-[52ch]">
+              How Sphinix Marketing partnered with aabo to design their brand visual system, packaging experience, digital web presence, and go-to-market performance funnels.
+            </p>
+
+            <!-- Ruled Metadata Strip -->
+            <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-[#D4D0C8]">
+              <div class="flex flex-col gap-1">
+                <span class="font-mono text-[11px] uppercase tracking-[0.06em] text-[#71717A]">Client</span>
+                <span class="font-title font-semibold text-[15px] text-[#18181B]">aabo Technologies</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="font-mono text-[11px] uppercase tracking-[0.06em] text-[#71717A]">Industry</span>
+                <span class="font-title font-semibold text-[15px] text-[#18181B]">IoT Hardware &amp; Safety</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="font-mono text-[11px] uppercase tracking-[0.06em] text-[#71717A]">Services</span>
+                <span class="font-title font-semibold text-[15px] text-[#18181B]">Branding, Web, Reels, Ads</span>
+              </div>
+              <div class="flex flex-col gap-1">
+                <span class="font-mono text-[11px] uppercase tracking-[0.06em] text-[#71717A]">Timeline</span>
+                <span class="font-title font-semibold text-[15px] text-[#18181B]">Launch to Scale</span>
+              </div>
+            </div>
           </div>
 
-          <h1 class="hero-headline font-body font-bold text-white max-w-4xl text-balance">
-            Building a modern identity for <span class="text-[#FF8A5C]">smart connected safety.</span>
-          </h1>
-
-          <p class="font-body text-body-lg text-[#E4E4E7] max-w-3xl text-pretty">
-            How Sphinix Marketing partnered with aabo to design their brand visual system, packaging experience, digital web presence, and go-to-market performance funnels.
-          </p>
-
-          <!-- Metadata Strip -->
-          <div class="pt-6 grid grid-cols-2 sm:grid-cols-4 gap-6 border-t border-white/20">
-            <div class="flex flex-col gap-1">
-              <span class="font-mono text-mono-sm text-white/75">Client</span>
-              <span class="font-title text-title-md text-white">aabo Technologies</span>
-            </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-mono text-mono-sm text-white/75">Industry</span>
-              <span class="font-title text-title-md text-white">IoT Hardware &amp; Safety</span>
-            </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-mono text-mono-sm text-white/75">Services Provided</span>
-              <span class="font-title text-title-md text-white">Branding, Web, Reels, Ads</span>
-            </div>
-            <div class="flex flex-col gap-1">
-              <span class="font-mono text-mono-sm text-white/75">Timeline</span>
-              <span class="font-title text-title-md text-white">Launch to Scale</span>
-            </div>
+          <div class="lg:col-span-5">
+            <img src="../../images/svc_04_branding.jpg" alt="aabo brand identity, packaging, and collateral design showcase" class="w-full rounded-lg border border-[#E4E4E7] object-cover aspect-[4/3]" loading="eager" decoding="async">
           </div>
         </div>
       </section>
 
-      <!-- Challenge & Solution Split -->
-      <section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <!-- Left: Challenge -->
-          <div class="p-8 rounded-xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-brand-charcoal text-light-on-secondary font-label text-label-sm uppercase self-start">
-              The Challenge
-            </span>
-            <h2 class="font-headline text-headline-lg text-light-on-surface">Simplifying IoT complexity for consumers.</h2>
-            <p class="font-body text-body-lg text-light-on-surface-variant">
+      <!-- Dark Challenge / Light Solution Asymmetric Split -->
+      <section class="border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12">
+          <!-- Left: Dark Challenge Panel -->
+          <div class="lg:col-span-5 bg-[#18181B] text-white p-8 sm:p-12 lg:p-14 flex flex-col justify-center gap-5">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">01 · The Challenge</span>
+            <h2 class="font-headline font-semibold text-[26px] sm:text-[32px] leading-[1.15] tracking-[-0.02em] text-white">
+              Simplifying IoT complexity for consumers.
+            </h2>
+            <p class="font-body text-[15.5px] leading-[1.65] text-white/80">
               aabo developed an advanced smart safety device with real-time sensors and cellular alerting. The key challenge was translating intricate technical hardware specifications into immediate, emotive consumer peace of mind.
             </p>
-            <p class="font-body text-body-md text-light-on-surface-variant">
+            <p class="font-body text-[15px] leading-[1.65] text-white/70">
               The company needed a clean, trustworthy visual identity, physical product packaging that felt premium on unboxing, and a streamlined web presence that clearly communicated device capabilities to homeowners and small businesses.
             </p>
           </div>
 
-          <!-- Right: Solution -->
-          <div class="p-8 rounded-xl bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded bg-light-primary text-light-on-primary font-label text-label-sm uppercase self-start">
-              The Solution
-            </span>
-            <h2 class="font-headline text-headline-lg text-light-on-surface">Unified identity, packaging, and digital launch.</h2>
-            <p class="font-body text-body-lg text-light-on-surface-variant">
+          <!-- Right: Crisp White Solution Panel -->
+          <div class="lg:col-span-7 bg-[#FFFFFF] p-8 sm:p-12 lg:p-14 flex flex-col justify-center gap-6">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">02 · The Solution</span>
+            <h2 class="font-headline font-semibold text-[26px] sm:text-[32px] leading-[1.15] tracking-[-0.02em] text-[#18181B]">
+              Unified identity, packaging, and digital launch.
+            </h2>
+            <p class="font-body text-[16px] leading-[1.6] text-[#52525B]">
               Sphinix Marketing engineered an integrated go-to-market framework:
             </p>
-            <ul class="flex flex-col gap-3 font-body text-body-md text-light-on-surface-variant">
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-title-md text-brand-orange">check_circle</span>
-                <span><strong>Visual Identity:</strong> Minimalist wordmark with confident burnt-orange dot accent and cohesive brand guidelines.</span>
+            <ul class="flex flex-col divide-y divide-[#E4E4E7] border-t border-[#E4E4E7] font-body text-[15px] text-[#3F3F46]">
+              <li class="py-3.5 flex items-start gap-3">
+                <span class="material-symbols-outlined text-[18px] text-[#E85D2A] mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                <span><strong class="text-[#18181B]">Visual Identity:</strong> Minimalist wordmark with confident burnt-orange dot accent and cohesive brand guidelines.</span>
               </li>
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-title-md text-brand-orange">check_circle</span>
-                <span><strong>Packaging Architecture:</strong> Precision retail box design with clean unboxing sequence and clear setup iconography.</span>
+              <li class="py-3.5 flex items-start gap-3">
+                <span class="material-symbols-outlined text-[18px] text-[#E85D2A] mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                <span><strong class="text-[#18181B]">Packaging Architecture:</strong> Precision retail box design with clean unboxing sequence and clear setup iconography.</span>
               </li>
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-title-md text-brand-orange">check_circle</span>
-                <span><strong>Responsive Web Experience:</strong> Fast, accessible product landing page with interactive feature breakdowns.</span>
+              <li class="py-3.5 flex items-start gap-3">
+                <span class="material-symbols-outlined text-[18px] text-[#E85D2A] mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                <span><strong class="text-[#18181B]">Responsive Web Experience:</strong> Fast, accessible product landing page with interactive feature breakdowns.</span>
               </li>
-              <li class="flex items-center gap-2.5">
-                <span class="material-symbols-outlined text-title-md text-brand-orange">check_circle</span>
-                <span><strong>Motion Video &amp; Ads:</strong> High-impact 3D device showcase reels and targeted Meta lead generation campaigns.</span>
+              <li class="py-3.5 flex items-start gap-3">
+                <span class="material-symbols-outlined text-[18px] text-[#E85D2A] mt-0.5 shrink-0" aria-hidden="true">check_circle</span>
+                <span><strong class="text-[#18181B]">Motion Video &amp; Ads:</strong> High-impact 3D device showcase reels and targeted Meta lead generation campaigns.</span>
               </li>
             </ul>
           </div>
         </div>
       </section>
 
-      <!-- Key Execution Pillars -->
-      <section class="py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant">
-        <div class="max-w-7xl mx-auto flex flex-col gap-12">
-          <div class="flex flex-col gap-3 max-w-2xl">
-            <span class="font-body text-[14px] font-semibold text-light-primary">Execution</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
-              What we crafted for <span class="text-brand-orange">aabo.</span>
+      <!-- Ruled Key Execution Index -->
+      <section class="py-20 px-6 bg-[#F7F6F4] border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-10">
+          <div class="flex flex-col gap-2 max-w-2xl">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Execution</span>
+            <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-[#18181B]">
+              What we crafted for <span class="text-[#E85D2A]">aabo.</span>
             </h2>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3.5">
-              <span class="inline-flex items-center gap-2 font-mono text-[11.5px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
-                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">palette</span>
-                <span>01 · Brand Identity</span>
-              </span>
-              <h3 class="font-title text-title-lg text-light-on-surface">Brand System &amp; Collateral</h3>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-x-10 gap-y-8 border-t border-[#D4D0C8] pt-8">
+            <div class="flex flex-col gap-3">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">01 · Brand Identity</span>
+              <h3 class="font-title font-semibold text-[20px] text-[#18181B]">Brand System &amp; Collateral</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Crafted the typographic logo, digital guidelines, retail display banners, and user instruction manual with crisp diagrams.
               </p>
             </div>
 
-            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3.5">
-              <span class="inline-flex items-center gap-2 font-mono text-[11.5px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
-                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">devices</span>
-                <span>02 · Web &amp; Funnel</span>
-              </span>
-              <h3 class="font-title text-title-lg text-light-on-surface">Web &amp; Conversion Funnel</h3>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="flex flex-col gap-3">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">02 · Web &amp; Funnel</span>
+              <h3 class="font-title font-semibold text-[20px] text-[#18181B]">Web &amp; Conversion Funnel</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Engineered an ultra-fast product landing page with live feature previews, FAQ accordion, and WhatsApp ordering pipeline.
               </p>
             </div>
 
-            <div class="p-8 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3.5">
-              <span class="inline-flex items-center gap-2 font-mono text-[11.5px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">
-                <span class="material-symbols-outlined text-[16px]" aria-hidden="true">videocam</span>
-                <span>03 · Video &amp; Ads</span>
-              </span>
-              <h3 class="font-title text-title-lg text-light-on-surface">Launch Video &amp; Social Ads</h3>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="flex flex-col gap-3">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">03 · Video &amp; Ads</span>
+              <h3 class="font-title font-semibold text-[20px] text-[#18181B]">Launch Video &amp; Social Ads</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Shot studio video content highlighting real-world safety scenarios and ran geo-targeted Meta ad campaigns across key urban markets.
               </p>
             </div>
@@ -458,23 +453,23 @@
         </div>
       </section>
 
-      <!-- CTA -->
-      <section class="py-20 px-6 bg-brand-charcoal text-light-on-secondary">
+      <!-- Dark Closing CTA -->
+      <section class="py-20 px-6 bg-[#18181B] text-white">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div class="flex flex-col gap-4 max-w-xl">
-            <span class="font-body text-[14px] font-semibold text-brand-orange">Launch Your Next Breakthrough</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-secondary">
+          <div class="flex flex-col gap-3 max-w-xl">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">Launch Your Next Breakthrough</span>
+            <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-white">
               Ready to take your product to market?
             </h2>
-            <p class="font-body text-body-lg text-light-on-secondary/80">
+            <p class="font-body text-[16px] leading-[1.6] text-white/75">
               Partner with Sphinix Marketing for end-to-end branding, digital experience, and revenue-driven performance marketing.
             </p>
           </div>
           <div class="flex flex-wrap items-center gap-4">
-            <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-light-primary/90 transition-colors">
+            <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[15px] transition-colors">
               Discuss Your Product
             </a>
-            <a href="../index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded border border-light-outline-variant/40 text-light-on-secondary font-label text-label-lg hover:bg-light-surface-container-low/10 transition-colors">
+            <a href="../index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] border border-white/25 text-white font-semibold text-[15px] hover:bg-white/10 transition-colors">
               Back To All Work
             </a>
           </div>
@@ -559,6 +554,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 

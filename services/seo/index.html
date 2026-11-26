@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -150,12 +150,12 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -308,134 +308,105 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
-      <!-- Breadcrumbs & Hero -->
-      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
-        <img src="../../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
-          <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-mono-sm text-white/75">
-            <a href="../../index.html" class="hover:text-[#FF9F7A]">Home</a>
-            <span>/</span>
-            <a href="../index.html" class="hover:text-[#FF9F7A]">Services</a>
-            <span>/</span>
-            <span class="text-white">SEO</span>
-          </nav>
+      <!-- Warm Split SEO Hero -->
+      <section class="bg-[#F7F6F4] pt-32 pb-16 lg:pt-36 lg:pb-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-[12px] text-[#71717A]">
+              <a href="../../index.html" class="hover:text-[#A83300]">Home</a>
+              <span>/</span>
+              <a href="../index.html" class="hover:text-[#A83300]">Services</a>
+              <span>/</span>
+              <span class="text-[#18181B]">SEO</span>
+            </nav>
 
-          <div class="flex items-center gap-2">
-            <span class="font-body text-[14px] font-semibold text-[#FF9F7A]">Search Engine Optimization</span>
-            <span class="font-mono text-mono-sm text-white/75">Organic Visibility</span>
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Search Engine Optimization · Organic Visibility</span>
+
+            <h1 class="font-display font-semibold text-[34px] sm:text-[44px] lg:text-[50px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
+              Dominate search rankings with <span class="text-[#E85D2A]">data-driven SEO.</span>
+            </h1>
+
+            <p class="font-body text-[17px] leading-[1.6] text-[#52525B] max-w-[52ch]">
+              Our SEO service improves website visibility and drives organic traffic by optimizing on-page elements, building authority through quality backlinks, and ensuring technical excellence.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[15px] transition-colors">
+                <span>Request SEO Audit</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+              </a>
+              <span class="font-mono text-[12px] text-[#52525B]">Ahrefs Agency Partner · Google Analytics Certified</span>
+            </div>
           </div>
 
-          <h1 class="hero-headline font-body font-bold text-white max-w-4xl text-balance">
-            Dominate search rankings with <span class="text-[#FF8A5C]">data-driven SEO.</span>
-          </h1>
-
-          <p class="font-body text-body-lg text-[#E4E4E7] max-w-3xl text-pretty">
-            Our SEO service improves website visibility and drives organic traffic by optimizing on-page elements, building authority through quality backlinks, and ensuring technical excellence.
-          </p>
-
-          <div class="flex flex-wrap items-center gap-4 pt-4">
-            <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-brand-charcoal transition-colors">
-              Request SEO Audit
-            </a>
-            <div class="flex items-center gap-3">
-              <span class="px-3 py-1.5 rounded bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 font-label text-label-sm text-white">Ahrefs Agency Partner</span>
-              <span class="px-3 py-1.5 rounded bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 font-label text-label-sm text-white">Google Analytics Certified</span>
-            </div>
+          <div class="lg:col-span-5 flex items-center justify-center">
+            <img src="../../images/svc_02_seo.jpg" alt="Search engine optimization and organic rankings illustration" class="w-full max-w-[440px] h-auto object-contain" style="mix-blend-mode: multiply; filter: brightness(1.03) contrast(1.03);" loading="eager" decoding="async">
           </div>
         </div>
       </section>
 
-      <!-- 6 SEO Pillars -->
-      <section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
+      <!-- Ruled 2-Column SEO Scope Index -->
+      <section class="py-20 px-6 bg-[#FFFFFF] border-b border-[#E4E4E7]">
         <div class="max-w-7xl mx-auto flex flex-col gap-12">
-          <div class="flex flex-col gap-3 max-w-2xl">
-            <span class="font-body text-[14px] font-semibold text-light-primary">Scope of Work</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
-              Six core areas of <span class="text-brand-orange">organic authority.</span>
-            </h2>
-            <p class="font-body text-body-md text-light-on-surface-variant">
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="flex flex-col gap-2 max-w-2xl">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Scope of Work</span>
+              <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-[#18181B] text-balance">
+                Six core areas of <span class="text-[#E85D2A]">organic authority.</span>
+              </h2>
+            </div>
+            <p class="font-body text-[15px] text-[#52525B] max-w-md">
               Customizing the process to suit your unique business needs leads to better results and long-term success.
             </p>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <!-- 1. Technical SEO -->
-            <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3.5">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">speed</span>
-                </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">Technical SEO</h3>
-              </div>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 border-t border-[#D4D0C8]">
+            <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
+              <span class="font-mono text-[12px] font-semibold text-[#A83300]">01</span>
+              <h3 class="font-title font-semibold text-[21px] text-[#18181B]">Technical SEO</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Core Web Vitals optimization, site architecture, crawl error resolution, XML sitemaps, structured data schema, and canonical tags.
               </p>
             </div>
 
-            <!-- 2. On-Page SEO -->
-            <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3.5">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">description</span>
-                </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">On-Page SEO</h3>
-              </div>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
+              <span class="font-mono text-[12px] font-semibold text-[#A83300]">02</span>
+              <h3 class="font-title font-semibold text-[21px] text-[#18181B]">On-Page SEO</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Targeted keyword mapping, title &amp; meta description optimization, heading hierarchy (H1-H3), image compression, and internal linking.
               </p>
             </div>
 
-            <!-- 3. Off-Page SEO -->
-            <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3.5">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">link</span>
-                </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">Off-Page &amp; Authority</h3>
-              </div>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
+              <span class="font-mono text-[12px] font-semibold text-[#A83300]">03</span>
+              <h3 class="font-title font-semibold text-[21px] text-[#18181B]">Off-Page &amp; Authority</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Quality backlink acquisition, digital PR mentions, guest posting on authoritative domain niches, and unlinked brand citation reclamation.
               </p>
             </div>
 
-            <!-- 4. Local SEO -->
-            <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3.5">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">location_on</span>
-                </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">Local SEO &amp; Maps</h3>
-              </div>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
+              <span class="font-mono text-[12px] font-semibold text-[#A83300]">04</span>
+              <h3 class="font-title font-semibold text-[21px] text-[#18181B]">Local SEO &amp; Maps</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Google Business Profile optimization, localized citation consistency (NAP), geo-tagged media, and review management for high proximity rank.
               </p>
             </div>
 
-            <!-- 5. E-Commerce SEO -->
-            <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3.5">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">shopping_cart</span>
-                </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">E-Commerce SEO</h3>
-              </div>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
+              <span class="font-mono text-[12px] font-semibold text-[#A83300]">05</span>
+              <h3 class="font-title font-semibold text-[21px] text-[#18181B]">E-Commerce SEO</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Product catalog optimization, category page breadcrumbs, faceted navigation crawl budget management, and rich snippet review markup.
               </p>
             </div>
 
-            <!-- 6. Mobile App SEO (ASO) -->
-            <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3.5">
-              <div class="flex items-center gap-3">
-                <div class="w-9 h-9 rounded bg-brand-charcoal flex items-center justify-center text-brand-orange shrink-0">
-                  <span class="material-symbols-outlined text-[18px]" aria-hidden="true">smartphone</span>
-                </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">Mobile App SEO (ASO)</h3>
-              </div>
-              <p class="font-body text-body-md text-light-on-surface-variant">
+            <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
+              <span class="font-mono text-[12px] font-semibold text-[#A83300]">06</span>
+              <h3 class="font-title font-semibold text-[21px] text-[#18181B]">Mobile App SEO (ASO)</h3>
+              <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">
                 Google Play Store and Apple App Store optimization: keyword indexing in title/subtitle, icon A/B testing, and localization.
               </p>
             </div>
@@ -630,6 +601,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 

@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -150,12 +150,12 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -309,196 +309,176 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
-      <!-- Hero Header Section -->
-      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
-        <img src="../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
-          <div class="flex items-center gap-2">
-            <span class="font-body text-[14px] font-semibold text-[#FF9F7A]">Case Studies &amp; Client Family</span>
-            <span class="font-mono text-mono-sm text-white/75">150+ Happy Clients</span>
+      <!-- Warm Editorial Portfolio Masthead -->
+      <section class="bg-[#F7F6F4] pt-32 pb-14 lg:pt-36 lg:pb-16 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-6">
+          <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Case Studies &amp; Client Family</span>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+            <h1 class="lg:col-span-7 font-display font-semibold text-[36px] sm:text-[46px] lg:text-[54px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
+              Real brands. Real campaigns. <span class="text-[#E85D2A]">Measurable results.</span>
+            </h1>
+            <p class="lg:col-span-5 font-body text-[16.5px] leading-[1.6] text-[#52525B] max-w-[44ch]">
+              Over the years, Sphinix Marketing has partnered with 150+ businesses across 15+ industries to build digital presence and consistent growth.
+            </p>
           </div>
 
-          <h1 class="hero-headline font-body font-bold text-white max-w-4xl text-balance">
-            Real brands. Real campaigns. <span class="text-[#FF8A5C]">Measurable results.</span>
-          </h1>
-
-          <p class="font-body text-body-lg text-[#E4E4E7] max-w-3xl text-pretty">
-            Over the years, Sphinix Marketing has partnered with businesses across 15+ industries, helping them build their digital presence, grow their audience, and achieve consistent business growth.
-          </p>
-
           <!-- Filter Tabs -->
-          <div class="pt-6 flex flex-wrap items-center gap-2" role="tablist">
+          <div class="pt-4 flex flex-wrap items-center gap-2" role="tablist" aria-label="Filter projects by industry">
             <button type="button" data-filter="all" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-light-primary text-light-on-primary transition-colors">All Work</button>
-            <button type="button" data-filter="iot" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">IoT &amp; Tech</button>
-            <button type="button" data-filter="healthcare" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Healthcare</button>
-            <button type="button" data-filter="ecommerce" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Retail &amp; E-Commerce</button>
-            <button type="button" data-filter="industrial" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Manufacturing &amp; Marine</button>
-            <button type="button" data-filter="jewelry" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Jewelry &amp; Real Estate</button>
+            <button type="button" data-filter="iot" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">IoT &amp; Tech</button>
+            <button type="button" data-filter="healthcare" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Healthcare</button>
+            <button type="button" data-filter="ecommerce" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Retail &amp; E-Commerce</button>
+            <button type="button" data-filter="industrial" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Manufacturing &amp; Marine</button>
+            <button type="button" data-filter="jewelry" class="filter-btn px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Jewelry &amp; Real Estate</button>
           </div>
         </div>
       </section>
 
-      <!-- Case Studies Grid -->
-      <section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
-        <div class="max-w-7xl mx-auto">
-          <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <!-- Dark Flagship Case Study Showcase: aabo -->
+      <section class="bg-[#18181B] text-white py-16 lg:py-20 px-6 border-b border-[#27272A]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-6">
+            <a href="aabo/index.html" class="block overflow-hidden rounded-lg border border-white/10 group">
+              <img src="../images/svc_04_branding.jpg" alt="Brand identity and packaging showcase for aabo connected safety" class="w-full aspect-[16/10] object-cover transition-transform duration-300 group-hover:scale-[1.02]" loading="eager" decoding="async">
+            </a>
+          </div>
+          <div class="lg:col-span-6 flex flex-col items-start gap-5">
+            <span class="font-mono text-[12px] tracking-[0.08em] uppercase text-[#FF9F7A]">Featured Case Study · IoT Smart Safety</span>
+            <h2 class="font-display font-semibold text-[30px] sm:text-[38px] leading-[1.1] tracking-[-0.025em] text-white">
+              aabo<span class="text-[#E85D2A]">.</span> — Connected Safety Ecosystem
+            </h2>
+            <p class="font-body text-[16px] leading-[1.65] text-white/75 max-w-[48ch]">
+              Brand identity, packaging architecture, digital go-to-market strategy, and localized lead acquisition for an innovative smart IoT security solution.
+            </p>
+            <div class="flex flex-wrap items-center gap-6 pt-2">
+              <a href="aabo/index.html" class="group inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[14px] transition-colors duration-150">
+                <span>View Case Study</span>
+                <span class="material-symbols-outlined text-[17px] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true">north_east</span>
+              </a>
+              <span class="font-mono text-[12px] text-white/60">Branding · Packaging · Web · Performance</span>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            <!-- 1. aabo (Featured) -->
-            <article data-category="iot" class="project-card group bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between hover:border-light-primary transition-colors duration-state-change">
-              <div class="p-8 flex flex-col gap-6">
+      <!-- Visual Portfolio Grid -->
+      <section class="py-20 px-6 bg-[#FFFFFF] border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto">
+          <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
+
+            <!-- 1. aabo -->
+            <article data-category="iot" class="project-card group flex flex-col gap-4">
+              <a href="aabo/index.html" class="block aspect-[16/10] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]">
+                <img src="../images/svc_04_branding.jpg" alt="aabo connected safety branding and packaging" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-[1.02]" loading="lazy" decoding="async">
+              </a>
+              <div class="flex flex-col gap-2">
                 <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-1.5 text-light-on-surface">
-                    <span class="font-display text-headline-md tracking-tight">aabo</span>
-                    <span class="w-2.5 h-2.5 rounded-full bg-brand-orange -mt-4"></span>
-                  </div>
-                  <span class="font-mono text-mono-sm text-light-primary px-2.5 py-1 rounded bg-light-surface border border-light-outline-variant">Featured Study</span>
+                  <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#A83300]">IoT &amp; Smart Safety</span>
+                  <span class="font-mono text-[11.5px] text-[#71717A]">Branding · Web</span>
                 </div>
-                <div class="flex flex-col gap-2">
-                  <span class="font-label text-label-sm text-light-outline uppercase">IoT Smart Safety &amp; Healthcare</span>
-                  <h3 class="font-headline text-title-lg text-light-on-surface group-hover:text-light-primary transition-colors">
-                    aabo — Connected Safety Ecosystem
-                  </h3>
-                  <p class="font-body text-body-md text-light-on-surface-variant">
-                    Brand identity, packaging design, digital go-to-market strategy, and localized lead acquisition for an innovative smart IoT security solution.
-                  </p>
-                </div>
-              </div>
-              <div class="p-6 bg-light-surface border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-on-surface">Branding • Web • Performance</span>
-                <a href="aabo/index.html" class="inline-flex items-center gap-1 font-label text-label-md text-light-primary hover:underline">
-                  <span>View Case Study</span>
-                  <span class="material-symbols-outlined text-title-sm">north_east</span>
-                </a>
+                <h3 class="font-headline font-semibold text-[21px] leading-[1.25] text-[#18181B] group-hover:text-[#A83300] transition-colors">
+                  <a href="aabo/index.html">aabo — Connected Safety Ecosystem</a>
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
+                  Brand identity, packaging design, digital go-to-market strategy, and localized lead acquisition for smart IoT security.
+                </p>
               </div>
             </article>
 
             <!-- 2. WeConnect Care -->
-            <article data-category="healthcare" class="project-card group bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between hover:border-light-primary transition-colors duration-state-change">
-              <div class="p-8 flex flex-col gap-6">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2 text-light-on-surface">
-                    <svg class="w-7 h-7 text-brand-orange shrink-0" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                      <rect x="3" y="3" width="26" height="26" rx="7" stroke="currentColor" stroke-width="2.5"></rect>
-                      <path d="M16 9V23M9 16H23" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"></path>
-                    </svg>
-                    <span class="font-headline text-title-md">WeConnect Care</span>
-                  </div>
-                  <span class="font-mono text-mono-sm text-light-outline">Healthcare</span>
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span class="font-label text-label-sm text-light-outline uppercase">Patient Engagement &amp; Marketing</span>
-                  <h3 class="font-headline text-title-lg text-light-on-surface group-hover:text-light-primary transition-colors">
-                    Automated Inquiries &amp; Hospital Reach
-                  </h3>
-                  <p class="font-body text-body-md text-light-on-surface-variant">
-                    Multi-channel social reels, hyper-local Google Ads, and automated WhatsApp inquiry pipelines via ChatBox 360 Suite.
-                  </p>
-                </div>
+            <article data-category="healthcare" class="project-card group flex flex-col gap-4">
+              <div class="aspect-[16/10] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]">
+                <img src="../images/impact_collaboration.jpg" alt="WeConnect Care healthcare campaign analytics" class="w-full h-full object-cover" loading="lazy" decoding="async">
               </div>
-              <div class="p-6 bg-light-surface border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-on-surface">Social • Ads • WhatsApp API</span>
-                <span class="material-symbols-outlined text-title-sm text-light-outline">verified</span>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#A83300]">Healthcare</span>
+                  <span class="font-mono text-[11.5px] text-[#71717A]">Social · Ads · WhatsApp</span>
+                </div>
+                <h3 class="font-headline font-semibold text-[21px] leading-[1.25] text-[#18181B]">
+                  WeConnect Care — Patient Engagement
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
+                  Multi-channel social reels, hyper-local Google Ads, and automated WhatsApp inquiry pipelines via ChatBox 360 Suite.
+                </p>
               </div>
             </article>
 
             <!-- 3. Saurashtra Group -->
-            <article data-category="industrial" class="project-card group bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between hover:border-light-primary transition-colors duration-state-change">
-              <div class="p-8 flex flex-col gap-6">
-                <div class="flex items-center justify-between">
-                  <div class="flex items-center gap-2 text-light-on-surface">
-                    <svg class="w-7 h-7 text-brand-charcoal shrink-0" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-                      <polygon points="16,4 28,26 4,26" stroke="currentColor" stroke-width="2.5" stroke-linejoin="round"></polygon>
-                      <circle cx="16" cy="19" r="3" fill="#E85D2A"></circle>
-                    </svg>
-                    <span class="font-headline text-title-md uppercase tracking-wider">Saurashtra</span>
-                  </div>
-                  <span class="font-mono text-mono-sm text-light-outline">Enterprise</span>
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span class="font-label text-label-sm text-light-outline uppercase">Industrial Conglomerate</span>
-                  <h3 class="font-headline text-title-lg text-light-on-surface group-hover:text-light-primary transition-colors">
-                    Corporate Digital Identity &amp; B2B Growth
-                  </h3>
-                  <p class="font-body text-body-md text-light-on-surface-variant">
-                    End-to-end corporate web development, technical B2B SEO, and comprehensive marketing collateral design.
-                  </p>
-                </div>
+            <article data-category="industrial" class="project-card group flex flex-col gap-4">
+              <div class="aspect-[16/10] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]">
+                <img src="../images/svc_08_dev.jpg" alt="Saurashtra Group corporate web development" class="w-full h-full object-cover" loading="lazy" decoding="async">
               </div>
-              <div class="p-6 bg-light-surface border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-on-surface">Web Dev • SEO • Print</span>
-                <span class="material-symbols-outlined text-title-sm text-light-outline">verified</span>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#A83300]">Enterprise &amp; Industrial</span>
+                  <span class="font-mono text-[11.5px] text-[#71717A]">Web Dev · SEO</span>
+                </div>
+                <h3 class="font-headline font-semibold text-[21px] leading-[1.25] text-[#18181B]">
+                  Saurashtra — Corporate Digital Identity
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
+                  End-to-end corporate web development, technical B2B SEO, and comprehensive marketing collateral design.
+                </p>
               </div>
             </article>
 
-            <!-- 4. Veer Jewellers & Riyom Jewels -->
-            <article data-category="jewelry" class="project-card group bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between hover:border-light-primary transition-colors duration-state-change">
-              <div class="p-8 flex flex-col gap-6">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline text-title-md text-light-on-surface">Veer Jewellers</span>
-                  <span class="font-mono text-mono-sm text-light-outline">Jewelry &amp; Luxury</span>
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span class="font-label text-label-sm text-light-outline uppercase">Festival Campaigns &amp; High-End Reels</span>
-                  <h3 class="font-headline text-title-lg text-light-on-surface group-hover:text-light-primary transition-colors">
-                    Bridal Collection Launch Campaigns
-                  </h3>
-                  <p class="font-body text-body-md text-light-on-surface-variant">
-                    Studio video production, macro jewelry cinematography, Instagram reel sequences, and festival greeting promotions.
-                  </p>
-                </div>
+            <!-- 4. Veer Jewellers -->
+            <article data-category="jewelry ecommerce" class="project-card group flex flex-col gap-4">
+              <div class="aspect-[16/10] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]">
+                <img src="../images/video_showcase_reel.jpg" alt="Veer Jewellers studio video production" class="w-full h-full object-cover" loading="lazy" decoding="async">
               </div>
-              <div class="p-6 bg-light-surface border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-on-surface">Video Studio • Social • Creative</span>
-                <span class="material-symbols-outlined text-title-sm text-light-outline">verified</span>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#A83300]">Jewelry &amp; Luxury</span>
+                  <span class="font-mono text-[11.5px] text-[#71717A]">Video · Social</span>
+                </div>
+                <h3 class="font-headline font-semibold text-[21px] leading-[1.25] text-[#18181B]">
+                  Veer Jewellers — Bridal Launch Campaigns
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
+                  Studio video production, macro jewelry cinematography, Instagram reel sequences, and festival greeting promotions.
+                </p>
               </div>
             </article>
 
-            <!-- 5. Alang Marine & Ship Recycling -->
-            <article data-category="industrial" class="project-card group bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between hover:border-light-primary transition-colors duration-state-change">
-              <div class="p-8 flex flex-col gap-6">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline text-title-md text-light-on-surface">Alang Marine</span>
-                  <span class="font-mono text-mono-sm text-light-outline">Marine &amp; Export</span>
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span class="font-label text-label-sm text-light-outline uppercase">Global Maritime &amp; Industrial Supply</span>
-                  <h3 class="font-headline text-title-lg text-light-on-surface group-hover:text-light-primary transition-colors">
-                    Global Export Catalog &amp; Technical SEO
-                  </h3>
-                  <p class="font-body text-body-md text-light-on-surface-variant">
-                    Global website overhaul, international keyword ranking, digital catalog design, and export buyer lead capture.
-                  </p>
-                </div>
+            <!-- 5. Alang Marine -->
+            <article data-category="industrial ecommerce" class="project-card group flex flex-col gap-4">
+              <div class="aspect-[16/10] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]">
+                <img src="../images/svc_02_seo.jpg" alt="Alang Marine global export SEO" class="w-full h-full object-cover" loading="lazy" decoding="async">
               </div>
-              <div class="p-6 bg-light-surface border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-on-surface">Global SEO • Web • Catalog</span>
-                <span class="material-symbols-outlined text-title-sm text-light-outline">verified</span>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#A83300]">Marine &amp; Export</span>
+                  <span class="font-mono text-[11.5px] text-[#71717A]">Global SEO · Web</span>
+                </div>
+                <h3 class="font-headline font-semibold text-[21px] leading-[1.25] text-[#18181B]">
+                  Alang Marine — Global Export Catalog
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
+                  Global website overhaul, international keyword ranking, digital catalog design, and export buyer lead capture.
+                </p>
               </div>
             </article>
 
-            <!-- 6. Crestline & Nirmaan Realty -->
-            <article data-category="jewelry" class="project-card group bg-light-surface-container-lowest border border-light-outline-variant rounded-xl overflow-hidden flex flex-col justify-between hover:border-light-primary transition-colors duration-state-change">
-              <div class="p-8 flex flex-col gap-6">
-                <div class="flex items-center justify-between">
-                  <span class="font-headline text-title-md text-light-on-surface">Nirmaan Realty</span>
-                  <span class="font-mono text-mono-sm text-light-outline">Real Estate</span>
-                </div>
-                <div class="flex flex-col gap-2">
-                  <span class="font-label text-label-sm text-light-outline uppercase">Luxury Residential Launches</span>
-                  <h3 class="font-headline text-title-lg text-light-on-surface group-hover:text-light-primary transition-colors">
-                    Project Launch Funnels &amp; 3D Video Ads
-                  </h3>
-                  <p class="font-body text-body-md text-light-on-surface-variant">
-                    Meta ad lead generation, brochure design, architectural video tours, and automated WhatsApp site visit bookings.
-                  </p>
-                </div>
+            <!-- 6. Nirmaan Realty -->
+            <article data-category="jewelry" class="project-card group flex flex-col gap-4">
+              <div class="aspect-[16/10] rounded-lg overflow-hidden border border-[#E4E4E7] bg-[#F7F6F4]">
+                <img src="../images/insight_featured_card.jpg" alt="Nirmaan Realty residential launch funnels" class="w-full h-full object-cover" loading="lazy" decoding="async">
               </div>
-              <div class="p-6 bg-light-surface border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-on-surface">Meta Ads • 3D Video • CRM</span>
-                <span class="material-symbols-outlined text-title-sm text-light-outline">verified</span>
+              <div class="flex flex-col gap-2">
+                <div class="flex items-center justify-between">
+                  <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#A83300]">Real Estate</span>
+                  <span class="font-mono text-[11.5px] text-[#71717A]">Meta Ads · CRM</span>
+                </div>
+                <h3 class="font-headline font-semibold text-[21px] leading-[1.25] text-[#18181B]">
+                  Nirmaan Realty — Residential Launch Funnels
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
+                  Meta ad lead generation, brochure design, architectural video tours, and automated WhatsApp site visit bookings.
+                </p>
               </div>
             </article>
 
@@ -506,95 +486,57 @@
         </div>
       </section>
 
-      <!-- Client Family Logo Showcase (+100 More) -->
-      <section class="py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant">
-        <div class="max-w-7xl mx-auto flex flex-col gap-12">
+      <!-- Ruled Client Family Directory (+100 More) -->
+      <section class="py-20 px-6 bg-[#F7F6F4] border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-10">
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div class="flex flex-col gap-3 max-w-2xl">
-              <span class="font-body text-[14px] font-semibold text-light-primary">Client Family</span>
-              <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
-                Trusted by <span class="text-brand-orange tabular-nums">150+</span> companies worldwide.
+            <div class="flex flex-col gap-2 max-w-2xl">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Client Family</span>
+              <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-[#18181B]">
+                Trusted by <span class="text-[#E85D2A] tabular-nums">150+</span> companies worldwide.
               </h2>
             </div>
-            <span class="px-4 py-2 rounded-full bg-light-surface border border-light-outline-variant font-mono text-mono-sm text-light-on-surface">
-              +100 More Brand Partners
-            </span>
+            <span class="font-mono text-[12px] text-[#52525B]">+100 More Brand Partners</span>
           </div>
 
-          <!-- Client Wall -->
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              aabo
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              WeConnect
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Saurashtra
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Veer Jewellers
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Alang Marine
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Nicro Metals
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Durva Gastro Care
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              VASTRA
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Shivalik
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Saffron
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Nirmaan
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Nilambag
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Oilenza
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Janmoti
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              FunBun
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Kothari
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Riyom Jewels
-            </div>
-            <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex items-center justify-center font-headline text-title-md text-light-on-surface">
-              Pishi Holidays
-            </div>
-          </div>
+          <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 border-t border-[#D4D0C8]">
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">aabo</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">WeConnect</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Saurashtra</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Veer Jewellers</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Alang Marine</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Nicro Metals</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Durva Gastro Care</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">VASTRA</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Shivalik</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Saffron</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Nirmaan</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Nilambag</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Oilenza</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Janmoti</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">FunBun</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Kothari</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Riyom Jewels</li>
+            <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">Pishi Holidays</li>
+          </ul>
         </div>
       </section>
 
-      <!-- CTA Section -->
-      <section class="py-20 px-6 bg-brand-charcoal text-light-on-secondary">
+      <!-- Warm Editorial Closing CTA -->
+      <section class="py-20 px-6 bg-[#FFF8F1] border-b border-[#E4E4E7]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div class="flex flex-col gap-4 max-w-xl">
-            <span class="font-body text-[14px] font-semibold text-brand-orange">Join The Family</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-secondary">
+          <div class="flex flex-col gap-3 max-w-xl">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Join The Family</span>
+            <h2 class="font-display font-semibold text-[32px] sm:text-[38px] leading-[1.1] tracking-[-0.025em] text-[#18181B]">
               Ready to write your growth story?
             </h2>
-            <p class="font-body text-body-lg text-light-on-secondary/80">
+            <p class="font-body text-[16px] leading-[1.6] text-[#52525B]">
               Let’s explore how our strategic services and proprietary software tools can elevate your brand.
             </p>
           </div>
-          <a href="../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-light-primary/90 transition-colors">
-            Start A Project
+          <a href="../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[15px] transition-colors shrink-0">
+            <span>Start A Project</span>
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
       </section>
@@ -677,6 +619,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 
@@ -759,13 +720,14 @@
           const filter = btn.dataset.filter;
           filterBtns.forEach(b => {
             b.classList.remove('bg-light-primary', 'text-light-on-primary');
-            b.classList.add('bg-light-surface', 'border', 'border-light-outline-variant', 'text-light-on-surface');
+            b.classList.add('bg-white', 'border', 'border-[#D4D0C8]', 'text-[#18181B]');
           });
-          btn.classList.remove('bg-light-surface', 'border', 'border-light-outline-variant', 'text-light-on-surface');
+          btn.classList.remove('bg-white', 'border', 'border-[#D4D0C8]', 'text-[#18181B]');
           btn.classList.add('bg-light-primary', 'text-light-on-primary');
 
           projectCards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
+            const categories = (card.dataset.category || '').split(/\s+/);
+            if (filter === 'all' || categories.includes(filter)) {
               card.style.display = 'flex';
             } else {
               card.style.display = 'none';

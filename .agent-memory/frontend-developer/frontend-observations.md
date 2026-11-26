@@ -1,31 +1,22 @@
-# Frontend & UI/UX Observations (Agent 02)
+# Frontend & UI/UX Observations — Full 11-Page Audit (Agent 02)
 
-## Audit Target
-- `c:\Users\hm901\Desktop\sphinix\index.html` (1,430 lines)
-- `c:\Users\hm901\Desktop\sphinix\services\index.html` (1,575 lines)
+## Audit Scope (2026-11-25)
+Inspected all 11 HTML pages and all 14 assets in `c:\Users\hm901\Desktop\sphinix\images\`:
+- **Updated/Partially Updated (Manrope present)**: `index.html` (1,849 lines), `about/index.html` (736 lines), `services/index.html` (1,103 lines).
+- **Legacy Subpages (Still on `bg-[#202020]` hero + `Plus Jakarta Sans` only)**: `work/index.html` (780 lines), `work/aabo/index.html` (638 lines), `blog/index.html` (703 lines), `contact/index.html` (704 lines), `products/index.html` (737 lines), `services/seo/index.html` (709 lines), `services/social-media-marketing/index.html` (696 lines), `404.html` (515 lines).
 
-## Findings on `services/index.html`
-1. **Header & Hero Alignment (Good)**:
-   - Lines 1–339 already share the exact Tailwind config, fonts (`Plus Jakarta Sans`, `JetBrains Mono`, `Material Symbols Outlined`), `#site-header` / `#nav-pill`, and `.hero-canvas` (`#FFF8F1` -> `#F4E8D5`) as `index.html`.
-2. **Severe Visual Disconnect in Sections 01–08 (Lines 344–1396)**:
-   - All 8 service sections use an off-system brochure aesthetic:
-     - Outer section: `bg-[#F1F1F1]`
-     - Full-width lower band: `bg-[#E65526]` (`h-[46%]`)
-     - Primary card: `bg-[#A42220]` (deep-ember red) with white text and `text-white/25` `01`–`08` numerals
-     - Overlapping accent card: `bg-[#EB9131]` (warm amber) with `lg:-ml-8 lg:mt-20` negative-margin overlap
-     - Work Process band: `bg-[#E65526]` (flame orange) with `text-[#1A1A1A]/25` `1`–`6` numerals
-3. **UX & Hierarchy Issues**:
-   - **Color Saturation Fatigue**: Repeating red + amber + orange 8 consecutive times destroys visual hierarchy and clashes with `index.html`'s calm `#FFF8F1` / `#F7F6F4` / `#FFFFFF` / `#202020` / `#E85C27` editorial palette.
-   - **Contrast & Legibility**: Oversized `01–08` numerals (`text-white/25` on `#A42220`) and `1–6` step numerals (`text-[#1A1A1A]/25` on `#E65526`) have low contrast and look decorative rather than precision-indexed.
-   - **Missing Action Paths on 03–08**: `01` (`social-media-marketing/index.html`) and `02` (`seo/index.html`) have `Explore ... Service` links, while `03`–`08` have no contextual CTA link (e.g., `Request Strategy Call` / `../contact/index.html`).
-   - **Static Anchor Pills**: Hero quick-nav pills (lines 328–337) scroll out of view immediately, making navigation across 8 long service blocks cumbersome.
-
-## Phase 2 Redesign Direction (Linear/Stripe/Vercel Restraint + PDF Spirit)
-- **Preserve PDF Content & Structure**: Keep all 8 sections (`01`–`08`), partner badges, deliverable lists, platform/tool containers (`& More` notes), value highlight pillars/quotes (including `$36 avg ROI` on Email Marketing), and 5–6 step Work Process with disclaimer note.
-- **Alternating Surface Rhythm**: Alternate sections between `#F7F6F4` (`bg-light-surface`) and `#FFFFFF` (`bg-light-surface-container-lowest`) with `border-b border-light-outline-variant` (`#E4E4E7`), matching `index.html`.
-- **Card & Grid Architecture**:
-  - Replace overlapping `#A42220` + `#EB9131` cards with a clean `lg:grid-cols-12 gap-6 items-stretch` two-panel layout:
-    - Left 7 cols: Deliverables checklist + integrated bottom Platforms/Tools bar (`border-t border-light-outline-variant`).
-    - Right 5 cols: Value Highlight panel in `#FFF8F1` warm cream (`border border-[#E8DEC8]`) or `#F2F0EC` stone (`border border-light-outline-variant`) with restrained `#E85C27` / `#A83300` accents and `#202020` ink.
-  - Replace full-bleed `#E65526` Work Process band with a structured stepped timeline container (`rounded-xl border border-light-outline-variant`) featuring `JetBrains Mono` step indices (`01`, `02`, ...) in `#A83300` on `#FFF8F1`.
-- **Sticky Sub-Navigation Bar**: Add a sticky `01`–`08` discipline index bar below the `72px` header for effortless jumping across services.
+## Key Findings
+1. **Severe Visual & Typographic Split Across Site**:
+   - `index.html` (hero/upper sections), `about/index.html` (hero), and `services/index.html` (entire page) use **Manrope**, warm `#F7F6F4` / `#FFF8F1` surfaces, and editorial restraint.
+   - All 8 remaining pages (`work`, `work/aabo`, `blog`, `contact`, `products`, `services/seo`, `services/social-media-marketing`, `404`) still load `Plus Jakarta Sans` without `Manrope` and use the heavy dark `bg-[#202020]` + `subpage_hero_agency.jpg` banner.
+2. **Underutilized Image Assets (12 of 14 Unused on Subpages)**:
+   - The 7 content subpages only reference `sphinix_logo.webp` and `subpage_hero_agency.jpg`.
+   - High-resolution assets (`svc_01_social.jpg` through `svc_08_dev.jpg`, `impact_collaboration.jpg`, `video_showcase_reel.jpg`, `insight_featured_card.jpg`, `hero_agency_team.jpg`) are completely absent from `work/index.html`, `work/aabo/index.html`, `blog/index.html`, `products/index.html`, `services/seo/index.html`, and `services/social-media-marketing/index.html`.
+3. **Repetitive Card-Grid Fatigue**:
+   - `work/index.html` renders 6 identical text-only `rounded-xl` cards with zero project imagery.
+   - `blog/index.html` renders 6 identical `rounded-xl` article cards instead of an editorial publication list.
+   - `services/seo/index.html` and `services/social-media-marketing/index.html` repeat 6-card / 4-card grids.
+   - `index.html` lower sections (`#products`, `#insights`, `#contact`) still use `Plus Jakarta Sans` and an overly saturated `#A83300` full-bleed card for `SocialSuite`.
+4. **Contact & 404 Hero Friction**:
+   - `contact/index.html` puts a tall `pt-36 pb-20` dark hero above the consultation form, pushing the primary conversion form below the fold on laptops.
+   - `404.html` still uses the old styling without Manrope editorial consistency.

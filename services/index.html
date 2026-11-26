@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -194,25 +194,25 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
     .services-editorial-font {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
     }
     .services-main-h1 {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
       font-size: clamp(2.15rem, 1.55rem + 2.1vw, 3.25rem);
       font-weight: 620;
       line-height: 1.04;
       letter-spacing: -0.028em;
     }
     .services-section-label {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
       font-weight: 600;
     }
     .service-title {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
       font-weight: 600;
     }
     .service-desc-body {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
       font-weight: 400;
     }
     #nav-pill .nav-link {
@@ -224,8 +224,8 @@
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -379,7 +379,7 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20 bg-[#F7F6F4]">
+    <main class="flex-1 -mt-[84px] bg-[#F7F6F4]">
 
       <!-- Single Editorial Two-Column Services Section -->
       <section class="pt-28 pb-12 lg:pt-28 lg:pb-12 px-6">
@@ -937,6 +937,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 

@@ -47,3 +47,47 @@
   - Head Office address omits pin code `364001` on `index.html:1164` but includes it on `services/index.html:1433`.
   - `index.html:1133` `Partner With Us` uses `mailto:info@sphinixmarketing.com`, whereas header/mobile `Partner With Us` links to `contact/index.html`.
   - `services/index.html:350–1282`: Only 2 of 8 services (`social-media`, `seo`) have dedicated subpages and "Explore ... Service" links; the other 6 lack subpages despite `DESIGN.md` §3 listing all 8 routes.
+
+---
+
+## 6. [CRITICAL — Phase 1 Audit] Identical Dark `subpage_hero_agency.jpg` Hero Template Across 7 Subpages
+- **Evidence:**
+  - `services/seo/index.html:314–316`
+  - `services/social-media-marketing/index.html:314–316`
+  - `work/index.html:315–317`
+  - `work/aabo/index.html:314–316`
+  - `products/index.html:315–317`
+  - `blog/index.html:315–317`
+  - `contact/index.html:315–317`
+  - (Also `about/index.html:321` reuses `../images/subpage_hero_agency.jpg` in its refined light editorial hero — keep About Hero intact, replace/differentiate the 7 dark clones.)
+- **Defect:** All 7 subpages stamp the exact same `bg-[#202020]` + `subpage_hero_agency.jpg` + `bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52` banner. Every page feels like the same cloned template before the user even scrolls.
+- **Fix:** Replace the 7 identical dark photo-overlay banners with distinct, page-appropriate editorial hero compositions (e.g., light `#F7F6F4` split/typographic heroes with bespoke imagery/UI previews for Products/Work/SEO/SMM, compact editorial header for Blog/Contact).
+
+## 7. [HIGH — Phase 1 Audit] Inconsistent `Manrope` vs. `Plus Jakarta Sans` Typography System
+- **Evidence:**
+  - **8 pages never load `Manrope` at all:** `services/seo/index.html:102`, `services/social-media-marketing/index.html:102`, `work/index.html:102`, `work/aabo/index.html:102`, `products/index.html:102`, `blog/index.html:102`, `contact/index.html:102`, `404.html:103` only import `Plus Jakarta Sans` and `JetBrains Mono`.
+  - **3 pages load `Manrope` but still default Tailwind tokens to `Plus Jakarta Sans`:** `index.html:83–87` (`tailwind.config` maps `display`/`headline`/`title`/`body`/`label` to `Plus Jakarta Sans`), `about/index.html:63–67`, `services/index.html:63–67`. Only scoped classes (`.home-hero-font`, `.about-editorial-font`, `.services-editorial-font`) use `Manrope`.
+  - Result: `index.html` mixes `Manrope` (Hero, Services Carousel, Industries) with `Plus Jakarta Sans` (Impact, Products, Testimonials, Insights, Contact, Footer), and the 8 subpages are 100% `Plus Jakarta Sans`.
+- **Fix:** Standardize `Manrope` + `JetBrains Mono` in `<head>` and `tailwind.config.theme.fontFamily` across all 11 pages.
+
+## 8. [HIGH — Phase 1 Audit] Repetitive AI-Slop `label + heading + box-grid` & Layout Monotony
+- **Evidence:**
+  - `products/index.html:348–563`: 3 consecutive identical `lg:col-span-5` + `lg:col-span-7 grid-cols-2` sections totaling 14 nearly identical `p-6 rounded-xl` text cards with zero product UI screenshots/visuals.
+  - `work/index.html:345–507`: 6 identical text-only `project-card` boxes with zero project thumbnails; 5 of 6 have no link and end in a static `verified` icon. Followed by `510–582` (18-box text-only `grid-cols-6` client wall duplicating `index.html`).
+  - `blog/index.html:376–502`: 6 identical text-only `article-card` boxes with `north_east` arrow icons that are **not wrapped in `<a>` links** (dead affordance). Line `516` uses `onsubmit="event.preventDefault(); alert(...)"`!
+  - `services/seo/index.html:352–488`: 6 identical icon-box cards (`p-8 rounded-lg`) followed immediately by 5 identical `01`–`05` mono-number cards (`p-6 rounded-lg`).
+  - `services/social-media-marketing/index.html:352–522`: 4 identical `01`–`04` cards, then 8 platform pills + 8 check-circle deliverables, then a cramped `lg:grid-cols-6` (`line 484`) row of 6 `01`–`06` cards.
+  - `work/aabo/index.html:367–459`: 2 identical Challenge/Solution cards followed by 3 identical `01 ·`–`03 ·` execution cards; zero visual artifacts/mockups for a branding & packaging case study.
+  - `about/index.html:429–557`: 3 identical `01 ·`–`03 ·` edge cards + 2 identical facility cards (keep `about` Hero lines `317–373` intact).
+  - `404.html:341–359`: 3 identical destination cards.
+  - **Verbatim Dark CTA Clone:** 7 pages (`about:560`, `work:585`, `work/aabo:462`, `services/seo:538`, `services/social-media-marketing:525`, `products:566`, `blog:505`) end with the exact same `py-20 px-6 bg-brand-charcoal` two-column CTA slab.
+  - **Copy-paste class collisions on dark pills:** `work/index.html:335–339`, `blog/index.html:335–338`, `products/index.html:334–342`, `work/aabo/index.html:331` mix `text-white` with `text-light-on-surface` and `border-white/25` with `border-white/20`.
+- **Fix:** Replace repetitive card grids with varied editorial layouts (ruled index lists, asymmetric splits, compact comparison tables, interactive/visual showcases, real links on Blog/Work cards, and differentiated closing sections).
+
+## 9. [MEDIUM — Phase 1 Audit] Weak Dark/Light Visual Rhythm
+- **Evidence:**
+  - All 6 content subpages (`work`, `work/aabo`, `products`, `blog`, `services/seo`, `services/social-media-marketing`) repeat the exact same cadence: `[Dark Hero]` → `[#F7F6F4]` → `[#FFFFFF]` → (`[#F7F6F4]`) → `[Dark #202020 CTA]` → `[#FFFFFF Footer]`.
+  - `index.html:1009–1381`: 7 consecutive light/stone bands after `#agency-reel` (`#products`, `#industries`, Testimonials, `#insights`, `#contact`, `<footer>`), losing tonal anchor at the bottom of the homepage.
+  - `contact/index.html:491–550`: White FAQ section (`bg-light-surface-container-lowest`) sits directly above white `<footer>` (`bg-light-surface-container-lowest`) with only a 1px border separating them.
+- **Fix:** Introduce purposeful dark `#18181B`/`#202020` or warm `#FFF8F1` focal bands to break up consecutive light/white runs and differentiate page cadences.
+

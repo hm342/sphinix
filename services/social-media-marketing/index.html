@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -150,12 +150,12 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -308,42 +308,41 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
-      <!-- Breadcrumbs & Hero -->
-      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
-        <img src="../../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
-          <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-mono-sm text-white/75">
-            <a href="../../index.html" class="hover:text-[#FF9F7A]">Home</a>
-            <span>/</span>
-            <a href="../index.html" class="hover:text-[#FF9F7A]">Services</a>
-            <span>/</span>
-            <span class="text-white">Social Media</span>
-          </nav>
+      <!-- Warm Split Social Media Hero -->
+      <section class="bg-[#F7F6F4] pt-32 pb-16 lg:pt-36 lg:pb-20 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-7 flex flex-col gap-6">
+            <nav aria-label="Breadcrumb" class="flex items-center gap-2 font-mono text-[12px] text-[#71717A]">
+              <a href="../../index.html" class="hover:text-[#A83300]">Home</a>
+              <span>/</span>
+              <a href="../index.html" class="hover:text-[#A83300]">Services</a>
+              <span>/</span>
+              <span class="text-[#18181B]">Social Media</span>
+            </nav>
 
-          <div class="flex items-center gap-2">
-            <span class="font-body text-[14px] font-semibold text-[#FF9F7A]">Social Media Management</span>
-            <span class="font-mono text-mono-sm text-white/75">Cross-Platform Growth</span>
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Social Media Management · Cross-Platform Growth</span>
+
+            <h1 class="font-display font-semibold text-[34px] sm:text-[44px] lg:text-[50px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
+              Crafting growth across platforms with <span class="text-[#E85D2A]">engaging content.</span>
+            </h1>
+
+            <p class="font-body text-[17px] leading-[1.6] text-[#52525B] max-w-[52ch]">
+              We build high-converting brand communities through strategic content calendars, trendsetting motion reels, high-ROAS paid ads, and daily audience engagement.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+              <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[15px] transition-colors">
+                <span>Request Social Audit</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+              </a>
+              <span class="font-mono text-[12px] text-[#52525B]">Meta Business Partner · LinkedIn Certified</span>
+            </div>
           </div>
 
-          <h1 class="hero-headline font-body font-bold text-white max-w-4xl text-balance">
-            Crafting growth across platforms with <span class="text-[#FF8A5C]">engaging content.</span>
-          </h1>
-
-          <p class="font-body text-body-lg text-[#E4E4E7] max-w-3xl text-pretty">
-            We build high-converting brand communities through strategic content calendars, trendsetting motion reels, high-ROAS paid ads, and daily audience engagement.
-          </p>
-
-          <div class="flex flex-wrap items-center gap-4 pt-4">
-            <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-brand-charcoal transition-colors">
-              Request Social Audit
-            </a>
-            <div class="flex items-center gap-3">
-              <span class="px-3 py-1.5 rounded bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 font-label text-label-sm text-white">Meta Business Partner</span>
-              <span class="px-3 py-1.5 rounded bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 font-label text-label-sm text-white">LinkedIn Certified Partner</span>
-            </div>
+          <div class="lg:col-span-5 flex items-center justify-center">
+            <img src="../../images/svc_01_social.jpg" alt="Social media content calendar and reels workflow illustration" class="w-full max-w-[440px] h-auto object-contain" style="mix-blend-mode: multiply; filter: brightness(1.03) contrast(1.03);" loading="eager" decoding="async">
           </div>
         </div>
       </section>
@@ -470,71 +469,74 @@
         </div>
       </section>
 
-      <!-- 6-Step Workflow -->
-      <section class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
+      <!-- 6-Step Process (Dark Editorial Band) -->
+      <section class="py-20 px-6 bg-[#18181B] text-white border-b border-[#27272A]">
         <div class="max-w-7xl mx-auto flex flex-col gap-12">
-          <div class="flex flex-col gap-3 max-w-2xl">
-            <span class="font-body text-[14px] font-semibold text-light-primary">Workflow</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
-              The 6-step social media process.
-            </h2>
-            <p class="font-body text-body-sm text-light-on-surface-variant">Note: Process may vary depending on specific client requirements and business goals.</p>
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div class="flex flex-col gap-2 max-w-2xl">
+              <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">Workflow</span>
+              <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-white text-balance">
+                The 6-step social media process.
+              </h2>
+            </div>
+            <p class="font-body text-[14px] text-white/60">Process adapts to specific client goals and platforms.</p>
           </div>
 
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-4">
-            <div class="p-6 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-              <span class="font-mono text-display-lg text-brand-orange">01</span>
-              <h3 class="font-title text-title-md text-light-on-surface">Understanding Business</h3>
-              <p class="font-body text-body-sm text-light-on-surface-variant">Analyze audience personas, competitive benchmarks, and brand voice.</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 border-t border-white/15 pt-8">
+            <div class="flex flex-col gap-2.5">
+              <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">01</span>
+              <h3 class="font-title font-semibold text-[19px] text-white">Understanding Business</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Analyze audience personas, competitive benchmarks, and brand voice.</p>
             </div>
 
-            <div class="p-6 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-              <span class="font-mono text-display-lg text-brand-orange">02</span>
-              <h3 class="font-title text-title-md text-light-on-surface">Profiles Setup</h3>
-              <p class="font-body text-body-sm text-light-on-surface-variant">Standardize bios, banners, highlights, and link-in-bio funnels.</p>
+            <div class="flex flex-col gap-2.5">
+              <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">02</span>
+              <h3 class="font-title font-semibold text-[19px] text-white">Profiles Setup</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Standardize bios, banners, highlights, and link-in-bio funnels.</p>
             </div>
 
-            <div class="p-6 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-              <span class="font-mono text-display-lg text-brand-orange">03</span>
-              <h3 class="font-title text-title-md text-light-on-surface">Content Calendar</h3>
-              <p class="font-body text-body-sm text-light-on-surface-variant">Map out weekly themes, promotions, festival posts, and reel concepts.</p>
+            <div class="flex flex-col gap-2.5">
+              <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">03</span>
+              <h3 class="font-title font-semibold text-[19px] text-white">Content Calendar</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Map out weekly themes, promotions, festival posts, and reel concepts.</p>
             </div>
 
-            <div class="p-6 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-              <span class="font-mono text-display-lg text-brand-orange">04</span>
-              <h3 class="font-title text-title-md text-light-on-surface">Content Creation</h3>
-              <p class="font-body text-body-sm text-light-on-surface-variant">Design carousels, edit reels in our studio, write high-converting copy.</p>
+            <div class="flex flex-col gap-2.5">
+              <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">04</span>
+              <h3 class="font-title font-semibold text-[19px] text-white">Content Creation</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Design carousels, edit reels in our studio, write high-converting copy.</p>
             </div>
 
-            <div class="p-6 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-              <span class="font-mono text-display-lg text-brand-orange">05</span>
-              <h3 class="font-title text-title-md text-light-on-surface">Posting &amp; Monitor</h3>
-              <p class="font-body text-body-sm text-light-on-surface-variant">Publish at peak times, monitor comments, reply to DMs, and adjust bids.</p>
+            <div class="flex flex-col gap-2.5">
+              <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">05</span>
+              <h3 class="font-title font-semibold text-[19px] text-white">Posting &amp; Monitor</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Publish at peak times, monitor comments, reply to DMs, and adjust bids.</p>
             </div>
 
-            <div class="p-6 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-              <span class="font-mono text-display-lg text-brand-orange">06</span>
-              <h3 class="font-title text-title-md text-light-on-surface">Reports &amp; Scale</h3>
-              <p class="font-body text-body-sm text-light-on-surface-variant">Monthly ROI reporting, audience growth analysis, and plan refinement.</p>
+            <div class="flex flex-col gap-2.5">
+              <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">06</span>
+              <h3 class="font-title font-semibold text-[19px] text-white">Reports &amp; Scale</h3>
+              <p class="font-body text-[14.5px] leading-[1.6] text-white/70">Monthly ROI reporting, audience growth analysis, and plan refinement.</p>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- CTA Banner -->
-      <section class="py-20 px-6 bg-brand-charcoal text-light-on-secondary">
+      <!-- Warm Editorial Closing CTA -->
+      <section class="py-20 px-6 bg-[#FFF8F1] border-b border-[#E4E4E7]">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div class="flex flex-col gap-4 max-w-xl">
-            <span class="font-body text-[14px] font-semibold text-brand-orange">Ignite Your Social Presence</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-secondary">
+          <div class="flex flex-col gap-3 max-w-xl">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Ignite Your Social Presence</span>
+            <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-[#18181B]">
               Turn social attention into real revenue.
             </h2>
-            <p class="font-body text-body-lg text-light-on-secondary/80">
+            <p class="font-body text-[16px] leading-[1.6] text-[#52525B]">
               Schedule a strategy consultation to audit your current social channels and discover untapped growth opportunities.
             </p>
           </div>
-          <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-light-primary/90 transition-colors">
-            Book Social Consultation
+          <a href="../../contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[15px] transition-colors shrink-0">
+            <span>Book Social Consultation</span>
+            <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
       </section>
@@ -617,6 +619,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 

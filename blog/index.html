@@ -60,11 +60,11 @@
           'page-margin': '24px',
         },
         fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
         fontSize: {
@@ -99,7 +99,7 @@
     },
   };
   </script>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -150,12 +150,12 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
+<body class="bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="../index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -309,191 +309,199 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
-      <!-- Hero Header Section -->
-      <section class="relative pt-36 pb-20 lg:pt-40 lg:pb-24 px-6 border-b border-[#E4E4E7] overflow-x-clip bg-[#202020]">
-        <img src="../images/subpage_hero_agency.jpg" alt="" aria-hidden="true" class="absolute inset-0 w-full h-full object-cover object-center" loading="eager" decoding="async">
-        <div class="absolute inset-0 bg-gradient-to-r from-[#18181B]/88 via-[#18181B]/76 to-[#18181B]/52" aria-hidden="true"></div>
-        <div class="relative z-10 max-w-7xl mx-auto flex flex-col gap-6">
-          <div class="flex items-center gap-2">
-            <span class="font-body text-[14px] font-semibold text-[#FF9F7A]">Agency Insights &amp; Growth Playbooks</span>
-            <span class="font-mono text-mono-sm text-white/75">Research &amp; Strategy</span>
+      <!-- Editorial Publication Masthead -->
+      <section class="bg-[#F7F6F4] pt-32 pb-12 lg:pt-36 lg:pb-14 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col gap-6">
+          <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Agency Insights &amp; Growth Playbooks</span>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
+            <h1 class="lg:col-span-7 font-display font-semibold text-[36px] sm:text-[46px] lg:text-[52px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
+              Tactical playbooks for the <span class="text-[#E85D2A]">modern digital era.</span>
+            </h1>
+            <p class="lg:col-span-5 font-body text-[16.5px] leading-[1.6] text-[#52525B] max-w-[44ch]">
+              Actionable perspectives from our strategists, performance media buyers, and software engineers on scaling revenue.
+            </p>
           </div>
-
-          <h1 class="hero-headline font-body font-bold text-white max-w-4xl text-balance">
-            Tactical playbooks for the <span class="text-[#FF8A5C]">modern digital era.</span>
-          </h1>
-
-          <p class="font-body text-body-lg text-[#E4E4E7] max-w-3xl text-pretty">
-            Actionable perspectives from our strategists, performance media buyers, and software engineers on scaling revenue across organic search, social algorithms, and automated conversion pipelines.
-          </p>
 
           <!-- Category Filter Buttons -->
-          <div class="pt-6 flex flex-wrap gap-2">
+          <div class="pt-4 flex flex-wrap gap-2">
             <button type="button" data-blog-filter="all" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-light-primary text-light-on-primary transition-colors">All Articles</button>
-            <button type="button" data-blog-filter="strategy" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Strategy &amp; SaaS</button>
-            <button type="button" data-blog-filter="seo" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">SEO &amp; Organic</button>
-            <button type="button" data-blog-filter="ads" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Paid Ads &amp; Performance</button>
-            <button type="button" data-blog-filter="retention" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white/10 text-white border-white/25 hover:bg-white/20 hover:border-white/50 border border-white/20 text-light-on-surface hover:border-light-primary transition-colors">Email &amp; Retention</button>
+            <button type="button" data-blog-filter="strategy" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Strategy &amp; SaaS</button>
+            <button type="button" data-blog-filter="seo" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">SEO &amp; Organic</button>
+            <button type="button" data-blog-filter="ads" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Paid Ads &amp; Performance</button>
+            <button type="button" data-blog-filter="retention" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Email &amp; Retention</button>
           </div>
         </div>
       </section>
 
-      <!-- Featured Guide Card -->
-      <section class="py-16 px-6 bg-light-surface border-b border-light-outline-variant">
-        <div class="max-w-7xl mx-auto">
-          <div class="p-8 md:p-12 rounded-xl bg-brand-charcoal text-light-on-secondary grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            <div class="lg:col-span-8 flex flex-col gap-4">
-              <span class="self-start px-3 py-1 rounded-full bg-light-primary text-light-on-primary font-label text-label-sm uppercase tracking-wider">
-                Featured Playbook
-              </span>
-              <h2 class="font-headline text-headline-lg-mobile lg:text-headline-lg text-light-on-secondary text-balance">
-                Cutting Wasted Ad Spend Across Google &amp; Meta in 30 Days.
-              </h2>
-              <p class="font-body text-body-lg text-light-on-secondary/80">
-                Our systematic framework for keyword negative-mining, creative hook fatigue rotation, and landing page friction reduction that lowered CPA by up to 34% for client campaigns.
-              </p>
-              <div class="flex items-center gap-4 text-light-on-secondary/60 font-mono text-mono-sm pt-2">
-                <span>By Sphinix Strategy Team</span>
-                <span>•</span>
-                <span>8 Min Read</span>
-                <span>•</span>
-                <span>Paid Acquisition</span>
-              </div>
+      <!-- Lead Editorial Feature (7/5 Split) -->
+      <section class="py-16 lg:py-20 px-6 bg-[#FFFFFF] border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+          <div class="lg:col-span-7">
+            <img src="../images/insight_featured_card.jpg" alt="Performance media buying and ad spend optimization playbook" class="w-full aspect-[16/10] rounded-lg border border-[#E4E4E7] object-cover" loading="eager" decoding="async">
+          </div>
+          <div class="lg:col-span-5 flex flex-col items-start gap-4">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Featured Playbook · 8 Min Read</span>
+            <h2 class="font-display font-semibold text-[28px] sm:text-[34px] leading-[1.12] tracking-[-0.024em] text-[#18181B]">
+              Cutting Wasted Ad Spend Across Google &amp; Meta in 30 Days.
+            </h2>
+            <p class="font-body text-[16px] leading-[1.65] text-[#52525B]">
+              Our systematic framework for keyword negative-mining, creative hook fatigue rotation, and landing page friction reduction that lowered CPA by up to 34% for client campaigns.
+            </p>
+            <div class="flex items-center gap-3 font-mono text-[12px] text-[#71717A] pt-1">
+              <span>By Sphinix Strategy Team</span>
+              <span>·</span>
+              <span>Paid Acquisition</span>
             </div>
-            <div class="lg:col-span-4 flex flex-col justify-center items-start lg:items-end">
-              <a href="../contact/index.html" class="inline-flex items-center gap-2 px-6 py-3.5 rounded bg-brand-orange text-light-on-secondary font-label text-label-lg hover:bg-light-primary transition-colors">
-                <span>Request Growth Audit</span>
-                <span class="material-symbols-outlined text-title-md">arrow_forward</span>
-              </a>
-            </div>
+            <a href="../contact/index.html" class="mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[14.5px] transition-colors">
+              <span>Request Growth Audit</span>
+              <span class="material-symbols-outlined text-[17px]" aria-hidden="true">arrow_forward</span>
+            </a>
           </div>
         </div>
       </section>
 
-      <!-- Articles Grid -->
-      <section class="py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant">
+      <!-- Ruled Editorial Article Index -->
+      <section class="py-20 px-6 bg-[#F7F6F4] border-b border-[#E4E4E7]">
         <div class="max-w-7xl mx-auto">
-          <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 border-t border-[#D4D0C8]">
 
             <!-- Article 1 -->
-            <article data-category="strategy" class="article-card p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6 hover:border-light-primary transition-colors">
-              <div class="flex flex-col gap-4">
+            <article data-category="strategy" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
+              <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-mono-sm text-brand-orange">Strategy &amp; Automation</span>
-                  <span class="font-mono text-mono-sm text-light-outline">5 Min</span>
+                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Automation</span>
+                  <span class="font-mono text-[12px] text-[#71717A]">5 Min Read</span>
                 </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">
+                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
                   How ChatBox 360 Automates WhatsApp Lead Conversion
                 </h3>
-                <p class="font-body text-body-md text-light-on-surface-variant">
+                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
                   Connecting SmartBot workflows with your internal CRM to reply, book appointments, and track orders 24/7 with zero ban risk.
                 </p>
               </div>
-              <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-outline">WhatsApp API</span>
-                <span class="material-symbols-outlined text-title-md text-light-primary">north_east</span>
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-mono text-[12px] text-[#71717A]">WhatsApp API</span>
+                <a href="../products/index.html#chatbox360" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
+                  <span>Explore ChatBox 360</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
+                </a>
               </div>
             </article>
 
             <!-- Article 2 -->
-            <article data-category="seo" class="article-card p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6 hover:border-light-primary transition-colors">
-              <div class="flex flex-col gap-4">
+            <article data-category="seo" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
+              <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-mono-sm text-brand-orange">SEO &amp; Organic</span>
-                  <span class="font-mono text-mono-sm text-light-outline">6 Min</span>
+                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
+                  <span class="font-mono text-[12px] text-[#71717A]">6 Min Read</span>
                 </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">
+                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
                   Technical SEO Checklist for E-Commerce Marketplaces
                 </h3>
-                <p class="font-body text-body-md text-light-on-surface-variant">
+                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
                   Optimize product catalog listings, A+ enhanced content, structured schema, and local search visibility to capture high-intent buyers.
                 </p>
               </div>
-              <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-outline">E-Commerce SEO</span>
-                <span class="material-symbols-outlined text-title-md text-light-primary">north_east</span>
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-mono text-[12px] text-[#71717A]">E-Commerce SEO</span>
+                <a href="../services/seo/index.html" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
+                  <span>View SEO Playbook</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
+                </a>
               </div>
             </article>
 
             <!-- Article 3 -->
-            <article data-category="retention" class="article-card p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6 hover:border-light-primary transition-colors">
-              <div class="flex flex-col gap-4">
+            <article data-category="retention" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
+              <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-mono-sm text-brand-orange">Email &amp; Retention</span>
-                  <span class="font-mono text-mono-sm text-light-outline">4 Min</span>
+                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Email &amp; Retention</span>
+                  <span class="font-mono text-[12px] text-[#71717A]">4 Min Read</span>
                 </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">
+                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
                   Why Email Marketing Delivers an Average $36 ROI per $1 Spent
                 </h3>
-                <p class="font-body text-body-md text-light-on-surface-variant">
+                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
                   Automated welcome drip sequences, cart recovery triggers, and seasonal campaigns that turn first-time purchasers into repeat brand advocates.
                 </p>
               </div>
-              <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-outline">Lifecycle Marketing</span>
-                <span class="material-symbols-outlined text-title-md text-light-primary">north_east</span>
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-mono text-[12px] text-[#71717A]">Lifecycle Marketing</span>
+                <a href="../services/index.html#email" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
+                  <span>Explore Email Flows</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
+                </a>
               </div>
             </article>
 
             <!-- Article 4 -->
-            <article data-category="ads" class="article-card p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6 hover:border-light-primary transition-colors">
-              <div class="flex flex-col gap-4">
+            <article data-category="ads" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
+              <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-mono-sm text-brand-orange">Performance Ads</span>
-                  <span class="font-mono text-mono-sm text-light-outline">7 Min</span>
+                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Performance Ads</span>
+                  <span class="font-mono text-[12px] text-[#71717A]">7 Min Read</span>
                 </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">
+                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
                   Google Search vs. Meta Performance Max: Which Fits Your Business?
                 </h3>
-                <p class="font-body text-body-md text-light-on-surface-variant">
+                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
                   Comparing active buyer intent on Google Search with visual discovery algorithms on Instagram to optimize monthly ad budget splits.
                 </p>
               </div>
-              <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-outline">PPC Optimization</span>
-                <span class="material-symbols-outlined text-title-md text-light-primary">north_east</span>
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-mono text-[12px] text-[#71717A]">PPC Optimization</span>
+                <a href="../services/index.html#google-ads" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
+                  <span>Explore Google Ads</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
+                </a>
               </div>
             </article>
 
             <!-- Article 5 -->
-            <article data-category="strategy" class="article-card p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6 hover:border-light-primary transition-colors">
-              <div class="flex flex-col gap-4">
+            <article data-category="strategy" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
+              <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-mono-sm text-brand-orange">Creative Production</span>
-                  <span class="font-mono text-mono-sm text-light-outline">5 Min</span>
+                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Creative Production</span>
+                  <span class="font-mono text-[12px] text-[#71717A]">5 Min Read</span>
                 </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">
+                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
                   Video Reels vs. Static Graphics: Anatomy of a High-Converting Hook
                 </h3>
-                <p class="font-body text-body-md text-light-on-surface-variant">
+                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
                   Why short-form 9:16 vertical video delivers 3x higher engagement, and how our creative studio scripts 3-second visual hooks that stop scrolling.
                 </p>
               </div>
-              <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-outline">Creative &amp; Video</span>
-                <span class="material-symbols-outlined text-title-md text-light-primary">north_east</span>
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-mono text-[12px] text-[#71717A]">Creative &amp; Video</span>
+                <a href="../services/social-media-marketing/index.html" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
+                  <span>Explore Social Reels</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
+                </a>
               </div>
             </article>
 
             <!-- Article 6 -->
-            <article data-category="seo" class="article-card p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6 hover:border-light-primary transition-colors">
-              <div class="flex flex-col gap-4">
+            <article data-category="seo" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
+              <div class="flex flex-col gap-3">
                 <div class="flex items-center justify-between">
-                  <span class="font-mono text-mono-sm text-brand-orange">Local Search</span>
-                  <span class="font-mono text-mono-sm text-light-outline">4 Min</span>
+                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Local Search</span>
+                  <span class="font-mono text-[12px] text-[#71717A]">4 Min Read</span>
                 </div>
-                <h3 class="font-title text-title-lg text-light-on-surface">
+                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
                   Local SEO Mastery: Dominating Google Maps in Your Region
                 </h3>
-                <p class="font-body text-body-md text-light-on-surface-variant">
+                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
                   Step-by-step framework for optimizing your Google Business Profile, managing review velocity, and maintaining flawless NAP consistency.
                 </p>
               </div>
-              <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
-                <span class="font-label text-label-sm text-light-outline">Google Business</span>
-                <span class="material-symbols-outlined text-title-md text-light-primary">north_east</span>
+              <div class="flex items-center justify-between pt-2">
+                <span class="font-mono text-[12px] text-[#71717A]">Google Business</span>
+                <a href="../services/seo/index.html" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
+                  <span>Explore Local SEO</span>
+                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
+                </a>
               </div>
             </article>
 
@@ -501,24 +509,27 @@
         </div>
       </section>
 
-      <!-- CTA -->
-      <section class="py-20 px-6 bg-brand-charcoal text-light-on-secondary">
+      <!-- Dark Editorial Newsletter Band -->
+      <section class="py-20 px-6 bg-[#18181B] text-white">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div class="flex flex-col gap-4 max-w-xl">
-            <span class="font-body text-[14px] font-semibold text-brand-orange">Stay In The Loop</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-secondary">
+          <div class="flex flex-col gap-3 max-w-xl">
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">Stay In The Loop</span>
+            <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-white">
               Subscribe to growth updates.
             </h2>
-            <p class="font-body text-body-lg text-light-on-secondary/80">
+            <p class="font-body text-[16px] leading-[1.6] text-white/75">
               Get monthly digital marketing playbooks, SaaS product updates, and ROI frameworks delivered straight to your inbox.
             </p>
           </div>
-          <form class="flex w-full md:w-auto max-w-md gap-3" onsubmit="event.preventDefault(); alert('Thank you for subscribing to Sphinix Marketing insights!');">
-            <input type="email" required placeholder="Enter work email" class="flex-1 min-w-0 px-4 py-3 rounded border border-light-outline-variant/30 bg-light-surface text-light-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
-            <button type="submit" class="px-6 py-3 rounded bg-light-primary text-light-on-primary font-label text-label-lg hover:bg-light-primary/90 transition-colors shrink-0">
-              Subscribe
-            </button>
-          </form>
+          <div class="w-full md:w-auto max-w-md flex flex-col gap-2">
+            <form id="blog-newsletter-form" class="flex w-full gap-3" novalidate>
+              <input id="blog-newsletter-email" type="email" required placeholder="Enter work email" aria-label="Work email address" class="flex-1 min-w-0 px-4 py-3 rounded-[6px] border border-white/20 bg-white/10 text-white placeholder:text-white/50 font-body text-[15px] focus:outline-none focus:ring-2 focus:ring-[#E85D2A]">
+              <button type="submit" class="px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[15px] transition-colors shrink-0">
+                Subscribe
+              </button>
+            </form>
+            <p id="blog-newsletter-status" class="font-body text-[12.5px] text-white/70" aria-live="polite"></p>
+          </div>
         </div>
       </section>
 
@@ -600,6 +611,25 @@
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 
@@ -682,9 +712,9 @@
           const filter = btn.dataset.blogFilter;
           filterTabs.forEach(b => {
             b.classList.remove('bg-light-primary', 'text-light-on-primary');
-            b.classList.add('bg-light-surface', 'border', 'border-light-outline-variant', 'text-light-on-surface');
+            b.classList.add('bg-white', 'border', 'border-[#D4D0C8]', 'text-[#18181B]');
           });
-          btn.classList.remove('bg-light-surface', 'border', 'border-light-outline-variant', 'text-light-on-surface');
+          btn.classList.remove('bg-white', 'border', 'border-[#D4D0C8]', 'text-[#18181B]');
           btn.classList.add('bg-light-primary', 'text-light-on-primary');
 
           articleCards.forEach(card => {
@@ -696,6 +726,25 @@
           });
         });
       });
+
+      const blogForm = document.getElementById('blog-newsletter-form');
+      const blogEmail = document.getElementById('blog-newsletter-email');
+      const blogStatus = document.getElementById('blog-newsletter-status');
+      if (blogForm && blogEmail && blogStatus) {
+        blogForm.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const val = blogEmail.value.trim();
+          if (!val || !val.includes('@')) {
+            blogStatus.textContent = 'Please enter a valid work email address.';
+            blogStatus.className = 'font-body text-[12.5px] text-[#FF9F7A]';
+            blogEmail.focus();
+            return;
+          }
+          blogStatus.textContent = 'Thank you for subscribing to Sphinix Marketing insights.';
+          blogStatus.className = 'font-body text-[12.5px] text-[#86EFAC]';
+          blogEmail.value = '';
+        });
+      }
     })();
   </script>
 </body>

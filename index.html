@@ -80,11 +80,11 @@ globalThis.tailwind.config = {
         'page-margin': '24px',
       },
       fontFamily: {
-        'display': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'headline': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'title': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'body': ['"Plus Jakarta Sans"', 'sans-serif'],
-        'label': ['"Plus Jakarta Sans"', 'sans-serif'],
+        'display': ['"Manrope"', 'sans-serif'],
+        'headline': ['"Manrope"', 'sans-serif'],
+        'title': ['"Manrope"', 'sans-serif'],
+        'body': ['"Manrope"', 'sans-serif'],
+        'label': ['"Manrope"', 'sans-serif'],
         'mono': ['"JetBrains Mono"', 'monospace'],
       },
       fontSize: {
@@ -125,7 +125,7 @@ globalThis.tailwind.config = {
 };
 if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 </script>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
   <style>
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
@@ -137,12 +137,12 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
     }
 
     .home-hero-font {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
     }
 
     /* Fluid editorial hero typography */
     .hero-headline {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
       font-size: clamp(2.3rem, 1.45rem + 2.45vw, 3.5rem);
       font-weight: 620;
       line-height: 1.07;
@@ -150,7 +150,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
     }
 
     .hero-stat-value {
-      font-family: "Manrope", "Plus Jakarta Sans", sans-serif;
+      font-family: "Manrope", "Manrope", sans-serif;
       font-size: clamp(1.65rem, 1.2rem + 1.25vw, 2.25rem);
       font-weight: 650;
       line-height: 1;
@@ -318,11 +318,11 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
   </style>
 </head>
 <body class="bg-light-surface text-light-on-surface font-body antialiased">
-  <div class="min-h-[1024px] flex flex-col" data-stitch-vh="min-h-[1024px]===min-h-screen">
+  <div class="min-h-[1024px] flex flex-col">
 
     <!-- Top Navigation Bar -->
-    <header id="site-header" class="sticky top-0 z-50 h-20">
-      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-20 flex items-center justify-between gap-4">
+    <header id="site-header" class="sticky top-0 z-50 h-[84px]">
+      <div class="max-w-[1360px] mx-auto px-5 sm:px-8 lg:px-10 h-[84px] flex items-center justify-between gap-4">
 
         <!-- Wordmark Logo -->
         <a href="index.html" class="flex items-center shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27] rounded-md" aria-label="Sphinix Marketing Home">
@@ -476,10 +476,10 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       </nav>
     </header>
 
-    <main class="flex-1 -mt-20">
+    <main class="flex-1 -mt-[84px]">
 
       <!-- Hero Split Section -->
-      <section class="hero-canvas relative pt-20 border-b border-light-outline-variant overflow-x-clip">
+      <section class="hero-canvas relative pt-[84px] border-b border-light-outline-variant overflow-x-clip">
         <div class="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[clamp(520px,70vh,620px)]">
 
           <!-- Left Column: Candid Agency Photography + Connected Statistic Overlay Panels -->
@@ -1342,34 +1342,37 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         </div>
       </section>
 
-      <!-- Let's Collaborate CTA Section -->
-      <section id="contact" class="py-20 px-6 bg-light-surface">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-8">
+      <!-- Let's Collaborate Dark Closing CTA Section -->
+      <section id="contact" class="py-20 lg:py-24 px-6 bg-[#18181B] text-white">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div class="flex flex-col gap-4 max-w-xl">
-            <span class="font-label text-label-md text-light-on-surface-variant">Let’s Collaborate</span>
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface">
-              <span class="text-brand-orange">Questions?</span><br>Get in touch.
+            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">Let’s Collaborate</span>
+            <h2 class="font-display font-semibold text-[34px] sm:text-[42px] leading-[1.08] tracking-[-0.025em] text-white">
+              <span class="text-[#E85D2A]">Questions?</span><br>Get in touch.
             </h2>
-            <p class="font-body text-body-lg text-light-on-surface-variant">
+            <p class="font-body text-[16.5px] leading-[1.6] text-white/75">
               Ready to build your digital footprint? Our strategists are here to turn your marketing goals into measurable growth.
             </p>
-            <div class="pt-2">
-              <!-- COMPONENT: button-primary -->
-              <a href="mailto:info@sphinixmarketing.com" data-component-id="button-primary" data-component-type="button" data-component-variant="primary" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-light-primary text-light-on-primary font-label text-label-lg transition-colors duration-state-change ease-state-change hover:bg-brand-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-light-primary">
-                <span data-design-text-token="label-lg">Partner With Us</span>
+            <div class="pt-2 flex flex-wrap items-center gap-4">
+              <a href="contact/index.html" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[15px] transition-colors">
+                <span>Partner With Us</span>
+                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+              </a>
+              <a href="https://wa.me/917048239155" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-[6px] border border-white/25 text-white font-semibold text-[15px] hover:bg-white/10 transition-colors">
+                <span>WhatsApp Team</span>
               </a>
             </div>
           </div>
 
-          <div class="bg-light-surface-container-lowest border border-light-outline-variant rounded-lg p-6 flex flex-col gap-4 w-full md:w-96">
-            <h3 class="font-title text-title-md text-light-on-surface">Direct Inquiries</h3>
-            <div class="flex flex-col gap-2">
-              <span class="font-label text-label-sm text-light-outline uppercase">Email</span>
-              <a href="mailto:info@sphinixmarketing.com" class="font-body text-body-md text-light-on-surface hover:text-light-primary">info@sphinixmarketing.com</a>
+          <div class="border-t md:border-t-0 md:border-l border-white/15 pt-6 md:pt-0 md:pl-10 flex flex-col gap-4 w-full md:w-96">
+            <h3 class="font-title font-semibold text-[18px] text-white">Direct Inquiries</h3>
+            <div class="flex flex-col gap-1">
+              <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-white/50">Email</span>
+              <a href="mailto:info@sphinixmarketing.com" class="font-body text-[15px] text-white/90 hover:text-[#FF9F7A] transition-colors">info@sphinixmarketing.com</a>
             </div>
-            <div class="flex flex-col gap-2">
-              <span class="font-label text-label-sm text-light-outline uppercase">Phone</span>
-              <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">+91 7048239155 / +91 9081711900</span>
+            <div class="flex flex-col gap-1">
+              <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-white/50">Phone</span>
+              <span class="font-mono text-[14px] text-white/90 tabular-nums">+91 7048239155 / +91 9081711900</span>
             </div>
           </div>
         </div>
@@ -1453,6 +1456,25 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         const mobileOpen = mobileMenu && !mobileMenu.classList.contains('hidden');
         siteHeader.classList.toggle('header-scrolled', window.scrollY > 16 || mobileOpen);
       }
+      document.querySelectorAll('.newsletter-form').forEach((form) => {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const input = form.querySelector('input[type="email"]');
+          const status = form.parentElement.querySelector('.newsletter-status');
+          if (!input || !status) return;
+          const val = input.value.trim();
+          if (!val || !val.includes('@')) {
+            status.textContent = 'Please enter a valid work email.';
+            status.className = 'newsletter-status font-body text-[12px] text-[#BA1A1A]';
+            input.focus();
+            return;
+          }
+          status.textContent = 'Subscribed. Thank you for joining.';
+          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          input.value = '';
+        });
+      });
+
       window.addEventListener('scroll', updateHeader, { passive: true });
       updateHeader();
 
