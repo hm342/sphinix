@@ -80,31 +80,31 @@ globalThis.tailwind.config = {
         'page-margin': '24px',
       },
       fontFamily: {
-        'display': ['"Manrope"', 'sans-serif'],
-        'headline': ['"Manrope"', 'sans-serif'],
-        'title': ['"Manrope"', 'sans-serif'],
-        'body': ['"Manrope"', 'sans-serif'],
-        'label': ['"Manrope"', 'sans-serif'],
-        'mono': ['"JetBrains Mono"', 'monospace'],
-      },
+          'display': ['"Archivo"', 'system-ui', 'sans-serif'],
+          'headline': ['"Archivo"', 'system-ui', 'sans-serif'],
+          'title': ['"Archivo"', 'system-ui', 'sans-serif'],
+          'body': ['"Manrope"', 'system-ui', 'sans-serif'],
+          'label': ['"Manrope"', 'system-ui', 'sans-serif'],
+          'mono': ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
       fontSize: {
-        'display-xl': ['52px', { lineHeight: '58px', letterSpacing: '-0.028em', fontWeight: '700' }],
-        'display-xl-mobile': ['36px', { lineHeight: '42px', letterSpacing: '-0.025em', fontWeight: '700' }],
-        'display-lg': ['36px', { lineHeight: '42px', letterSpacing: '-0.025em', fontWeight: '600' }],
-        'display-lg-mobile': ['28px', { lineHeight: '34px', letterSpacing: '-0.02em', fontWeight: '600' }],
-        'headline-lg': ['32px', { lineHeight: '38px', letterSpacing: '-0.02em', fontWeight: '600' }],
-        'headline-lg-mobile': ['24px', { lineHeight: '30px', letterSpacing: '-0.015em', fontWeight: '600' }],
-        'headline-md': ['24px', { lineHeight: '30px', letterSpacing: '-0.015em', fontWeight: '600' }],
-        'title-lg': ['22px', { lineHeight: '28px', letterSpacing: '-0.01em', fontWeight: '600' }],
-        'title-md': ['18px', { lineHeight: '24px', letterSpacing: '-0.01em', fontWeight: '600' }],
-        'body-lg': ['16px', { lineHeight: '26px', letterSpacing: '0px', fontWeight: '400' }],
-        'body-md': ['15px', { lineHeight: '24px', letterSpacing: '0px', fontWeight: '400' }],
-        'body-sm': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '400' }],
-        'label-lg': ['14px', { lineHeight: '20px', letterSpacing: '0px', fontWeight: '600' }],
-        'label-md': ['13px', { lineHeight: '18px', letterSpacing: '0px', fontWeight: '500' }],
-        'label-sm': ['12px', { lineHeight: '16px', letterSpacing: '0px', fontWeight: '600' }],
-        'mono-sm': ['12px', { lineHeight: '16px', letterSpacing: '0.02em', fontWeight: '500' }],
-      },
+          'display-xl': ['clamp(2.25rem, 1.5rem + 2.4vw, 3.35rem)', { lineHeight: '1.06', letterSpacing: '-0.025em', fontWeight: '800' }],
+          'display-xl-mobile': ['clamp(2.1rem, 1.5rem + 2vw, 2.5rem)', { lineHeight: '1.08', letterSpacing: '-0.022em', fontWeight: '800' }],
+          'display-lg': ['clamp(1.75rem, 1.25rem + 1.4vw, 2.25rem)', { lineHeight: '1.1', letterSpacing: '-0.02em', fontWeight: '700' }],
+          'display-lg-mobile': ['clamp(1.65rem, 1.25rem + 1.2vw, 1.95rem)', { lineHeight: '1.14', letterSpacing: '-0.018em', fontWeight: '700' }],
+          'headline-lg': ['clamp(1.65rem, 1.25rem + 1.2vw, 2rem)', { lineHeight: '1.16', letterSpacing: '-0.018em', fontWeight: '700' }],
+          'headline-lg-mobile': ['1.5rem', { lineHeight: '1.2', letterSpacing: '-0.015em', fontWeight: '700' }],
+          'headline-md': ['1.375rem', { lineHeight: '1.25', letterSpacing: '-0.015em', fontWeight: '700' }],
+          'title-lg': ['1.25rem', { lineHeight: '1.3', letterSpacing: '-0.01em', fontWeight: '700' }],
+          'title-md': ['1.0625rem', { lineHeight: '1.35', letterSpacing: '-0.01em', fontWeight: '700' }],
+          'body-lg': ['1.0625rem', { lineHeight: '1.65', letterSpacing: '0em', fontWeight: '400' }],
+          'body-md': ['0.9375rem', { lineHeight: '1.62', letterSpacing: '0em', fontWeight: '400' }],
+          'body-sm': ['0.875rem', { lineHeight: '1.55', letterSpacing: '0em', fontWeight: '400' }],
+          'label-lg': ['0.875rem', { lineHeight: '1.4', letterSpacing: '0em', fontWeight: '600' }],
+          'label-md': ['0.8125rem', { lineHeight: '1.4', letterSpacing: '0em', fontWeight: '500' }],
+          'label-sm': ['0.75rem', { lineHeight: '1.35', letterSpacing: '0.02em', fontWeight: '600' }],
+          'mono-sm': ['0.75rem', { lineHeight: '1.4', letterSpacing: '0.04em', fontWeight: '500' }],
+        },
       transitionDuration: {
         'state-change': '150ms',
         'surface-enter': '250ms',
@@ -125,9 +125,26 @@ globalThis.tailwind.config = {
 };
 if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 </script>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
   <style>
+    :root {
+      --font-display: 'Archivo', system-ui, -apple-system, sans-serif;
+      --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+      --text-display: clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem);
+      --text-h1: clamp(2.1rem, 1.4rem + 2vw, 3.25rem);
+      --text-h2: clamp(1.75rem, 1.25rem + 1.4vw, 2.35rem);
+      --text-h3: clamp(1.2rem, 1.05rem + 0.5vw, 1.45rem);
+      --text-h4: 1.0625rem;
+      --text-body-lg: 1.0625rem;
+      --text-body: 0.9375rem;
+      --text-body-sm: 0.875rem;
+      --text-caption: 0.8125rem;
+      --text-label: 0.75rem;
+      --text-button: 0.9375rem;
+      --text-meta: 0.75rem;
+    }
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
 
     /* Warm editorial hero backdrop (#FFF8F1 cream with subtle #F4E8D5 beige warmth) */
@@ -137,24 +154,24 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
     }
 
     .home-hero-font {
-      font-family: "Manrope", "Manrope", sans-serif;
+      font-family: var(--font-sans);
     }
 
     /* Fluid editorial hero typography */
     .hero-headline {
-      font-family: "Manrope", "Manrope", sans-serif;
-      font-size: clamp(2.3rem, 1.45rem + 2.45vw, 3.5rem);
-      font-weight: 620;
-      line-height: 1.07;
-      letter-spacing: -0.028em;
+      font-family: var(--font-display);
+      font-size: var(--text-display);
+      font-weight: 800;
+      line-height: 1.06;
+      letter-spacing: -0.025em;
     }
 
     .hero-stat-value {
-      font-family: "Manrope", "Manrope", sans-serif;
+      font-family: var(--font-display);
       font-size: clamp(1.65rem, 1.2rem + 1.25vw, 2.25rem);
-      font-weight: 650;
+      font-weight: 800;
       line-height: 1;
-      letter-spacing: -0.025em;
+      letter-spacing: -0.02em;
     }
 
     /* Compact sticky header: seamless over hero top -> pure white on scroll */
@@ -331,12 +348,12 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
 
         <!-- Centered Translucent Beige Capsule Navigation -->
         <nav id="nav-pill" aria-label="Primary Navigation" class="hidden lg:flex items-center gap-0.5 px-2 py-1 rounded-full backdrop-blur-sm">
-          <a href="index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-bold text-[14px] text-[#A83300] hover:text-[#202020] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]" aria-current="page">
+          <a href="index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#A83300] hover:text-[#202020] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]" aria-current="page">
             Home
           </a>
           <!-- Services with Accessible Mega Menu -->
           <div class="relative" id="services-nav-item">
-            <button type="button" id="services-nav-btn" aria-haspopup="true" aria-expanded="false" class="nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            <button type="button" id="services-nav-btn" aria-haspopup="true" aria-expanded="false" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
               Services
               <span id="services-chevron" class="material-symbols-outlined text-[16px] text-[#52525B] transition-transform duration-150" aria-hidden="true">keyboard_arrow_down</span>
             </button>
@@ -411,16 +428,16 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
             </div>
           </div>
 
-          <a href="work/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+          <a href="work/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             Work
           </a>
-          <a href="about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+          <a href="about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             About
           </a>
-          <a href="blog/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+          <a href="blog/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             Insights
           </a>
-          <a href="contact/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+          <a href="contact/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             Contact
           </a>
         </nav>
@@ -442,9 +459,9 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       <!-- Mobile Drawer -->
       <nav id="mobile-menu" class="hidden lg:hidden border-t border-light-outline-variant bg-white shadow-lg" aria-label="Mobile Navigation">
         <div class="px-5 py-4 flex flex-col font-body">
-          <a href="index.html" aria-current="page" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-bold text-[15px] text-[#A83300] hover:text-[#202020] transition-colors">Home</a>
+          <a href="index.html" aria-current="page" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#A83300] hover:text-[#202020] transition-colors">Home</a>
           <div>
-            <button type="button" id="mobile-services-btn" class="w-full flex items-center justify-between py-3 font-semibold text-[15px] text-[#202020]">
+            <button type="button" id="mobile-services-btn" class="w-full flex items-center justify-between py-3 font-medium text-[15px] text-[#202020]">
               Services
               <span id="mobile-services-chevron" class="material-symbols-outlined text-[18px] text-[#52525B] transition-transform duration-150">keyboard_arrow_down</span>
             </button>
@@ -459,10 +476,10 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
               <a href="services/index.html#dev" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Web &amp; App Dev</a>
             </div>
           </div>
-          <a href="work/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Work</a>
-          <a href="about/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">About</a>
-          <a href="blog/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Insights</a>
-          <a href="contact/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Contact</a>
+          <a href="work/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-medium text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Work</a>
+          <a href="about/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-medium text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">About</a>
+          <a href="blog/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-medium text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Insights</a>
+          <a href="contact/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-medium text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Contact</a>
           <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <a href="contact/index.html" class="w-full text-center py-2.5 rounded-[6px] border border-[#A83300] font-semibold text-[14px] text-[#A83300] hover:bg-[#FFF8F1] transition-colors">Book a Call</a>
             <a href="contact/index.html" class="w-full text-center py-2.5 rounded-[6px] bg-[#A83300] text-white font-semibold text-[14px] hover:bg-[#202020] transition-colors">Partner With Us</a>
@@ -545,22 +562,22 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-light-outline-variant">
           <div class="p-8 lg:py-10 flex flex-col gap-2.5">
             <span class="font-mono text-[11.5px] font-medium tracking-[0.06em] text-[#A83300]">01</span>
-            <h2 class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">In-House Team</h2>
+            <h2 class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">In-House Team</h2>
             <p class="home-hero-font text-[14.5px] leading-[1.6] text-[#52525B] max-w-[30ch]">Strategists, designers, video editors, and developers working in Bhavnagar.</p>
           </div>
           <div class="p-8 lg:py-10 flex flex-col gap-2.5">
             <span class="font-mono text-[11.5px] font-medium tracking-[0.06em] text-[#A83300]">02</span>
-            <h2 class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Clear Process</h2>
+            <h2 class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Clear Process</h2>
             <p class="home-hero-font text-[14.5px] leading-[1.6] text-[#52525B] max-w-[30ch]">Step-by-step setup from account audit to launch and monthly adjustments.</p>
           </div>
           <div class="p-8 lg:py-10 flex flex-col gap-2.5">
             <span class="font-mono text-[11.5px] font-medium tracking-[0.06em] text-[#A83300]">03</span>
-            <h2 class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Marketing Tools</h2>
+            <h2 class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Marketing Tools</h2>
             <p class="home-hero-font text-[14.5px] leading-[1.6] text-[#52525B] max-w-[30ch]">Standard SEO and ad tools paired with our ChatBox 360 and Social 360 software.</p>
           </div>
           <div class="p-8 lg:py-10 flex flex-col gap-2.5">
             <span class="font-mono text-[11.5px] font-medium tracking-[0.06em] text-[#A83300]">04</span>
-            <h2 class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Direct Reporting</h2>
+            <h2 class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Direct Reporting</h2>
             <p class="home-hero-font text-[14.5px] leading-[1.6] text-[#52525B] max-w-[30ch]">Plain monthly numbers covering traffic, ad spend, leads, and WhatsApp replies.</p>
           </div>
         </div>
@@ -621,7 +638,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
           <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div class="flex flex-col gap-3 max-w-2xl">
               <span class="home-hero-font text-[14px] font-semibold text-light-primary">Full-Service Capabilities</span>
-              <h2 class="home-hero-font font-semibold text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
+              <h2 class="font-display font-bold text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
                 Eight core disciplines, <span class="text-brand-orange">one unified team.</span>
               </h2>
             </div>
@@ -651,7 +668,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">01</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Social Media</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Social Media</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Content calendars, reels, motion posts, influencer promos, and paid social.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -669,7 +686,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">02</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">SEO &amp; Organic</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">SEO &amp; Organic</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Technical SEO, on-page &amp; off-page authority, local SEO, and mobile ASO.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -687,7 +704,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">03</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Google Ads</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Google Ads</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Search, display, shopping, YouTube, and dynamic remarketing campaigns.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -705,7 +722,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">04</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Branding &amp; Design</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Branding &amp; Design</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Logo systems, brand guidelines, packaging, pitch decks, and brochures.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -723,7 +740,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">05</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Video Production</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Video Production</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Social reels, corporate films, motion graphics, UGC, and AI filmmaking.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -741,7 +758,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">06</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">E-Commerce</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">E-Commerce</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">End-to-end marketplace catalog, A+ content, storefront design, and ads.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -759,7 +776,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">07</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Email Marketing</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Email Marketing</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Automated drip sequences, abandoned cart recovery, and seasonal campaigns.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -777,7 +794,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
                     </div>
                     <span class="service-carousel-num font-mono text-mono-sm text-light-on-surface-variant tabular-nums">08</span>
                   </div>
-                  <h3 data-design-text-token="title-md" class="home-hero-font font-semibold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Web &amp; App Dev</h3>
+                  <h3 data-design-text-token="title-md" class="font-display font-bold text-[18px] leading-[1.3] tracking-[-0.015em] text-[#18181B]">Web &amp; App Dev</h3>
                   <p data-design-text-token="body-md" class="home-hero-font text-[15px] leading-[1.6] text-[#52525B]">Responsive websites, mobile apps, custom software, and e-commerce builds.</p>
                 </div>
                 <div class="pt-4 border-t border-light-outline-variant flex items-center justify-between">
@@ -1127,7 +1144,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       <!-- Industries -->
       <section id="industries" class="py-20 lg:py-24 px-6 bg-[#F7F6F4] border-b border-[#D4D0C8]">
         <div class="max-w-7xl mx-auto flex flex-col gap-10 lg:gap-12">
-          <h2 class="home-hero-font font-semibold text-[30px] sm:text-[38px] lg:text-[42px] leading-[1.1] tracking-[-0.025em] text-[#18181B]">
+          <h2 class="font-display font-bold text-[30px] sm:text-[38px] lg:text-[42px] leading-[1.1] tracking-[-0.025em] text-[#18181B]">
             Industries <span class="text-[#E85D2A]">we work with</span>
           </h2>
 
@@ -1326,7 +1343,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
       <section id="contact" class="py-20 lg:py-24 px-6 bg-[#18181B] text-white">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-10">
           <div class="flex flex-col gap-4 max-w-xl">
-            <h2 class="font-display font-semibold text-[34px] sm:text-[42px] leading-[1.08] tracking-[-0.025em] text-white">
+            <h2 class="font-display font-bold text-[34px] sm:text-[42px] leading-[1.08] tracking-[-0.025em] text-white">
               <span class="text-[#E85D2A]">Questions?</span><br>Get in touch.
             </h2>
             <p class="font-body text-[16.5px] leading-[1.6] text-white/75">
@@ -1344,7 +1361,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
           </div>
 
           <div class="border-t md:border-t-0 md:border-l border-white/15 pt-6 md:pt-0 md:pl-10 flex flex-col gap-4 w-full md:w-96">
-            <h3 class="font-title font-semibold text-[18px] text-white">Direct Inquiries</h3>
+            <h3 class="font-title font-bold text-[18px] text-white">Direct Inquiries</h3>
             <div class="flex flex-col gap-1">
               <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-white/50">Email</span>
               <a href="mailto:info@sphinixmarketing.com" class="font-body text-[15px] text-white/90 hover:text-[#FF9F7A] transition-colors">info@sphinixmarketing.com</a>
