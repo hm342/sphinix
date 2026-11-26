@@ -102,6 +102,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet">
   <style>
+    :root {
+      --insights-bg: #F7F6F4;
+      --insights-card-bg: #FFFFFF;
+      --insights-cta-bg: #18181B;
+      --insights-visual-bg: #FFF8F1;
+      --insights-text: #18181B;
+      --insights-muted: #52525B;
+      --insights-accent: #A83300;
+      --insights-accent-bright: #E85D2A;
+      --insights-border: #E4E4E7;
+      --insights-rule: #D4D0C8;
+      --insights-font-sans: 'Manrope', sans-serif;
+      --insights-font-mono: 'JetBrains Mono', monospace;
+      --insights-transition: 200ms ease-out;
+    }
+
     .material-symbols-outlined, .material-symbols-rounded, .material-symbols-sharp, .material-icons { display: inline-block; width: 1em; height: 1em; line-height: 1 !important; box-sizing: content-box; overflow: hidden; white-space: nowrap; direction: ltr; vertical-align: middle; }
 
     .hero-headline {
@@ -110,7 +126,7 @@
       letter-spacing: -0.028em;
     }
 
-        /* Compact sticky header: seamless over hero top -> pure white on scroll */
+    /* Compact sticky header: seamless over hero top -> pure white on scroll */
     #site-header {
       background-color: transparent;
       border-bottom: 1px solid transparent;
@@ -141,9 +157,78 @@
       color: #FFFFFF;
     }
 
+    /* Insights typographic card interactions */
+    .insight-card {
+      background-color: var(--insights-card-bg);
+      border-color: var(--insights-border);
+      transition: border-color var(--insights-transition), background-color var(--insights-transition);
+    }
+    .insight-card-title {
+      color: var(--insights-text);
+      transition: color var(--insights-transition);
+    }
+    .insight-card-arrow {
+      color: var(--insights-accent);
+      opacity: 1;
+      transform: translateX(0);
+      transition: transform var(--insights-transition), opacity var(--insights-transition);
+    }
+    @media (min-width: 768px) {
+      .insight-card-arrow {
+        opacity: 0;
+        transform: translateX(-6px);
+      }
+      .insight-card:hover .insight-card-arrow,
+      .insight-card:focus-visible .insight-card-arrow {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    .insight-card:hover .insight-card-title,
+    .insight-card:focus-visible .insight-card-title {
+      color: var(--insights-accent);
+    }
+    .insight-card:hover,
+    .insight-card:focus-visible {
+      border-color: var(--insights-accent);
+    }
+
+    /* Zero-JS :target CSS fallback filtering */
+    .filter-target {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    html:not(.js-insights) #category-ads:target ~ section #articles-grid .article-card:not([data-category="ads"]),
+    html:not(.js-insights) #category-seo:target ~ section #articles-grid .article-card:not([data-category="seo"]),
+    html:not(.js-insights) #category-strategy:target ~ section #articles-grid .article-card:not([data-category="strategy"]) {
+      display: none;
+    }
+    html:not(.js-insights) #category-ads:target ~ section .insight-pill[data-blog-filter="all"],
+    html:not(.js-insights) #category-seo:target ~ section .insight-pill[data-blog-filter="all"],
+    html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-blog-filter="all"] {
+      background-color: #FFFFFF;
+      color: var(--insights-text);
+      border-color: var(--insights-rule);
+    }
+    html:not(.js-insights) #category-ads:target ~ section .insight-pill[data-blog-filter="ads"],
+    html:not(.js-insights) #category-seo:target ~ section .insight-pill[data-blog-filter="seo"],
+    html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-blog-filter="strategy"] {
+      background-color: var(--insights-accent);
+      color: #FFFFFF;
+      border-color: var(--insights-accent);
+    }
+
     @media (prefers-reduced-motion: reduce) {
-      #site-header, #site-header * {
+      #site-header, #site-header *,
+      .insight-card, .insight-card *,
+      .insight-pill {
         transition-duration: 0.01ms !important;
+        transform: none !important;
       }
     }
     .no-scrollbar::-webkit-scrollbar { display: none; }
@@ -167,10 +252,6 @@
           <a href="../index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             Home
           </a>
-          <a href="../about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-            About
-          </a>
-
           <!-- Services with Accessible Mega Menu -->
           <div class="relative" id="services-nav-item">
             <button type="button" id="services-nav-btn" aria-haspopup="true" aria-expanded="false" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 flex items-center gap-1 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
@@ -248,11 +329,11 @@
             </div>
           </div>
 
-          <a href="../products/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-            Products
-          </a>
           <a href="../work/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             Work
+          </a>
+          <a href="../about/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+            About
           </a>
           <a href="../blog/index.html" class="nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
             Insights
@@ -280,7 +361,6 @@
       <nav id="mobile-menu" class="hidden lg:hidden border-t border-light-outline-variant bg-white shadow-lg" aria-label="Mobile Navigation">
         <div class="px-5 py-4 flex flex-col font-body">
           <a href="../index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Home</a>
-          <a href="../about/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">About</a>
           <div>
             <button type="button" id="mobile-services-btn" class="w-full flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">
               Services
@@ -297,8 +377,8 @@
               <a href="../services/index.html#dev" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">Web &amp; App Dev</a>
             </div>
           </div>
-          <a href="../products/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Products</a>
           <a href="../work/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Work</a>
+          <a href="../about/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">About</a>
           <a href="../blog/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Insights</a>
           <a href="../contact/index.html" class="flex items-center justify-between py-3 border-b border-light-outline-variant font-semibold text-[15px] text-[#202020] hover:text-[#A83300] transition-colors">Contact</a>
           <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -309,227 +389,288 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-[84px]">
+    <main class="flex-1 -mt-[84px] relative">
+      <!-- Zero-JS URL Fragment Filter Targets -->
+      <span id="category-ads" class="filter-target" aria-hidden="true"></span>
+      <span id="category-seo" class="filter-target" aria-hidden="true"></span>
+      <span id="category-strategy" class="filter-target" aria-hidden="true"></span>
 
-      <!-- Editorial Publication Masthead -->
-      <section class="bg-[#F7F6F4] pt-32 pb-12 lg:pt-36 lg:pb-14 px-6 border-b border-[#E4E4E7]">
-        <div class="max-w-7xl mx-auto flex flex-col gap-6">
-          <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Agency Insights &amp; Growth Playbooks</span>
-          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-end">
-            <h1 class="lg:col-span-7 font-display font-semibold text-[36px] sm:text-[46px] lg:text-[52px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
-              Tactical playbooks for the <span class="text-[#E85D2A]">modern digital era.</span>
+      <!-- Compact Hero + Filters (~200px visible below header) -->
+      <section class="bg-[#F7F6F4] pt-[108px] pb-7 px-6 border-b border-[#E4E4E7]">
+        <div class="max-w-7xl mx-auto flex flex-col items-start gap-4">
+          <div class="max-w-2xl flex flex-col gap-1.5">
+            <h1 class="font-display font-semibold text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.08] tracking-[-0.028em] text-[#18181B]">
+              Notes from running <span class="text-[#E85D2A]">real ad accounts.</span>
             </h1>
-            <p class="lg:col-span-5 font-body text-[16.5px] leading-[1.6] text-[#52525B] max-w-[44ch]">
-              Actionable perspectives from our strategists, performance media buyers, and software engineers on scaling revenue.
+            <p class="font-body text-[15.5px] leading-[1.5] text-[#52525B]">
+              Field notes on paid acquisition, organic search architecture, and conversion systems from our team.
             </p>
           </div>
 
-          <!-- Category Filter Buttons -->
-          <div class="pt-4 flex flex-wrap gap-2">
-            <button type="button" data-blog-filter="all" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-light-primary text-light-on-primary transition-colors">All Articles</button>
-            <button type="button" data-blog-filter="strategy" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Strategy &amp; SaaS</button>
-            <button type="button" data-blog-filter="seo" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">SEO &amp; Organic</button>
-            <button type="button" data-blog-filter="ads" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Paid Ads &amp; Performance</button>
-            <button type="button" data-blog-filter="retention" class="blog-tab px-4 py-2 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] transition-colors">Email &amp; Retention</button>
-          </div>
-        </div>
-      </section>
-
-      <!-- Lead Editorial Feature (7/5 Split) -->
-      <section class="py-16 lg:py-20 px-6 bg-[#FFFFFF] border-b border-[#E4E4E7]">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-          <div class="lg:col-span-7">
-            <img src="../images/insight_featured_card.jpg" alt="Performance media buying and ad spend optimization playbook" class="w-full aspect-[16/10] rounded-lg border border-[#E4E4E7] object-cover" loading="eager" decoding="async">
-          </div>
-          <div class="lg:col-span-5 flex flex-col items-start gap-4">
-            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">Featured Playbook · 8 Min Read</span>
-            <h2 class="font-display font-semibold text-[28px] sm:text-[34px] leading-[1.12] tracking-[-0.024em] text-[#18181B]">
-              Cutting Wasted Ad Spend Across Google &amp; Meta in 30 Days.
-            </h2>
-            <p class="font-body text-[16px] leading-[1.65] text-[#52525B]">
-              Our systematic framework for keyword negative-mining, creative hook fatigue rotation, and landing page friction reduction that lowered CPA by up to 34% for client campaigns.
-            </p>
-            <div class="flex items-center gap-3 font-mono text-[12px] text-[#71717A] pt-1">
-              <span>By Sphinix Strategy Team</span>
-              <span>·</span>
-              <span>Paid Acquisition</span>
-            </div>
-            <a href="../contact/index.html" class="mt-2 inline-flex items-center gap-2 px-5 py-2.5 rounded-[6px] bg-[#A83300] hover:bg-[#18181B] text-white font-semibold text-[14.5px] transition-colors">
-              <span>Request Growth Audit</span>
-              <span class="material-symbols-outlined text-[17px]" aria-hidden="true">arrow_forward</span>
+          <!-- Category Filter Pills (URL hash links work without JS) -->
+          <nav id="blog-filters" aria-label="Filter articles by category" class="flex flex-wrap gap-2 pt-1">
+            <a href="index.html" data-blog-filter="all" aria-current="page" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-[#A83300] text-white border border-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              All Articles
             </a>
-          </div>
+            <a href="#category-ads" data-blog-filter="ads" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              Paid Ads
+            </a>
+            <a href="#category-seo" data-blog-filter="seo" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              SEO &amp; Organic
+            </a>
+            <a href="#category-strategy" data-blog-filter="strategy" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              Strategy &amp; Systems
+            </a>
+          </nav>
         </div>
       </section>
 
-      <!-- Ruled Editorial Article Index -->
-      <section class="py-20 px-6 bg-[#F7F6F4] border-b border-[#E4E4E7]">
+      <!-- Featured Article Card (Typographic + Key Number Visual) -->
+      <section class="pt-10 pb-4 px-6 bg-[#F7F6F4]">
         <div class="max-w-7xl mx-auto">
-          <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 border-t border-[#D4D0C8]">
+          <a href="../services/index.html#google-ads" class="insight-card group rounded-lg border p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+            <div class="lg:col-span-7 flex flex-col gap-3">
+              <div class="flex items-center justify-between gap-4">
+                <span class="font-mono text-[12px] font-medium uppercase tracking-[0.06em] text-[#A83300]">
+                  Paid Ads · Featured
+                </span>
+                <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <h2 class="insight-card-title font-display font-semibold text-[24px] sm:text-[30px] leading-[1.15] tracking-[-0.022em]">
+                Cutting wasted Search and Meta ad spend in the first 30 days
+              </h2>
+              <p class="font-body text-[15.5px] leading-[1.6] text-[#52525B] max-w-[58ch]">
+                Negative-keyword pruning and creative fatigue rotation lowered blended acquisition cost across audited growth accounts.
+              </p>
+              <p class="font-mono text-[12px] text-[#52525B] pt-1 truncate">
+                Sphinix Performance Team · Sample Date · 8 min read
+              </p>
+            </div>
 
-            <!-- Article 1 -->
-            <article data-category="strategy" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Automation</span>
-                  <span class="font-mono text-[12px] text-[#71717A]">5 Min Read</span>
+            <div class="lg:col-span-5 rounded-md border border-[#E4E4E7] bg-[#FFF8F1] p-6 sm:p-8 flex flex-col justify-center gap-2">
+              <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#52525B]">
+                Audited CPA Benchmark (Sample)
+              </span>
+              <div class="font-display font-bold text-[52px] sm:text-[64px] leading-none tracking-[-0.04em] text-[#18181B] tabular-nums">
+                &minus;34<span class="text-[#A83300]">%</span>
+              </div>
+              <span class="font-body text-[13.5px] text-[#52525B]">
+                Cost per acquisition across 30-day account cleanups
+              </span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Typographic Article Grid (3 cols desktop, 2 tablet, 1 mobile; single-column fallback when < 6 articles) -->
+      <section id="articles-section" class="pt-6 pb-16 px-6 bg-[#F7F6F4]">
+        <div class="max-w-7xl mx-auto">
+          <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Article 1 (Paid Ads) -->
+            <a href="../services/index.html#google-ads" data-category="ads" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Paid Ads</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
-                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
-                  How ChatBox 360 Automates WhatsApp Lead Conversion
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Google Search vs. Meta campaigns when monthly budgets are tight
                 </h3>
-                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
-                  Connecting SmartBot workflows with your internal CRM to reply, book appointments, and track orders 24/7 with zero ban risk.
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  How to split spend between active high-intent search queries and visual discovery hooks.
                 </p>
               </div>
-              <div class="flex items-center justify-between pt-2">
-                <span class="font-mono text-[12px] text-[#71717A]">WhatsApp API</span>
-                <a href="../products/index.html#chatbox360" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
-                  <span>Explore ChatBox 360</span>
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
-                </a>
-              </div>
-            </article>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Aarav Mehta · Nov 12, 2026 · 7 min read
+              </p>
+            </a>
 
-            <!-- Article 2 -->
-            <article data-category="seo" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
-                  <span class="font-mono text-[12px] text-[#71717A]">6 Min Read</span>
+            <!-- Article 2 (Paid Ads) -->
+            <a href="../services/social-media-marketing/index.html" data-category="ads" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Paid Ads</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
-                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
-                  Technical SEO Checklist for E-Commerce Marketplaces
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Spotting creative fatigue before click costs quietly double
                 </h3>
-                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
-                  Optimize product catalog listings, A+ enhanced content, structured schema, and local search visibility to capture high-intent buyers.
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Weekly frequency and thumbstop thresholds we monitor before rotating ad variations.
                 </p>
               </div>
-              <div class="flex items-center justify-between pt-2">
-                <span class="font-mono text-[12px] text-[#71717A]">E-Commerce SEO</span>
-                <a href="../services/seo/index.html" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
-                  <span>View SEO Playbook</span>
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
-                </a>
-              </div>
-            </article>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Neha Shah · Nov 04, 2026 · 5 min read
+              </p>
+            </a>
 
-            <!-- Article 3 -->
-            <article data-category="retention" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Email &amp; Retention</span>
-                  <span class="font-mono text-[12px] text-[#71717A]">4 Min Read</span>
+            <!-- Article 3 (Paid Ads) -->
+            <a href="../services/index.html#ecommerce" data-category="ads" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Paid Ads</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
-                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
-                  Why Email Marketing Delivers an Average $36 ROI per $1 Spent
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Fixing shopping feed titles to win lower-funnel product clicks
                 </h3>
-                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
-                  Automated welcome drip sequences, cart recovery triggers, and seasonal campaigns that turn first-time purchasers into repeat brand advocates.
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Structuring brand, material, and sizing attributes inside e-commerce catalogs for higher ROAS.
                 </p>
               </div>
-              <div class="flex items-center justify-between pt-2">
-                <span class="font-mono text-[12px] text-[#71717A]">Lifecycle Marketing</span>
-                <a href="../services/index.html#email" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
-                  <span>Explore Email Flows</span>
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
-                </a>
-              </div>
-            </article>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Aarav Mehta · Oct 22, 2026 · 6 min read
+              </p>
+            </a>
 
-            <!-- Article 4 -->
-            <article data-category="ads" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Performance Ads</span>
-                  <span class="font-mono text-[12px] text-[#71717A]">7 Min Read</span>
+            <!-- Article 4 (SEO & Organic) -->
+            <a href="../services/seo/index.html" data-category="seo" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
-                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
-                  Google Search vs. Meta Performance Max: Which Fits Your Business?
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Ranking competitive service pages after core search updates
                 </h3>
-                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
-                  Comparing active buyer intent on Google Search with visual discovery algorithms on Instagram to optimize monthly ad budget splits.
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Technical crawl hygiene, internal link depth, and search-intent alignment across service hubs.
                 </p>
               </div>
-              <div class="flex items-center justify-between pt-2">
-                <span class="font-mono text-[12px] text-[#71717A]">PPC Optimization</span>
-                <a href="../services/index.html#google-ads" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
-                  <span>Explore Google Ads</span>
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
-                </a>
-              </div>
-            </article>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Priya Nair · Nov 09, 2026 · 6 min read
+              </p>
+            </a>
 
-            <!-- Article 5 -->
-            <article data-category="strategy" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Creative Production</span>
-                  <span class="font-mono text-[12px] text-[#71717A]">5 Min Read</span>
+            <!-- Article 5 (SEO & Organic) -->
+            <a href="../services/seo/index.html" data-category="seo" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
-                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
-                  Video Reels vs. Static Graphics: Anatomy of a High-Converting Hook
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Local SEO and Google Maps signals for regional multi-office brands
                 </h3>
-                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
-                  Why short-form 9:16 vertical video delivers 3x higher engagement, and how our creative studio scripts 3-second visual hooks that stop scrolling.
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Review velocity, category selection, and NAP consistency checklists for local pack rankings.
                 </p>
               </div>
-              <div class="flex items-center justify-between pt-2">
-                <span class="font-mono text-[12px] text-[#71717A]">Creative &amp; Video</span>
-                <a href="../services/social-media-marketing/index.html" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
-                  <span>Explore Social Reels</span>
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
-                </a>
-              </div>
-            </article>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Priya Nair · Oct 29, 2026 · 4 min read
+              </p>
+            </a>
 
-            <!-- Article 6 -->
-            <article data-category="seo" class="article-card py-8 border-b border-[#D4D0C8] flex flex-col justify-between gap-4">
-              <div class="flex flex-col gap-3">
-                <div class="flex items-center justify-between">
-                  <span class="font-mono text-[12px] font-semibold uppercase tracking-[0.06em] text-[#A83300]">Local Search</span>
-                  <span class="font-mono text-[12px] text-[#71717A]">4 Min Read</span>
+            <!-- Article 6 (SEO & Organic) -->
+            <a href="../services/seo/index.html" data-category="seo" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
                 </div>
-                <h3 class="font-headline font-semibold text-[22px] leading-[1.25] text-[#18181B]">
-                  Local SEO Mastery: Dominating Google Maps in Your Region
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Fixing faceted e-commerce URLs that waste crawl budget
                 </h3>
-                <p class="font-body text-[15px] leading-[1.65] text-[#52525B]">
-                  Step-by-step framework for optimizing your Google Business Profile, managing review velocity, and maintaining flawless NAP consistency.
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Canonical tags and parameter rules for large SKU catalogs without losing category traffic.
                 </p>
               </div>
-              <div class="flex items-center justify-between pt-2">
-                <span class="font-mono text-[12px] text-[#71717A]">Google Business</span>
-                <a href="../services/seo/index.html" class="inline-flex items-center gap-1 font-semibold text-[13.5px] text-[#A83300] hover:text-[#18181B] transition-colors">
-                  <span>Explore Local SEO</span>
-                  <span class="material-symbols-outlined text-[16px]" aria-hidden="true">north_east</span>
-                </a>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Karan Joshi · Oct 15, 2026 · 5 min read
+              </p>
+            </a>
+
+            <!-- Article 7 (Strategy & Systems) -->
+            <a href="../products/index.html#chatbox360" data-category="strategy" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Systems</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Connecting WhatsApp lead flows directly to your sales pipeline
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Routing inbound ad clicks into automated qualification and booking steps without manual handoffs.
+                </p>
               </div>
-            </article>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Sphinix Systems Team · Nov 01, 2026 · 5 min read
+              </p>
+            </a>
+
+            <!-- Article 8 (Strategy & Systems) -->
+            <a href="../services/index.html#email" data-category="strategy" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Systems</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Why post-purchase email retention lowers paid acquisition pressure
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Welcome sequences and win-back flows that turn first-time buyers into repeat revenue.
+                </p>
+              </div>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Neha Shah · Oct 18, 2026 · 4 min read
+              </p>
+            </a>
+
+            <!-- Article 9 (Strategy & Systems) -->
+            <a href="../work/aabo/index.html" data-category="strategy" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
+              <div class="flex flex-col gap-2.5">
+                <div class="flex items-center justify-between gap-3">
+                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Systems</span>
+                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </div>
+                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+                  Structuring product launch funnels from packaging to paid clicks
+                </h3>
+                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
+                  Lessons from aligning brand identity, landing pages, and regional distributor demand.
+                </p>
+              </div>
+              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
+                Rohan Patel · Oct 05, 2026 · 6 min read
+              </p>
+            </a>
 
           </div>
         </div>
       </section>
 
-      <!-- Dark Editorial Newsletter Band -->
-      <section class="py-20 px-6 bg-[#18181B] text-white">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-8">
-          <div class="flex flex-col gap-3 max-w-xl">
-            <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#FF9F7A]">Stay In The Loop</span>
-            <h2 class="font-display font-semibold text-[30px] sm:text-[36px] leading-[1.12] tracking-[-0.025em] text-white">
-              Subscribe to growth updates.
-            </h2>
-            <p class="font-body text-[16px] leading-[1.6] text-white/75">
-              Get monthly digital marketing playbooks, SaaS product updates, and ROI frameworks delivered straight to your inbox.
-            </p>
-          </div>
-          <div class="w-full md:w-auto max-w-md flex flex-col gap-2">
-            <form id="blog-newsletter-form" class="flex w-full gap-3" novalidate>
-              <input id="blog-newsletter-email" type="email" required placeholder="Enter work email" aria-label="Work email address" class="flex-1 min-w-0 px-4 py-3 rounded-[6px] border border-white/20 bg-white/10 text-white placeholder:text-white/50 font-body text-[15px] focus:outline-none focus:ring-2 focus:ring-[#E85D2A]">
-              <button type="submit" class="px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[15px] transition-colors shrink-0">
-                Subscribe
-              </button>
-            </form>
-            <p id="blog-newsletter-status" class="font-body text-[12.5px] text-white/70" aria-live="polite"></p>
-          </div>
+      <!-- Closing CTA Block -->
+      <section class="py-16 px-6 bg-[#18181B] text-white">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-6">
+          <h2 class="font-display font-semibold text-[26px] sm:text-[32px] leading-[1.15] tracking-[-0.025em] text-white">
+            Want this applied to your account?
+          </h2>
+          <a href="../contact/index.html" class="inline-flex items-center justify-center px-6 py-3 rounded-[6px] bg-[#A83300] hover:bg-white hover:text-[#18181B] text-white font-semibold text-[15px] transition-colors duration-200 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-[#18181B]">
+            Book a call
+          </a>
         </div>
       </section>
 
@@ -703,48 +844,88 @@
         });
       }
 
-      // Filter functionality
-      const filterTabs = document.querySelectorAll('.blog-tab');
-      const articleCards = document.querySelectorAll('.article-card');
+      // Insights progressive URL filtering + category/grid rules
+      document.documentElement.classList.add('js-insights');
+      const articlesGrid = document.getElementById('articles-grid');
+      const filterPills = Array.from(document.querySelectorAll('.insight-pill'));
+      const articleCards = Array.from(document.querySelectorAll('.article-card'));
 
-      filterTabs.forEach(btn => {
-        btn.addEventListener('click', () => {
-          const filter = btn.dataset.blogFilter;
-          filterTabs.forEach(b => {
-            b.classList.remove('bg-light-primary', 'text-light-on-primary');
-            b.classList.add('bg-white', 'border', 'border-[#D4D0C8]', 'text-[#18181B]');
-          });
-          btn.classList.remove('bg-white', 'border', 'border-[#D4D0C8]', 'text-[#18181B]');
-          btn.classList.add('bg-light-primary', 'text-light-on-primary');
+      // Rule: hide any category pill with fewer than 3 articles
+      const categoryCounts = {};
+      articleCards.forEach((card) => {
+        const cat = card.dataset.category;
+        if (cat) categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+      });
+      filterPills.forEach((pill) => {
+        const filter = pill.dataset.blogFilter;
+        if (filter !== 'all' && (categoryCounts[filter] || 0) < 3) {
+          pill.hidden = true;
+          pill.style.display = 'none';
+        }
+      });
 
-          articleCards.forEach(card => {
-            if (filter === 'all' || card.dataset.category === filter) {
-              card.style.display = 'flex';
-            } else {
-              card.style.display = 'none';
-            }
-          });
+      // Rule: if fewer than 6 articles, use a single-column list with larger titles
+      if (articlesGrid && articleCards.length < 6) {
+        articlesGrid.className = 'grid grid-cols-1 max-w-3xl gap-4';
+        articleCards.forEach((card) => {
+          const title = card.querySelector('.insight-card-title');
+          if (title) {
+            title.classList.remove('text-[19px]');
+            title.classList.add('text-[22px]', 'sm:text-[25px]');
+          }
+        });
+      }
+
+      function applyFilter(filterKey, updateUrl) {
+        const validCategories = ['ads', 'seo', 'strategy'];
+        const activeFilter =
+          validCategories.includes(filterKey) && (categoryCounts[filterKey] || 0) >= 3
+            ? filterKey
+            : 'all';
+
+        filterPills.forEach((pill) => {
+          const isMatch = pill.dataset.blogFilter === activeFilter;
+          pill.classList.toggle('bg-[#A83300]', isMatch);
+          pill.classList.toggle('text-white', isMatch);
+          pill.classList.toggle('border-[#A83300]', isMatch);
+          pill.classList.toggle('bg-white', !isMatch);
+          pill.classList.toggle('text-[#18181B]', !isMatch);
+          pill.classList.toggle('border-[#D4D0C8]', !isMatch);
+          if (isMatch) {
+            pill.setAttribute('aria-current', 'page');
+          } else {
+            pill.removeAttribute('aria-current');
+          }
+        });
+
+        articleCards.forEach((card) => {
+          card.style.display =
+            activeFilter === 'all' || card.dataset.category === activeFilter ? 'flex' : 'none';
+        });
+
+        if (updateUrl && window.history && window.history.replaceState) {
+          const nextHash = activeFilter === 'all' ? '' : `#category-${activeFilter}`;
+          window.history.replaceState(null, '', window.location.pathname + window.location.search + nextHash);
+        }
+      }
+
+      function getFilterFromLocation() {
+        const params = new URLSearchParams(window.location.search);
+        const queryCat = params.get('category');
+        if (queryCat) return queryCat;
+        const hash = window.location.hash.replace('#category-', '').replace('#', '');
+        return hash || 'all';
+      }
+
+      filterPills.forEach((pill) => {
+        pill.addEventListener('click', (e) => {
+          e.preventDefault();
+          applyFilter(pill.dataset.blogFilter, true);
         });
       });
 
-      const blogForm = document.getElementById('blog-newsletter-form');
-      const blogEmail = document.getElementById('blog-newsletter-email');
-      const blogStatus = document.getElementById('blog-newsletter-status');
-      if (blogForm && blogEmail && blogStatus) {
-        blogForm.addEventListener('submit', (e) => {
-          e.preventDefault();
-          const val = blogEmail.value.trim();
-          if (!val || !val.includes('@')) {
-            blogStatus.textContent = 'Please enter a valid work email address.';
-            blogStatus.className = 'font-body text-[12.5px] text-[#FF9F7A]';
-            blogEmail.focus();
-            return;
-          }
-          blogStatus.textContent = 'Thank you for subscribing to Sphinix Marketing insights.';
-          blogStatus.className = 'font-body text-[12.5px] text-[#86EFAC]';
-          blogEmail.value = '';
-        });
-      }
+      window.addEventListener('hashchange', () => applyFilter(getFilterFromLocation(), false));
+      applyFilter(getFilterFromLocation(), false);
     })();
   </script>
 </body>
