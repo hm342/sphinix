@@ -126,10 +126,10 @@
       letter-spacing: -0.028em;
     }
 
-    /* Compact sticky header: seamless over hero top -> pure white on scroll */
+    /* Compact sticky header: pure white always on Insights */
     #site-header {
-      background-color: transparent;
-      border-bottom: 1px solid transparent;
+      background-color: #FFFFFF;
+      border-bottom: 1px solid #E4E4E7;
       transition: background-color 240ms ease, border-color 240ms ease, box-shadow 240ms ease;
     }
     #site-header.header-scrolled {
@@ -139,13 +139,9 @@
     }
 
     #nav-pill {
-      background-color: rgba(244, 232, 213, 0.78);
-      border: 1px solid rgba(218, 200, 174, 0.6);
-      transition: background-color 240ms ease, border-color 240ms ease;
-    }
-    #site-header.header-scrolled #nav-pill {
       background-color: #F4F2EE;
-      border-color: #E6E3DC;
+      border: 1px solid #E6E3DC;
+      transition: background-color 240ms ease, border-color 240ms ease;
     }
     body.has-dark-hero #site-header:not(.header-scrolled) .site-logo-img {
       filter: invert(1) hue-rotate(180deg);
@@ -395,14 +391,14 @@
       </nav>
     </header>
 
-        <main class="flex-1 -mt-[84px] relative">
+    <main class="flex-1 relative">
       <!-- Zero-JS URL Fragment Filter Targets -->
       <span id="category-ads" class="filter-target" aria-hidden="true"></span>
       <span id="category-seo" class="filter-target" aria-hidden="true"></span>
       <span id="category-strategy" class="filter-target" aria-hidden="true"></span>
 
       <!-- Section 1: Orange Swiss Editorial Hero + Speech Bubble Card -->
-      <section class="bg-[#ec7a2d] overflow-x-clip pt-32 sm:pt-36 pb-16 lg:pb-24 px-6 sm:px-10">
+      <section class="bg-[#ec7a2d] overflow-x-clip pt-14 sm:pt-16 pb-14 lg:pt-20 lg:pb-20 px-6 sm:px-10">
         <div class="max-w-[1160px] mx-auto">
           <h1 class="sr-only">Sphinix Marketing Insights</h1>
 
