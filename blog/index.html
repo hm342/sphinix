@@ -157,40 +157,30 @@
       color: #FFFFFF;
     }
 
-    /* Insights typographic card interactions */
-    .insight-card {
-      background-color: var(--insights-card-bg);
-      border-color: var(--insights-border);
-      transition: border-color var(--insights-transition), background-color var(--insights-transition);
+        /* Creative 4-word interactive hero typography */
+    .pillar-word {
+      color: transparent;
+      -webkit-text-stroke: 1.75px #E85D2A;
+      transition: color 200ms ease-out, -webkit-text-stroke-color 200ms ease-out, transform 200ms ease-out;
     }
-    .insight-card-title {
+    .pillar-word:hover,
+    .pillar-word:focus-visible,
+    .pillar-word.is-active {
+      color: #FFFFFF;
+      -webkit-text-stroke: 1.75px #FFFFFF;
+    }
+    #pillar-pointer {
+      transition: top 220ms cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    /* Insights row interactions */
+    .insight-row-title {
       color: var(--insights-text);
       transition: color var(--insights-transition);
     }
-    .insight-card-arrow {
+    .insight-row:hover .insight-row-title,
+    .insight-row:focus-within .insight-row-title {
       color: var(--insights-accent);
-      opacity: 1;
-      transform: translateX(0);
-      transition: transform var(--insights-transition), opacity var(--insights-transition);
-    }
-    @media (min-width: 768px) {
-      .insight-card-arrow {
-        opacity: 0;
-        transform: translateX(-6px);
-      }
-      .insight-card:hover .insight-card-arrow,
-      .insight-card:focus-visible .insight-card-arrow {
-        opacity: 1;
-        transform: translateX(0);
-      }
-    }
-    .insight-card:hover .insight-card-title,
-    .insight-card:focus-visible .insight-card-title {
-      color: var(--insights-accent);
-    }
-    .insight-card:hover,
-    .insight-card:focus-visible {
-      border-color: var(--insights-accent);
     }
 
     /* Zero-JS :target CSS fallback filtering */
@@ -211,21 +201,20 @@
     html:not(.js-insights) #category-ads:target ~ section .insight-pill[data-blog-filter="all"],
     html:not(.js-insights) #category-seo:target ~ section .insight-pill[data-blog-filter="all"],
     html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-blog-filter="all"] {
-      background-color: #FFFFFF;
       color: var(--insights-text);
-      border-color: var(--insights-rule);
+      border-color: transparent;
     }
     html:not(.js-insights) #category-ads:target ~ section .insight-pill[data-blog-filter="ads"],
     html:not(.js-insights) #category-seo:target ~ section .insight-pill[data-blog-filter="seo"],
     html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-blog-filter="strategy"] {
-      background-color: var(--insights-accent);
-      color: #FFFFFF;
+      color: var(--insights-accent);
       border-color: var(--insights-accent);
     }
 
     @media (prefers-reduced-motion: reduce) {
       #site-header, #site-header *,
-      .insight-card, .insight-card *,
+      .pillar-word, #pillar-pointer,
+      .insight-row, .insight-row *,
       .insight-pill {
         transition-duration: 0.01ms !important;
         transform: none !important;
@@ -235,7 +224,7 @@
     .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
   </style>
 </head>
-<body class="bg-light-surface text-light-on-surface font-body antialiased">
+<body class="has-dark-hero bg-light-surface text-light-on-surface font-body antialiased">
   <div class="min-h-screen flex flex-col">
 
     <!-- Top Navigation Bar -->
@@ -389,274 +378,232 @@
       </nav>
     </header>
 
-    <main class="flex-1 -mt-[84px] relative">
+        <main class="flex-1 -mt-[84px] relative">
       <!-- Zero-JS URL Fragment Filter Targets -->
       <span id="category-ads" class="filter-target" aria-hidden="true"></span>
       <span id="category-seo" class="filter-target" aria-hidden="true"></span>
       <span id="category-strategy" class="filter-target" aria-hidden="true"></span>
 
-      <!-- Compact Hero + Filters (~200px visible below header) -->
-      <section class="bg-[#F7F6F4] pt-[108px] pb-7 px-6 border-b border-[#E4E4E7]">
-        <div class="max-w-7xl mx-auto flex flex-col items-start gap-4">
-          <div class="max-w-2xl flex flex-col gap-1.5">
-            <h1 class="font-display font-semibold text-[32px] sm:text-[38px] lg:text-[42px] leading-[1.08] tracking-[-0.028em] text-[#18181B]">
-              Notes from running <span class="text-[#E85D2A]">real ad accounts.</span>
-            </h1>
-            <p class="font-body text-[15.5px] leading-[1.5] text-[#52525B]">
-              Field notes on paid ads, technical SEO, and client systems from Sphinix Marketing.
-            </p>
+      <!-- Section 1: Interactive 4-Word Hero + Dynamic Description Box -->
+      <section class="bg-[#18181B] text-white pt-32 sm:pt-36 pb-16 lg:pb-24 px-6 border-b border-white/10">
+        <div class="max-w-6xl mx-auto flex flex-col gap-6">
+          <h1 class="font-mono text-[12px] font-semibold uppercase tracking-[0.1em] text-[#FF9F7A]">
+            Sphinix Insights · Hover or Select a Word
+          </h1>
+
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
+            <!-- Left Column: 4 Stacked Outlined/Solid Words -->
+            <div id="pillar-stack" class="lg:col-span-6 flex flex-col items-start gap-1 sm:gap-2" role="group" aria-label="Insights focus areas">
+              <button type="button" data-pillar="why" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+                WHY
+              </button>
+              <button type="button" data-pillar="how" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+                HOW
+              </button>
+              <button type="button" data-pillar="what" aria-pressed="false" class="pillar-word text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+                WHAT
+              </button>
+              <button type="button" data-pillar="who" aria-pressed="true" class="pillar-word is-active text-left font-display font-extrabold uppercase text-[52px] sm:text-[68px] lg:text-[82px] leading-[0.94] tracking-[-0.03em] focus-visible:outline-none">
+                WHO
+              </button>
+            </div>
+
+            <!-- Right Column: Dynamic Speech Bubble Card -->
+            <div class="lg:col-span-6">
+              <div class="relative bg-white text-[#18181B] rounded-2xl p-8 sm:p-10 lg:p-12 min-h-[250px] flex flex-col justify-center gap-3 shadow-xl">
+                <span id="pillar-pointer" class="hidden lg:block absolute -left-2.5 w-5 h-5 bg-white rotate-45" style="top: 78%;" aria-hidden="true"></span>
+                <span id="pillar-tag" class="font-mono text-[12px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">
+                  04 · WHO IT IS FOR
+                </span>
+                <p id="pillar-desc" class="font-body text-[17px] sm:text-[18.5px] leading-[1.65] text-[#18181B]" aria-live="polite">
+                  Built for business owners and marketing teams who want plain numbers from Google Ads, Meta campaigns, technical SEO, and WhatsApp workflows before scaling budget.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Centered Title, Underlined Categories & Row List -->
+      <section class="py-16 lg:py-20 px-6 bg-[#FFFFFF]">
+        <div class="max-w-5xl mx-auto flex flex-col gap-8">
+          <div class="flex flex-col items-center gap-6 text-center">
+            <h2 class="font-display font-bold text-[34px] sm:text-[42px] leading-[1.1] tracking-[-0.028em] text-[#18181B]">
+              Latest Insights
+            </h2>
+
+            <!-- Underlined Category Tabs (Desktop & Mobile) -->
+            <nav id="blog-filters" aria-label="Filter articles by category" class="flex flex-wrap items-center justify-center gap-x-8 gap-y-3">
+              <a href="index.html" data-blog-filter="all" aria-current="page" class="insight-pill pb-1.5 border-b-2 border-[#A83300] text-[#A83300] font-body font-bold text-[15px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-4">
+                All
+              </a>
+              <a href="#category-ads" data-blog-filter="ads" class="insight-pill pb-1.5 border-b-2 border-transparent text-[#18181B] hover:text-[#A83300] font-body font-bold text-[15px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-4">
+                Paid Ads
+              </a>
+              <a href="#category-seo" data-blog-filter="seo" class="insight-pill pb-1.5 border-b-2 border-transparent text-[#18181B] hover:text-[#A83300] font-body font-bold text-[15px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-4">
+                SEO &amp; Organic
+              </a>
+              <a href="#category-strategy" data-blog-filter="strategy" class="insight-pill pb-1.5 border-b-2 border-transparent text-[#18181B] hover:text-[#A83300] font-body font-bold text-[15px] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-4">
+                Strategy &amp; Systems
+              </a>
+            </nav>
           </div>
 
-          <!-- Category Filter Pills (URL hash links work without JS) -->
-          <nav id="blog-filters" aria-label="Filter articles by category" class="flex flex-wrap gap-2 pt-1">
-            <a href="index.html" data-blog-filter="all" aria-current="page" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-[#A83300] text-white border border-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              All Articles
-            </a>
-            <a href="#category-ads" data-blog-filter="ads" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              Paid Ads
-            </a>
-            <a href="#category-seo" data-blog-filter="seo" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              SEO &amp; Organic
-            </a>
-            <a href="#category-strategy" data-blog-filter="strategy" class="insight-pill px-4 py-1.5 rounded-full font-label text-label-sm bg-white border border-[#D4D0C8] text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              Strategy &amp; Systems
-            </a>
-          </nav>
-        </div>
-      </section>
+          <!-- Horizontal Insights Row List -->
+          <div id="articles-grid" class="flex flex-col divide-y divide-[#D4D0C8] border-t border-b border-[#D4D0C8]" aria-live="polite">
 
-      <!-- Featured Article Card (Typographic + Key Number Visual) -->
-      <section class="pt-10 pb-4 px-6 bg-[#F7F6F4]">
-        <div class="max-w-7xl mx-auto">
-          <a href="../services/index.html#google-ads" class="insight-card group rounded-lg border p-6 sm:p-8 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-            <div class="lg:col-span-7 flex flex-col gap-3">
-              <div class="flex items-center justify-between gap-4">
-                <span class="font-mono text-[12px] font-medium uppercase tracking-[0.06em] text-[#A83300]">
-                  Paid Ads · Featured
-                </span>
-                <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                  <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
-              </div>
-              <h2 class="insight-card-title font-display font-semibold text-[24px] sm:text-[30px] leading-[1.15] tracking-[-0.022em]">
-                [ADD REAL FEATURED ARTICLE TITLE]
-              </h2>
-              <p class="font-body text-[15.5px] leading-[1.6] text-[#52525B] max-w-[58ch]">
-                [ADD REAL ONE-LINE TAKEAWAY FROM THIS ACCOUNT OR CAMPAIGN]
-              </p>
-              <p class="font-mono text-[12px] text-[#52525B] pt-1 truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </div>
-
-            <div class="lg:col-span-5 rounded-md border border-[#E4E4E7] bg-[#FFF8F1] p-6 sm:p-8 flex flex-col justify-center gap-2">
-              <span class="font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#52525B]">
-                Featured Metric [ADD REAL LABEL]
-              </span>
-              <div class="font-display font-bold text-[36px] sm:text-[44px] leading-none tracking-[-0.03em] text-[#A83300] tabular-nums">
-                [ADD KEY NUMBER]
-              </div>
-              <span class="font-body text-[13.5px] text-[#52525B]">
-                [ADD REAL RESULT SCOPE OR REMOVE METRIC BOX]
-              </span>
-            </div>
-          </a>
-        </div>
-      </section>
-
-      <!-- Typographic Article Grid (3 cols desktop, 2 tablet, 1 mobile; single-column fallback when < 6 articles) -->
-      <section id="articles-section" class="pt-6 pb-16 px-6 bg-[#F7F6F4]">
-        <div class="max-w-7xl mx-auto">
-          <div id="articles-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-
-            <!-- Article 1 (Paid Ads) -->
-            <a href="../services/index.html#google-ads" data-category="ads" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Paid Ads</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="ads" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL PAID ADS ARTICLE TITLE 01]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  Paid Ads • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/index.html#google-ads" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 2 (Paid Ads) -->
-            <a href="../services/social-media-marketing/index.html" data-category="ads" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Paid Ads</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="ads" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL PAID ADS ARTICLE TITLE 02]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  Paid Ads • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/social-media-marketing/index.html" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 3 (Paid Ads) -->
-            <a href="../services/index.html#ecommerce" data-category="ads" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Paid Ads</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="ads" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL PAID ADS ARTICLE TITLE 03]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  Paid Ads • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/index.html#ecommerce" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 4 (SEO & Organic) -->
-            <a href="../services/seo/index.html" data-category="seo" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="seo" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL SEO ARTICLE TITLE 01]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  SEO &amp; Organic • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/seo/index.html" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 5 (SEO & Organic) -->
-            <a href="../services/seo/index.html" data-category="seo" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="seo" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL SEO ARTICLE TITLE 02]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  SEO &amp; Organic • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/seo/index.html" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 6 (SEO & Organic) -->
-            <a href="../services/seo/index.html" data-category="seo" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">SEO &amp; Organic</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="seo" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL SEO ARTICLE TITLE 03]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  SEO &amp; Organic • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/seo/index.html" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 7 (Strategy & Systems) -->
-            <a href="../products/index.html#chatbox360" data-category="strategy" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Systems</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="strategy" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL STRATEGY ARTICLE TITLE 01]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  Strategy &amp; Systems • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../products/index.html#chatbox360" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 8 (Strategy & Systems) -->
-            <a href="../services/index.html#email" data-category="strategy" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Systems</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="strategy" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL STRATEGY ARTICLE TITLE 02]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  Strategy &amp; Systems • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../services/index.html#email" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
-            <!-- Article 9 (Strategy & Systems) -->
-            <a href="../work/aabo/index.html" data-category="strategy" class="article-card insight-card group rounded-lg border p-6 flex flex-col justify-between gap-5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F7F6F4]">
-              <div class="flex flex-col gap-2.5">
-                <div class="flex items-center justify-between gap-3">
-                  <span class="font-mono text-[11.5px] font-medium uppercase tracking-[0.06em] text-[#A83300]">Strategy &amp; Systems</span>
-                  <svg class="insight-card-arrow w-4 h-4 shrink-0" viewBox="0 0 16 16" fill="none" aria-hidden="true">
-                    <path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </div>
-                <h3 class="insight-card-title font-headline font-semibold text-[19px] leading-[1.3]">
+            <div data-category="strategy" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+              <div class="flex flex-col gap-1.5 min-w-0">
+                <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
                   [ADD REAL STRATEGY ARTICLE TITLE 03]
                 </h3>
-                <p class="font-body text-[14.5px] leading-[1.55] text-[#52525B] line-clamp-2">
-                  [ADD REAL ONE-LINE TAKEAWAY]
+                <p class="font-body text-[14px] text-[#52525B]">
+                  Strategy &amp; Systems • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
                 </p>
               </div>
-              <p class="font-mono text-[11.5px] text-[#52525B] pt-3 border-t border-[#E4E4E7] truncate">
-                [ADD AUTHOR] · [ADD DATE] · [ADD READ TIME]
-              </p>
-            </a>
+              <a href="../work/aabo/index.html" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                <span>View Details</span>
+                <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
+                  <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+                </span>
+              </a>
+            </div>
 
           </div>
         </div>
@@ -844,13 +791,61 @@
         });
       }
 
-      // Insights progressive URL filtering + category/grid rules
+            // Interactive 4-Word Hero Stack (hover, focus, and click update active word + speech bubble)
+      const PILLAR_CONTENT = {
+        why: {
+          tag: '01 · WHY WE WRITE',
+          top: '14%',
+          desc: 'We publish practical field notes instead of agency buzzwords—documenting what actually changes ad spend efficiency, search indexing, and conversion follow-up.'
+        },
+        how: {
+          tag: '02 · HOW WE WORK',
+          top: '36%',
+          desc: 'From negative-keyword cleanups and technical SEO crawls to WhatsApp API routing in ChatBox 360 Suite, we share the exact checklists our Bhavnagar team uses.'
+        },
+        what: {
+          tag: '03 · WHAT YOU WILL READ',
+          top: '58%',
+          desc: 'Short breakdowns across Google Ads, Meta Ads, Local SEO, e-commerce feeds, and retention emails—written to be read in 5 minutes and applied immediately.'
+        },
+        who: {
+          tag: '04 · WHO IT IS FOR',
+          top: '78%',
+          desc: 'Built for business owners and marketing teams who want plain numbers from Google Ads, Meta campaigns, technical SEO, and WhatsApp workflows before scaling budget.'
+        }
+      };
+
+      const pillarBtns = Array.from(document.querySelectorAll('.pillar-word'));
+      const pillarTag = document.getElementById('pillar-tag');
+      const pillarDesc = document.getElementById('pillar-desc');
+      const pillarPointer = document.getElementById('pillar-pointer');
+
+      function activatePillar(key) {
+        const data = PILLAR_CONTENT[key];
+        if (!data) return;
+        pillarBtns.forEach((btn) => {
+          const active = btn.dataset.pillar === key;
+          btn.classList.toggle('is-active', active);
+          btn.setAttribute('aria-pressed', String(active));
+        });
+        if (pillarTag) pillarTag.textContent = data.tag;
+        if (pillarDesc) pillarDesc.textContent = data.desc;
+        if (pillarPointer) pillarPointer.style.top = data.top;
+      }
+
+      pillarBtns.forEach((btn) => {
+        const key = btn.dataset.pillar;
+        btn.addEventListener('mouseenter', () => activatePillar(key));
+        btn.addEventListener('focus', () => activatePillar(key));
+        btn.addEventListener('click', () => activatePillar(key));
+      });
+
+      // Insights progressive URL filtering + category rules (underlined tabs + row layout)
       document.documentElement.classList.add('js-insights');
-      const articlesGrid = document.getElementById('articles-grid');
       const filterPills = Array.from(document.querySelectorAll('.insight-pill'));
       const articleCards = Array.from(document.querySelectorAll('.article-card'));
 
-      // Rule: hide any category pill with fewer than 3 articles
+      // Rule: hide any category tab with fewer than 3 articles
       const categoryCounts = {};
       articleCards.forEach((card) => {
         const cat = card.dataset.category;
@@ -864,18 +859,6 @@
         }
       });
 
-      // Rule: if fewer than 6 articles, use a single-column list with larger titles
-      if (articlesGrid && articleCards.length < 6) {
-        articlesGrid.className = 'grid grid-cols-1 max-w-3xl gap-4';
-        articleCards.forEach((card) => {
-          const title = card.querySelector('.insight-card-title');
-          if (title) {
-            title.classList.remove('text-[19px]');
-            title.classList.add('text-[22px]', 'sm:text-[25px]');
-          }
-        });
-      }
-
       function applyFilter(filterKey, updateUrl) {
         const validCategories = ['ads', 'seo', 'strategy'];
         const activeFilter =
@@ -885,12 +868,10 @@
 
         filterPills.forEach((pill) => {
           const isMatch = pill.dataset.blogFilter === activeFilter;
-          pill.classList.toggle('bg-[#A83300]', isMatch);
-          pill.classList.toggle('text-white', isMatch);
           pill.classList.toggle('border-[#A83300]', isMatch);
-          pill.classList.toggle('bg-white', !isMatch);
+          pill.classList.toggle('text-[#A83300]', isMatch);
+          pill.classList.toggle('border-transparent', !isMatch);
           pill.classList.toggle('text-[#18181B]', !isMatch);
-          pill.classList.toggle('border-[#D4D0C8]', !isMatch);
           if (isMatch) {
             pill.setAttribute('aria-current', 'page');
           } else {
@@ -904,7 +885,7 @@
         });
 
         if (updateUrl && window.history && window.history.replaceState) {
-          const nextHash = activeFilter === 'all' ? '' : `#category-${activeFilter}`;
+          const nextHash = activeFilter === 'all' ? '' : '#category-' + activeFilter;
           window.history.replaceState(null, '', window.location.pathname + window.location.search + nextHash);
         }
       }
