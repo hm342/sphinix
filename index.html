@@ -212,7 +212,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .hero-animate, .client-marquee-ltr, .client-marquee-rtl {
+      .hero-animate, .client-marquee-ltr, .client-marquee-rtl, .services-marquee-track {
         animation: none !important;
       }
       #site-header, #nav-pill, #site-header *, .hero-canvas *, .service-carousel-card, .service-carousel-card * {
@@ -263,6 +263,19 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         opacity: 1;
         transform: translateX(0);
       }
+    }
+
+    /* Continuous Loop Services Marquee Carousel */
+    @keyframes servicesMarqueeRTL {
+      0% { transform: translateX(0%); }
+      100% { transform: translateX(-50%); }
+    }
+    .services-marquee-track {
+      animation: servicesMarqueeRTL 42s linear infinite;
+    }
+    .services-marquee-mask:hover .services-marquee-track,
+    .services-marquee-mask:focus-within .services-marquee-track {
+      animation-play-state: paused;
     }
 
     /* Client Family Dual Opposing Marquee Carousel */
@@ -617,270 +630,445 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         </div>
       </section>
 
-      <!-- 8 Core Services Interactive Carousel -->
-      <section id="services" class="py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant" aria-roledescription="carousel" aria-label="Our Services">
-        <div class="max-w-7xl mx-auto flex flex-col gap-10">
-          <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <!-- 8 Core Services Continuous Loop Carousel -->
+      <section id="services" class="py-16 lg:py-20 px-6 bg-light-surface-container-lowest border-b border-light-outline-variant overflow-x-clip" aria-label="Our Services">
+        <div class="max-w-7xl mx-auto flex flex-col gap-8">
+          <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div class="flex flex-col gap-3 max-w-2xl">
               <h2 class="font-display font-bold text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
                 Eight core disciplines, <span class="text-brand-orange">one unified team.</span>
               </h2>
             </div>
 
-            <div class="flex items-center gap-4">
-              <span id="services-counter" class="font-mono text-mono-sm text-light-on-surface-variant tabular-nums" aria-live="polite">01–03 / 08 services</span>
-              <div class="flex items-center gap-2">
-                <button id="services-prev" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Previous services" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-secondary hover:text-light-on-secondary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_back</span>
-                </button>
-                <button id="services-next" data-component-id="button-icon" data-component-type="button" data-component-variant="icon" type="button" aria-label="Next services" class="inline-flex items-center justify-center w-10 h-10 rounded-full border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface hover:bg-light-secondary hover:text-light-on-secondary transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                  <span class="material-symbols-outlined text-title-md" aria-hidden="true">arrow_forward</span>
-                </button>
+            <a href="services/index.html" class="font-body font-semibold text-[14px] text-[#A83300] hover:underline whitespace-nowrap shrink-0">
+              All services →
+            </a>
+          </div>
+
+          <!-- Seamless Continuous Loop Track (pauses on hover/focus) -->
+          <div class="services-marquee-mask client-marquee-mask overflow-hidden py-1 -my-1">
+            <div id="services-track" class="services-marquee-track flex w-max">
+              <div class="flex items-stretch gap-5 pr-5 shrink-0">
+                <a href="services/social-media-marketing/index.html" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_01_social.jpg" alt="Social media content production and campaign visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">ORGANIC &amp; PAID SOCIAL</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Social Media</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Content calendars, reels, motion posts, influencer promos, and paid social.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Reels</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Paid Social</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Calendars</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore social media</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/seo/index.html" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_02_seo.jpg" alt="Search engine optimization and ranking growth visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">SEARCH ENGINE OPTIMIZATION</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">SEO &amp; Organic</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Technical SEO, on-page &amp; off-page authority, local SEO, and mobile ASO.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Technical SEO</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Local Maps</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">ASO</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore SEO</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#google-ads" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_03_ads.jpg" alt="Google Ads performance campaign visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#A83300] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">PERFORMANCE MARKETING</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Google Ads</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Search, display, shopping, YouTube, and dynamic remarketing campaigns.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Search Ads</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Shopping</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">YouTube</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore Google Ads</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#branding" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_04_branding.jpg" alt="Brand identity, packaging, and print collateral visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">BRANDING &amp; IDENTITY</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Branding &amp; Design</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Logo systems, brand guidelines, packaging, pitch decks, and brochures.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Identity</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Packaging</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Guidelines</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore branding</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#video" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_05_video.jpg" alt="Video production and motion graphics reel visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">MOTION &amp; FILM</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Video Production</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Social reels, corporate films, motion graphics, UGC, and AI filmmaking.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Reels</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Commercials</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Motion</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore video</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#ecommerce" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_06_ecommerce.jpg" alt="E-commerce storefront and marketplace optimization visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#A83300] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">MARKETPLACE GROWTH</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">E-Commerce</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">End-to-end marketplace catalog, A+ content, storefront design, and ads.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Catalogs</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">A+ Content</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Storefronts</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore e-commerce</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#email" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_07_email.jpg" alt="Email automation flows and retention campaign visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">RETENTION &amp; AUTOMATION</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Email Marketing</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Automated drip sequences, abandoned cart recovery, and seasonal campaigns.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Drip Flows</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Cart Recovery</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Campaigns</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore email</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#dev" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_08_dev.jpg" alt="Website and application development showcase visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">WEB &amp; PRODUCT ENGINEERING</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Web &amp; App Dev</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Responsive websites, mobile apps, custom software, and e-commerce builds.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Websites</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Mobile Apps</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Custom Dev</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore web &amp; apps</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="flex items-stretch gap-5 pr-5 shrink-0" aria-hidden="true">
+                <a href="services/social-media-marketing/index.html" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_01_social.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">ORGANIC &amp; PAID SOCIAL</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Social Media</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Content calendars, reels, motion posts, influencer promos, and paid social.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Reels</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Paid Social</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Calendars</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore social media</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/seo/index.html" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_02_seo.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">SEARCH ENGINE OPTIMIZATION</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">SEO &amp; Organic</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Technical SEO, on-page &amp; off-page authority, local SEO, and mobile ASO.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Technical SEO</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Local Maps</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">ASO</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore SEO</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#google-ads" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_03_ads.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#A83300] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">PERFORMANCE MARKETING</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Google Ads</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Search, display, shopping, YouTube, and dynamic remarketing campaigns.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Search Ads</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Shopping</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">YouTube</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore Google Ads</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#branding" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_04_branding.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">BRANDING &amp; IDENTITY</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Branding &amp; Design</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Logo systems, brand guidelines, packaging, pitch decks, and brochures.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Identity</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Packaging</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Guidelines</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore branding</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#video" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_05_video.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">MOTION &amp; FILM</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Video Production</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Social reels, corporate films, motion graphics, UGC, and AI filmmaking.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Reels</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Commercials</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Motion</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore video</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#ecommerce" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_06_ecommerce.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#A83300] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">MARKETPLACE GROWTH</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">E-Commerce</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">End-to-end marketplace catalog, A+ content, storefront design, and ads.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Catalogs</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">A+ Content</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Storefronts</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore e-commerce</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#email" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_07_email.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">RETENTION &amp; AUTOMATION</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Email Marketing</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Automated drip sequences, abandoned cart recovery, and seasonal campaigns.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Drip Flows</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Cart Recovery</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Campaigns</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore email</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
+                <a href="services/index.html#dev" tabindex="-1" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-[270px] sm:w-[290px] lg:w-[305px] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
+                  <div class="h-[150px] sm:h-[160px] w-full overflow-hidden bg-[#F4F2EE]">
+                    <img src="images/svc_08_dev.jpg" alt="" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
+                  </div>
+                  <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
+                    <div class="flex flex-col gap-2">
+                      <div class="flex items-center gap-2">
+                        <span class="w-1.5 h-1.5 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
+                        <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">WEB &amp; PRODUCT ENGINEERING</span>
+                      </div>
+                      <h3 data-design-text-token="title-md" class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">Web &amp; App Dev</h3>
+                      <p data-design-text-token="body-sm" class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">Responsive websites, mobile apps, custom software, and e-commerce builds.</p>
+                      <div class="pt-0.5 flex flex-wrap gap-1.5">
+                        <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Websites</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Mobile Apps</span>
+                    <span class="px-2 py-0.5 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[11.5px]">Custom Dev</span>
+                      </div>
+                    </div>
+                    <div class="pt-0.5">
+                      <div class="service-carousel-action w-full px-3.5 py-2.5 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
+                        <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13px] text-[#18181B]">Explore web &amp; apps</span>
+                        <span class="service-carousel-arrow material-symbols-outlined text-[16px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
+                      </div>
+                    </div>
+                  </div>
+                </a>
               </div>
             </div>
-          </div>
-
-          <!-- Carousel Viewport (3 desktop / 2 tablet / 1 mobile) -->
-          <div id="services-viewport" class="overflow-hidden pt-1 pb-2 -mt-1 -mb-2 touch-pan-y select-none" tabindex="0" aria-label="Services list — use left and right arrow keys to navigate">
-            <div id="services-track" class="flex items-stretch gap-6 transition-transform duration-300 ease-out">
-              <!-- 01 -->
-              <a href="services/social-media-marketing/index.html" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_01_social.jpg" alt="Social media content production and campaign visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">01</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">ORGANIC &amp; PAID SOCIAL</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">Social Media</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Content calendars, reels, motion posts, influencer promos, and paid social.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Reels</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Paid Social</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Calendars</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore social media</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 02 -->
-              <a href="services/seo/index.html" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_02_seo.jpg" alt="Search engine optimization and ranking growth visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">02</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">SEARCH ENGINE OPTIMIZATION</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">SEO &amp; Organic</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Technical SEO, on-page &amp; off-page authority, local SEO, and mobile ASO.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Technical SEO</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Local Maps</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">ASO</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore SEO</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 03 -->
-              <a href="services/index.html#google-ads" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_03_ads.jpg" alt="Google Ads performance campaign visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">03</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#A83300] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">PERFORMANCE MARKETING</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">Google Ads</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Search, display, shopping, YouTube, and dynamic remarketing campaigns.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Search Ads</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Shopping</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">YouTube</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore Google Ads</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 04 -->
-              <a href="services/index.html#branding" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_04_branding.jpg" alt="Brand identity, packaging, and print collateral visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">04</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">BRANDING &amp; IDENTITY</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">Branding &amp; Design</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Logo systems, brand guidelines, packaging, pitch decks, and brochures.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Identity</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Packaging</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Guidelines</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore branding</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 05 -->
-              <a href="services/index.html#video" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_05_video.jpg" alt="Video production and motion graphics reel visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">05</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">MOTION &amp; FILM</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">Video Production</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Social reels, corporate films, motion graphics, UGC, and AI filmmaking.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Reels</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Commercials</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Motion</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore video</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 06 -->
-              <a href="services/index.html#ecommerce" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_06_ecommerce.jpg" alt="E-commerce storefront and marketplace optimization visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">06</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#A83300] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">MARKETPLACE GROWTH</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">E-Commerce</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">End-to-end marketplace catalog, A+ content, storefront design, and ads.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Catalogs</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">A+ Content</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Storefronts</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore e-commerce</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 07 -->
-              <a href="services/index.html#email" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_07_email.jpg" alt="Email automation flows and retention campaign visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">07</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">RETENTION &amp; AUTOMATION</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">Email Marketing</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Automated drip sequences, abandoned cart recovery, and seasonal campaigns.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Drip Flows</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Cart Recovery</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Campaigns</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore email</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-
-              <!-- 08 -->
-              <a href="services/index.html#dev" data-component-id="card-elevated" data-component-type="card" data-component-variant="elevated" class="service-carousel-card group w-full sm:w-[calc((100%-1.5rem)/2)] lg:w-[calc((100%-3rem)/3)] shrink-0 bg-white border border-[#E4E4E7] rounded-md overflow-hidden flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
-                <div class="relative aspect-[16/10] w-full overflow-hidden bg-[#F4F2EE]">
-                  <img src="images/svc_08_dev.jpg" alt="Website and application development showcase visuals" class="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async">
-                  <span class="service-carousel-num absolute top-3.5 left-3.5 px-2.5 py-1 rounded-[4px] bg-white/95 font-mono text-[11px] font-medium text-[#18181B] tabular-nums shadow-sm">08</span>
-                </div>
-                <div class="p-6 flex flex-col justify-between gap-5 flex-1">
-                  <div class="flex flex-col gap-3">
-                    <div class="flex items-center gap-2">
-                      <span class="w-2 h-2 rounded-full bg-[#18181B] shrink-0" aria-hidden="true"></span>
-                      <span class="font-mono text-[11px] font-medium tracking-[0.06em] text-[#52525B] uppercase">WEB &amp; PRODUCT ENGINEERING</span>
-                    </div>
-                    <h3 data-design-text-token="title-md" class="font-display font-bold text-[22px] leading-[1.2] tracking-[-0.02em] text-[#18181B]">Web &amp; App Dev</h3>
-                    <p data-design-text-token="body-md" class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">Responsive websites, mobile apps, custom software, and e-commerce builds.</p>
-                    <div class="pt-1 flex flex-wrap gap-1.5">
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Websites</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Mobile Apps</span>
-                    <span class="px-2.5 py-1 rounded-[4px] bg-[#F4F2EE] text-[#3F3F46] font-body font-medium text-[12px]">Custom Dev</span>
-                    </div>
-                  </div>
-                  <div class="pt-1">
-                    <div class="service-carousel-action w-full px-4 py-3 rounded-[4px] bg-[#F7F6F4] flex items-center justify-between transition-colors duration-200">
-                      <span data-design-text-token="label-sm" class="service-carousel-cta font-body font-semibold text-[13.5px] text-[#18181B]">Explore web &amp; apps</span>
-                      <span class="service-carousel-arrow material-symbols-outlined text-[17px] text-[#52525B]" aria-hidden="true">arrow_forward</span>
-                    </div>
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-
-          <!-- Slide Dots -->
-          <div id="services-dots" class="flex items-center justify-center gap-2" aria-label="Services pagination">
-            <button type="button" data-service-page="0" aria-label="Show services 01 to 04" class="service-dot w-8 h-1.5 rounded-full bg-light-primary transition-colors duration-150"></button>
-            <button type="button" data-service-page="1" aria-label="Show services 05 to 08" class="service-dot w-8 h-1.5 rounded-full bg-light-outline-variant transition-colors duration-150"></button>
           </div>
         </div>
       </section>
@@ -1613,135 +1801,7 @@ if (typeof module !== 'undefined') module.exports = globalThis.tailwind.config;
         });
       }
 
-      // Services Carousel (4 desktop / 2 tablet / 1 mobile, non-looping, swipe + keyboard)
-      const servicesViewport = document.getElementById('services-viewport');
-      const servicesTrack = document.getElementById('services-track');
-      const servicesCounter = document.getElementById('services-counter');
-      const servicesPrev = document.getElementById('services-prev');
-      const servicesNext = document.getElementById('services-next');
-      const servicesDotsWrap = document.getElementById('services-dots');
-      const serviceCards = servicesTrack ? Array.from(servicesTrack.children) : [];
-      const totalServiceCards = serviceCards.length;
-      let servicePage = 0;
-
-      function getServicesPerView() {
-        if (window.innerWidth >= 1024) return 3;
-        if (window.innerWidth >= 640) return 2;
-        return 1;
-      }
-
-      function padTwo(n) {
-        return n < 10 ? '0' + n : String(n);
-      }
-
-      function setArrowDisabled(btn, isDisabled) {
-        if (!btn) return;
-        btn.disabled = isDisabled;
-        btn.setAttribute('aria-disabled', String(isDisabled));
-        btn.classList.toggle('opacity-40', isDisabled);
-        btn.classList.toggle('cursor-not-allowed', isDisabled);
-        btn.classList.toggle('pointer-events-none', isDisabled);
-      }
-
-      function renderServiceDots(totalPages) {
-        if (!servicesDotsWrap) return;
-        if (servicesDotsWrap.children.length !== totalPages) {
-          servicesDotsWrap.innerHTML = '';
-          for (let i = 0; i < totalPages; i++) {
-            const dot = document.createElement('button');
-            dot.type = 'button';
-            dot.className = 'service-dot h-1.5 rounded-full transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]';
-            dot.setAttribute('aria-label', 'Show services page ' + (i + 1));
-            dot.addEventListener('click', () => renderServices(i));
-            servicesDotsWrap.appendChild(dot);
-          }
-        }
-        Array.from(servicesDotsWrap.children).forEach((dot, idx) => {
-          const active = idx === servicePage;
-          dot.classList.toggle('w-8', active);
-          dot.classList.toggle('w-4', !active);
-          dot.classList.toggle('bg-light-primary', active);
-          dot.classList.toggle('bg-light-outline-variant', !active);
-          dot.setAttribute('aria-current', active ? 'true' : 'false');
-        });
-      }
-
-      function renderServices(nextPage) {
-        if (!servicesTrack || totalServiceCards === 0) return;
-        const perView = getServicesPerView();
-        const totalPages = Math.ceil(totalServiceCards / perView);
-        servicePage = Math.max(0, Math.min(nextPage, totalPages - 1));
-
-        const startIdx = servicePage * perView;
-        const endIdx = Math.min(startIdx + perView, totalServiceCards);
-        const targetCard = serviceCards[startIdx];
-        const offsetPx = targetCard ? targetCard.offsetLeft : 0;
-
-        servicesTrack.style.transform = 'translateX(-' + offsetPx + 'px)';
-        if (servicesCounter) {
-          const rangeText = startIdx + 1 === endIdx
-            ? padTwo(startIdx + 1)
-            : padTwo(startIdx + 1) + '–' + padTwo(endIdx);
-          servicesCounter.textContent = rangeText + ' / ' + padTwo(totalServiceCards) + ' services';
-        }
-
-        setArrowDisabled(servicesPrev, servicePage === 0);
-        setArrowDisabled(servicesNext, servicePage >= totalPages - 1);
-        renderServiceDots(totalPages);
-      }
-
-      if (servicesPrev) servicesPrev.addEventListener('click', () => renderServices(servicePage - 1));
-      if (servicesNext) servicesNext.addEventListener('click', () => renderServices(servicePage + 1));
-
-      if (servicesViewport) {
-        servicesViewport.addEventListener('keydown', (e) => {
-          if (e.key === 'ArrowLeft') { e.preventDefault(); renderServices(servicePage - 1); }
-          if (e.key === 'ArrowRight') { e.preventDefault(); renderServices(servicePage + 1); }
-        });
-
-        let dragStartX = 0;
-        let dragDeltaX = 0;
-        let isDragging = false;
-        let suppressClick = false;
-
-        servicesViewport.addEventListener('pointerdown', (e) => {
-          if (e.pointerType === 'mouse' && e.button !== 0) return;
-          isDragging = true;
-          dragStartX = e.clientX;
-          dragDeltaX = 0;
-          suppressClick = false;
-        });
-
-        servicesViewport.addEventListener('pointermove', (e) => {
-          if (!isDragging) return;
-          dragDeltaX = e.clientX - dragStartX;
-          if (Math.abs(dragDeltaX) > 12) suppressClick = true;
-        });
-
-        function finishDrag() {
-          if (!isDragging) return;
-          isDragging = false;
-          if (dragDeltaX <= -44) {
-            renderServices(servicePage + 1);
-          } else if (dragDeltaX >= 44) {
-            renderServices(servicePage - 1);
-          }
-          dragDeltaX = 0;
-        }
-
-        servicesViewport.addEventListener('pointerup', finishDrag);
-        servicesViewport.addEventListener('pointercancel', finishDrag);
-        servicesViewport.addEventListener('click', (e) => {
-          if (suppressClick) {
-            e.preventDefault();
-            suppressClick = false;
-          }
-        }, true);
-      }
-
-      window.addEventListener('resize', () => renderServices(servicePage));
-      renderServices(0);
-
+      
       // Client Feedback Highlights (4.5s auto-rotation, 300ms fade, hover/focus/visibility pause)
       const TESTIMONIAL_AUTOPLAY_MS = 4500;
       const TESTIMONIAL_RESUME_DELAY_MS = 1000;
