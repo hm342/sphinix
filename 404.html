@@ -334,7 +334,7 @@
 
         <!-- Quick Destination Links -->
         <div class="pt-8 grid grid-cols-1 sm:grid-cols-3 gap-x-8 gap-y-4 w-full border-t border-[#D4D0C8] text-left">
-          <a href="products/index.html" class="py-4 border-b border-[#D4D0C8] group flex flex-col gap-1.5">
+          <a href="products/index.html#chatbox360" class="py-4 border-b border-[#D4D0C8] group flex flex-col gap-1.5">
             <span class="font-mono text-[11.5px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">01 · WhatsApp API</span>
             <span class="font-title font-semibold text-[16px] text-[#18181B] group-hover:text-[#E85D2A] transition-colors">ChatBox 360 Suite →</span>
             <span class="font-body text-[13.5px] text-[#52525B]">Automate lead capture and team conversations on WhatsApp.</span>
@@ -348,8 +348,8 @@
 
           <a href="work/index.html" class="py-4 border-b border-[#D4D0C8] group flex flex-col gap-1.5">
             <span class="font-mono text-[11.5px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">03 · Portfolio</span>
-            <span class="font-title font-semibold text-[16px] text-[#18181B] group-hover:text-[#E85D2A] transition-colors">Client Case Studies →</span>
-            <span class="font-body text-[13.5px] text-[#52525B]">Proven results for aabo, WeConnect, and 150+ brands.</span>
+            <span class="font-title font-semibold text-[16px] text-[#18181B] group-hover:text-[#E85D2A] transition-colors">Our Work →</span>
+            <span class="font-body text-[13.5px] text-[#52525B]">Client list and case studies across 15+ industries.</span>
           </a>
         </div>
       </div>
@@ -382,16 +382,16 @@
           <div class="flex flex-col gap-3">
             <span class="font-title text-title-md text-light-on-surface">Products &amp; Web</span>
             <ul class="flex flex-col gap-2 font-body text-body-md text-light-on-surface-variant">
-              <li><a href="products/index.html" class="hover:text-light-primary">ChatBox 360 Suite</a></li>
-              <li><a href="products/index.html" class="hover:text-light-primary">SocialSuite AI</a></li>
-              <li><a href="products/index.html" class="hover:text-light-primary">Aaj Ka Graphic</a></li>
+              <li><a href="products/index.html#chatbox360" class="hover:text-light-primary">ChatBox 360 Suite</a></li>
+              <li><a href="products/index.html#social360" class="hover:text-light-primary">Social 360 Suite</a></li>
+              <li><a href="products/index.html#aajkagraphic" class="hover:text-light-primary">Aaj Ka Graphic</a></li>
               <li><a href="services/index.html" class="hover:text-light-primary">All Services</a></li>
             </ul>
           </div>
 
           <div class="flex flex-col gap-3">
             <span class="font-title text-title-md text-light-on-surface">Stay Updated</span>
-            <p class="font-body text-body-md text-light-on-surface-variant">Growth playbooks and product updates from our team.</p>
+            <p class="font-body text-body-md text-light-on-surface-variant">Occasional notes on SEO, ads, and our software releases.</p>
             <form class="newsletter-form flex gap-2" novalidate>
               <input type="email" placeholder="Work email" aria-label="Work email address" class="flex-1 min-w-0 px-3 py-2 rounded border border-light-outline-variant bg-light-surface text-light-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
               <button type="submit" class="px-4 py-2 rounded bg-light-secondary text-light-on-secondary font-label text-label-md hover:bg-light-primary transition-colors duration-state-change">
@@ -444,8 +444,8 @@
             input.focus();
             return;
           }
-          status.textContent = 'Subscribed. Thank you for joining.';
-          status.className = 'newsletter-status font-body text-[12px] text-[#16A34A]';
+          status.textContent = 'Newsletter signups are not connected yet [ADD FORM ENDPOINT].';
+          status.className = 'newsletter-status font-body text-[12px] text-[#A83300]';
           input.value = '';
         });
       });
