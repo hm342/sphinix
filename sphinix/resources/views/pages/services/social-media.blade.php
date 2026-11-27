@@ -75,8 +75,8 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                @foreach ($strengths as $item)
-                    <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
+                @foreach ($strengths as $idx => $item)
+                    <div data-reveal style="--stagger: {{ $idx }};" class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
                         <span class="font-mono text-[12px] font-semibold tracking-[0.08em] text-[#A83300]">{{ $item['num'] }}</span>
                         <h3 class="font-title text-title-md text-light-on-surface">{{ $item['title'] }}</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">{{ $item['desc'] }}</p>

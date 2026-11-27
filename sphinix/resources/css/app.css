@@ -147,6 +147,12 @@
     --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
     --text-display: clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem);
     --text-h1: clamp(2.1rem, 1.4rem + 2vw, 3.25rem);
+
+    /* Motion System Tokens (Slow In/Slow Out, Editorial, Snappy, Squash Recovery) */
+    --ease-snappy: cubic-bezier(0.2, 0.9, 0.3, 1);
+    --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-slow-inout: cubic-bezier(0.65, 0, 0.35, 1);
+    --ease-squash: cubic-bezier(0.22, 1.28, 0.36, 1);
 }
 
 .material-symbols-outlined {
@@ -221,35 +227,190 @@
     border-color: #E6E3DC;
 }
 
-/* Home Hero Reveal */
-@keyframes heroFadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
+/* 1. Squash & Stretch + 7. Snappy Timing on Tactile Interactive Controls */
+a[class*="bg-[#A83300]"],
+a[class*="bg-[#ec7a2d]"],
+button[type="submit"],
+#gallery-prev,
+#gallery-next,
+.testimonial-tab,
+#prev-testimonial,
+#next-testimonial {
+    transition: transform 280ms var(--ease-squash), background-color 150ms var(--ease-snappy), color 150ms var(--ease-snappy), border-color 150ms var(--ease-snappy);
+    transform-origin: center bottom;
+}
+
+a[class*="bg-[#A83300]"]:active,
+a[class*="bg-[#ec7a2d]"]:active,
+button[type="submit"]:active,
+#gallery-prev:active,
+#gallery-next:active,
+.testimonial-tab:active,
+#prev-testimonial:active,
+#next-testimonial:active {
+    transform: scaleX(1.018) scaleY(0.955);
+    transition-duration: 75ms;
+    transition-timing-function: var(--ease-snappy);
+}
+
+.project-card {
+    transition: opacity 280ms var(--ease-editorial), transform 260ms var(--ease-squash);
+}
+
+.project-card:active {
+    transform: scale(0.985);
+}
+
+/* 2. Anticipation (Wind-Up Before Forward Action) */
+@keyframes arrowAnticipate {
+    0% { transform: translateX(0); }
+    32% { transform: translateX(-3px); }
+    100% { transform: translateX(4px); }
+}
+
+.btn-anticipate .btn-arrow {
+    transition: transform 180ms var(--ease-snappy);
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-anticipate:hover .btn-arrow {
+        animation: arrowAnticipate 360ms var(--ease-editorial) forwards;
     }
-    to {
+
+    #gallery-prev:hover .material-symbols-outlined {
+        transform: translateX(-3px);
+        transition: transform 160ms var(--ease-snappy);
+    }
+
+    #gallery-next:hover .material-symbols-outlined {
+        transform: translateX(3px);
+        transition: transform 160ms var(--ease-snappy);
+    }
+
+    .service-row:hover .service-num {
+        transform: translateX(3px);
+    }
+}
+
+/* 3. Staging the Focus (Subtle Sibling Recession on Desktop Hover) */
+@media (hover: hover) and (pointer: fine) {
+    #insights-list:has(.journal-row:hover) .journal-row:not(:hover),
+    #insights-list:has(.journal-row:focus-visible) .journal-row:not(:focus-visible) {
+        opacity: 0.62;
+    }
+
+    #projects-grid:has(.project-card:hover) .project-card:not(:hover) {
+        opacity: 0.78;
+    }
+
+    #services-track:has(.service-carousel-card:hover) .service-carousel-card:not(:hover) {
+        opacity: 0.84;
+    }
+}
+
+/* 4. Pose to Pose Hero Choreography & 5. Follow-Through Overlapping Panels */
+@keyframes heroPoseUp {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
         opacity: 1;
         transform: translateY(0);
     }
 }
 
+@keyframes heroMediaSettle {
+    0% {
+        opacity: 0.85;
+        transform: scale(1.045);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 .hero-animate {
-    animation: heroFadeUp 460ms cubic-bezier(0.22, 1, 0.36, 1) both;
+    animation: heroPoseUp 620ms var(--ease-editorial) both;
+}
+
+.hero-pose-img {
+    animation: heroMediaSettle 1050ms var(--ease-editorial) both;
+}
+
+.hero-pose-1 {
+    animation: heroPoseUp 580ms var(--ease-editorial) 40ms both;
+}
+
+.hero-pose-2 {
+    animation: heroPoseUp 580ms var(--ease-editorial) 120ms both;
+}
+
+.hero-pose-3 {
+    animation: heroPoseUp 560ms var(--ease-editorial) 200ms both;
+}
+
+.hero-pose-stat-1 {
+    animation: heroPoseUp 620ms var(--ease-editorial) 240ms both;
+}
+
+.hero-pose-stat-2 {
+    animation: heroPoseUp 620ms var(--ease-editorial) 320ms both;
+}
+
+/* 4 & 5. Scroll-Triggered Section Poses + Staggered Follow-Through */
+html.js-motion [data-reveal] {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 620ms var(--ease-editorial), transform 680ms var(--ease-editorial);
+    transition-delay: calc(var(--stagger, 0) * 55ms);
+    will-change: opacity, transform;
+}
+
+html.js-motion [data-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
+
+/* 6. Slow In / Slow Out Gallery & Testimonial Pose Transitions */
+#gallery-track {
+    transition: transform 460ms var(--ease-slow-inout);
 }
 
 #testimonial-stage {
-    transition: opacity 300ms ease;
+    transition: opacity 320ms var(--ease-editorial), transform 360ms var(--ease-editorial);
 }
 
-/* Industries List Interaction */
+#testimonial-stage.is-transitioning {
+    opacity: 0;
+    transform: translateY(8px);
+}
+
+/* Service Accordion Follow-Through */
+.service-panel-inner > div > * {
+    transition: opacity 280ms var(--ease-editorial), transform 320ms var(--ease-editorial);
+}
+
+.service-row:not(.is-open) .service-panel-inner > div > * {
+    opacity: 0;
+    transform: translateY(6px);
+}
+
+.service-row.is-open .service-panel-inner > div > *:nth-child(1) { transition-delay: 50ms; }
+.service-row.is-open .service-panel-inner > div > *:nth-child(2) { transition-delay: 100ms; }
+.service-row.is-open .service-panel-inner > div > *:nth-child(3) { transition-delay: 150ms; }
+
+/* Industries List Interaction (Snappy) */
 .industry-name {
-    transition: color 200ms ease-out, transform 200ms ease-out;
+    transition: color 160ms var(--ease-snappy), transform 180ms var(--ease-snappy);
 }
 
 .industry-arrow {
     opacity: 0;
     transform: translateX(8px);
-    transition: opacity 200ms ease-out, transform 200ms ease-out, color 200ms ease-out;
+    transition: opacity 160ms var(--ease-snappy), transform 180ms var(--ease-snappy), color 160ms var(--ease-snappy);
 }
 
 .industry-item:hover .industry-name,
@@ -346,7 +507,7 @@
     }
 
     .service-carousel-card:hover .service-carousel-arrow {
-        transform: translateX(3px);
+        animation: arrowAnticipate 360ms var(--ease-editorial) forwards;
         color: #FFFFFF;
     }
 }
@@ -640,16 +801,43 @@ html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-bl
 
 @media (prefers-reduced-motion: reduce) {
     .hero-animate,
+    .hero-pose-img,
+    .hero-pose-1,
+    .hero-pose-2,
+    .hero-pose-3,
+    .hero-pose-stat-1,
+    .hero-pose-stat-2,
+    .btn-anticipate:hover .btn-arrow,
+    .service-carousel-card:hover .service-carousel-arrow,
     .client-marquee-ltr,
     .client-marquee-rtl,
     .services-marquee-track {
         animation: none !important;
     }
 
+    html.js-motion [data-reveal] {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+    }
+
+    a[class*="bg-[#A83300]"]:active,
+    a[class*="bg-[#ec7a2d]"]:active,
+    button[type="submit"]:active,
+    #gallery-prev:active,
+    #gallery-next:active,
+    .testimonial-tab:active,
+    #prev-testimonial:active,
+    #next-testimonial:active,
+    .project-card:active {
+        transform: none !important;
+    }
+
     #site-header,
     #nav-pill,
     #site-header *,
     .hero-canvas *,
+    #gallery-track,
     .service-carousel-card,
     .service-carousel-card *,
     .journal-row,
@@ -659,6 +847,7 @@ html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-bl
     .service-row,
     .service-trigger,
     .service-panel,
+    .service-panel-inner > div > *,
     .service-title,
     .service-num,
     .service-toggle-icon,
@@ -669,6 +858,7 @@ html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-bl
     .insight-row *,
     .insight-pill {
         transition-duration: 0.01ms !important;
+        transition-delay: 0ms !important;
     }
 
     .industry-name,

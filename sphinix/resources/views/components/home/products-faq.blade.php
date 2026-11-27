@@ -1,26 +1,8 @@
+@props([
+    'faqs' => null,
+])
 @php
-    $faqs = [
-        [
-            'question' => 'Can we bundle agency services with ChatBox 360?',
-            'answer' => 'Yes. Clients can pair Google Ads and Social Media campaigns with ChatBox 360 Suite to capture and route inquiries on WhatsApp.',
-            'open' => true,
-        ],
-        [
-            'question' => 'How quickly can we launch a new campaign?',
-            'answer' => 'Timelines depend on project scope and requirements — ask our team for a schedule after onboarding discovery. [ADD TYPICAL LAUNCH TIMELINE]',
-            'open' => false,
-        ],
-        [
-            'question' => 'Do you work with clients outside Gujarat or India?',
-            'answer' => 'Yes. Our Head Office and Creative Studio are in Bhavnagar, Gujarat, and we work with 150+ clients worldwide.',
-            'open' => false,
-        ],
-        [
-            'question' => 'How do you measure and report results?',
-            'answer' => 'You receive monthly reports covering traffic, ad performance, leads, and campaign activity.',
-            'open' => false,
-        ],
-    ];
+    $faqList = collect($faqs ?? []);
 @endphp
 <section id="products" class="py-20 px-6 bg-light-surface border-b border-light-outline-variant">
     <div class="max-w-7xl mx-auto flex flex-col gap-12">
@@ -37,12 +19,12 @@
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
             <!-- Product 1: ChatBox 360 Suite -->
-            <div class="lg:col-span-4">
+            <div data-reveal style="--stagger: 0;" class="lg:col-span-4">
                 <article class="h-full bg-light-surface-container-lowest border border-light-outline-variant rounded-lg p-8 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4">
                         <header class="flex flex-col gap-1">
                             <h3 class="font-headline text-headline-md text-light-on-surface">ChatBox 360 Suite</h3>
-                            <p class="font-body text-body-md text-light-on-surface-variant">WhatsApp Business API CRM, orders, helpdesk, and chatbot workflows. [CONFIRM NO-BAN-RISK WORDING]</p>
+                            <p class="font-body text-body-md text-light-on-surface-variant">WhatsApp Business API CRM, orders, helpdesk, and chatbot workflows.</p>
                         </header>
                         <ul class="flex flex-col gap-3 border-t border-light-outline-variant pt-4">
                             @foreach (['SmartBot & 24/7 AI Agent', 'Built-in CRM & Follow-up Tracking', 'Order & Appointment Management', 'Shared Team Inbox & Broadcasts'] as $item)
@@ -62,7 +44,7 @@
             </div>
 
             <!-- Product 2: Social 360 Suite -->
-            <div class="lg:col-span-4">
+            <div data-reveal style="--stagger: 1;" class="lg:col-span-4">
                 <article class="h-full bg-light-primary text-light-on-primary rounded-lg p-8 flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4">
                         <header class="flex flex-col gap-1">
@@ -87,20 +69,20 @@
             </div>
 
             <!-- FAQs Column -->
-            <div class="lg:col-span-4 flex flex-col gap-6">
+            <div data-reveal style="--stagger: 2;" class="lg:col-span-4 flex flex-col gap-6">
                 <div class="flex flex-col gap-2">
                     <h3 class="font-headline text-headline-md text-light-on-surface">FAQs</h3>
                     <p class="font-body text-body-md text-light-on-surface-variant">Common questions before starting work together.</p>
                 </div>
                 <div class="flex flex-col divide-y divide-light-outline-variant border-y border-light-outline-variant">
-                    @foreach ($faqs as $faq)
-                        <details name="faq-group" class="group py-4" @if($faq['open']) open @endif>
+                    @foreach ($faqList as $faq)
+                        <details name="faq-group" class="group py-4" @if($faq->is_open_by_default) open @endif>
                             <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-label text-label-lg text-light-on-surface">
-                                <span>{{ $faq['question'] }}</span>
+                                <span>{{ $faq->question }}</span>
                                 <span class="material-symbols-outlined text-title-md text-light-on-surface-variant transition-transform duration-state-change group-open:rotate-45" aria-hidden="true">add</span>
                             </summary>
                             <div class="pt-3">
-                                <p class="font-body text-body-md text-light-on-surface-variant">{{ $faq['answer'] }}</p>
+                                <p class="font-body text-body-md text-light-on-surface-variant">{{ $faq->answer }}</p>
                             </div>
                         </details>
                     @endforeach

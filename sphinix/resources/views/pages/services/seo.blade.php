@@ -96,8 +96,8 @@
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-                @foreach ($steps as $step)
-                    <div class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
+                @foreach ($steps as $idx => $step)
+                    <div data-reveal style="--stagger: {{ $idx }};" class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
                         <span class="font-display font-extrabold text-display-lg text-brand-orange">{{ $step['num'] }}</span>
                         <h3 class="font-title text-title-md text-light-on-surface">{{ $step['title'] }}</h3>
                         <p class="font-body text-body-sm text-light-on-surface-variant">{{ $step['desc'] }}</p>

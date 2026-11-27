@@ -3,10 +3,20 @@
 namespace Tests\Feature;
 
 use App\Data\AgencyData;
+use Database\Seeders\DatabaseSeeder;
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class ExampleTest extends TestCase
 {
+    use RefreshDatabase;
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->seed(DatabaseSeeder::class);
+    }
+
     public function test_public_pages_render_cleanly(): void
     {
         $pages = [
@@ -51,10 +61,11 @@ class ExampleTest extends TestCase
     public function test_unknown_routes_and_invalid_work_slugs_render_404(): void
     {
         $this->get('/work/does-not-exist')->assertStatus(404)->assertSee('Page Not Found');
+        $this->get('/insights/does-not-exist')->assertStatus(404)->assertSee('Page Not Found');
         $this->get('/nonexistent-route')->assertStatus(404)->assertSee('Page Not Found');
     }
 
-    public function test_contact_and_newsletter_endpoints_validate_and_respond(): void
+    public function test_contact_and_newsletter_endpoints_validate_persist_and_respond(): void
     {
         $this->postJson('/contact', [])
             ->assertStatus(422)
@@ -68,12 +79,22 @@ class ExampleTest extends TestCase
             'message' => 'Testing inquiry routing.',
         ])->assertStatus(200)->assertJsonStructure(['message']);
 
+        $this->assertDatabaseHas('contact_inquiries', [
+            'email' => 'team@example.com',
+            'service' => 'Google Ads Performance',
+            'status' => 'new',
+        ]);
+
         $this->postJson('/newsletter', ['email' => 'invalid'])
             ->assertStatus(422)
             ->assertJsonValidationErrors(['email']);
 
         $this->postJson('/newsletter', ['email' => 'team@example.com'])
-            ->assertStatus(200)
-            ->assertJsonStructure(['message']);
+            ->assertStatus(200)->assertJsonStructure(['message']);
+
+        $this->assertDatabaseHas('newsletter_subscribers', [
+            'email' => 'team@example.com',
+            'status' => 'active',
+        ]);
     }
 }

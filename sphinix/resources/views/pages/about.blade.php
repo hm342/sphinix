@@ -1,9 +1,9 @@
 @php
     $stats = [
-        ['value' => '9+', 'label' => 'Years in Business'],
-        ['value' => '150+', 'label' => 'Clients Worldwide'],
-        ['value' => '700+', 'label' => 'Projects Delivered'],
-        ['value' => '15+', 'label' => 'Industries Served'],
+        ['value' => $settings['years_label'] ?? '9+', 'label' => 'Years in Business'],
+        ['value' => $settings['clients_count_label'] ?? '150+', 'label' => 'Clients Worldwide'],
+        ['value' => $settings['projects_count_label'] ?? '700+', 'label' => 'Projects Delivered'],
+        ['value' => $settings['industries_count_label'] ?? '15+', 'label' => 'Industries Served'],
     ];
     $pillars = [
         ['num' => '01 · In-House Team', 'title' => 'In-House Team', 'desc' => 'Copywriters, designers, video editors, ad buyers, and software developers working together in Bhavnagar.'],
@@ -19,7 +19,7 @@
     <!-- Unified Full-Section Illustrated About Hero -->
     <section class="relative bg-[#F7F6F4] border-b border-[#E4E4E7] overflow-hidden">
         <div class="relative min-h-[500px] lg:min-h-[580px] flex items-center">
-            <img src="{{ asset('images/subpage_hero_agency.jpg') }}" alt="[ADD REAL OFFICE PHOTO: Sphinix Marketing team in Bhavnagar]" class="absolute inset-0 w-full h-full object-cover object-right lg:object-[75%_center]" loading="eager" decoding="async">
+            <img src="{{ asset('images/subpage_hero_agency.jpg') }}" alt="Sphinix Marketing team in Bhavnagar" class="absolute inset-0 w-full h-full object-cover object-right lg:object-[75%_center]" loading="eager" decoding="async">
             <div class="absolute inset-0 bg-[#F7F6F4]/85 lg:hidden" aria-hidden="true"></div>
             <div class="hidden lg:block absolute inset-0" style="background: linear-gradient(90deg, #F7F6F4 0%, #F7F6F4 36%, rgba(247,246,244,0.92) 48%, rgba(247,246,244,0.52) 64%, rgba(247,246,244,0.08) 84%, rgba(247,246,244,0) 100%);" aria-hidden="true"></div>
 
@@ -30,7 +30,7 @@
                         <span class="text-[#E85D2A]">since 2017.</span>
                     </h1>
                     <p class="text-[17px] sm:text-[18px] leading-[1.6] text-[#3F3F46] max-w-[46ch]">
-                        We started in Bhavnagar in 2017 to give small businesses affordable marketing and websites. Nine years on, we work with 150+ businesses worldwide.
+                        We started in Bhavnagar in 2017 to give small businesses affordable marketing and websites. Nine years on, we work with {{ $settings['clients_count_label'] ?? '150+' }} businesses worldwide.
                     </p>
                     <div class="pt-2">
                         <a href="#our-story" class="group inline-flex items-center gap-2 pb-1 border-b border-[#18181B] hover:border-[#A83300] text-[#18181B] hover:text-[#A83300] font-semibold text-[16px] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">
@@ -45,7 +45,7 @@
         <div class="relative z-10 bg-[#F7F6F4] border-t border-[#E4E4E7]">
             <div class="max-w-7xl mx-auto px-6 py-8 lg:py-9 grid grid-cols-2 lg:grid-cols-4 gap-y-6 lg:divide-x lg:divide-[#E4E4E7]">
                 @foreach ($stats as $i => $stat)
-                    <div class="flex flex-col gap-1 {{ $i === 0 ? 'lg:pr-8' : ($i === count($stats) - 1 ? 'lg:pl-8' : 'lg:px-8') }}">
+                    <div data-reveal style="--stagger: {{ $i }};" class="flex flex-col gap-1 {{ $i === 0 ? 'lg:pr-8' : ($i === count($stats) - 1 ? 'lg:pl-8' : 'lg:px-8') }}">
                         <span class="text-[32px] sm:text-[38px] font-semibold leading-none tracking-[-0.025em] text-[#18181B] tabular-nums">{{ $stat['value'] }}</span>
                         <span class="text-[14px] text-[#52525B] pt-1">{{ $stat['label'] }}</span>
                     </div>
@@ -58,7 +58,7 @@
     <section id="our-story" class="scroll-mt-[84px] border-b border-light-outline-variant bg-light-surface">
         <div class="grid grid-cols-1 lg:grid-cols-2">
             <div class="relative min-h-96 lg:min-h-full overflow-hidden bg-brand-charcoal">
-                <img src="{{ asset('images/impact_collaboration.jpg') }}" alt="[ADD REAL TEAM PHOTO: Sphinix Marketing team in Bhavnagar]" class="w-full h-full object-cover object-center opacity-90" loading="lazy" decoding="async">
+                <img src="{{ asset('images/impact_collaboration.jpg') }}" alt="Sphinix Marketing team in Bhavnagar" class="w-full h-full object-cover object-center opacity-90" loading="lazy" decoding="async">
                 <div class="absolute left-6 right-6 bottom-6 bg-brand-charcoal/90 text-light-on-secondary p-6 rounded-lg border border-light-outline-variant/30 flex flex-col gap-2">
                     <p class="font-body text-body-md text-light-on-secondary">Based in Bhavnagar, Gujarat with two offices — Head Office at Parimal Chowk and Creative Studio at Mokhdaji Circle.</p>
                 </div>
@@ -107,8 +107,8 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                @foreach ($pillars as $pillar)
-                    <div class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4 hover:border-light-primary transition-colors duration-state-change">
+                @foreach ($pillars as $i => $pillar)
+                    <div data-reveal style="--stagger: {{ $i }};" class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-4 hover:border-light-primary transition-colors duration-state-change">
                         <span class="font-mono text-[12px] font-semibold tracking-[0.08em] uppercase text-[#A83300]">{{ $pillar['num'] }}</span>
                         <h3 class="font-title text-title-lg text-light-on-surface">{{ $pillar['title'] }}</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">{{ $pillar['desc'] }}</p>
@@ -139,12 +139,11 @@
                         </div>
                         <h3 class="font-headline text-headline-md text-light-on-surface">Parimal Chowk Office</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">
-                            B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road,<br>
-                            Bhavnagar - 364001, Gujarat, India.
+                            {{ $settings['head_office_address'] ?? 'B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road, Bhavnagar - 364001, Gujarat, India.' }}
                         </p>
                         <div class="flex flex-col gap-2 pt-2 border-t border-light-outline-variant font-mono text-mono-sm text-light-on-surface">
-                            <span>+91 7048239155</span>
-                            <span>info@sphinixmarketing.com</span>
+                            <span>{{ $settings['primary_phone'] ?? '+91 7048239155' }}</span>
+                            <span>{{ $settings['primary_email'] ?? 'info@sphinixmarketing.com' }}</span>
                         </div>
                     </div>
                     <a href="{{ route('contact.show') }}" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-lg hover:border-light-primary transition-colors">
@@ -160,12 +159,11 @@
                         </div>
                         <h3 class="font-headline text-headline-md text-light-on-surface">Mokhdaji Circle Studio</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">
-                            Swastik Complex, Mokhdaji Circle,<br>
-                            Bhavnagar, Gujarat, India.
+                            {{ $settings['studio_address'] ?? 'Swastik Complex, Mokhdaji Circle, Bhavnagar, Gujarat, India.' }}
                         </p>
                         <div class="flex flex-col gap-2 pt-2 border-t border-light-outline-variant font-mono text-mono-sm text-light-on-surface">
-                            <span>+91 9081711900</span>
-                            <span>[ADD VERIFIED STUDIO HOURS]</span>
+                            <span>{{ $settings['studio_phone'] ?? '+91 9081711900' }}</span>
+                            <span>{{ $settings['studio_hours'] ?? 'Mon - Sat · 10:00 AM - 7:00 PM IST' }}</span>
                         </div>
                     </div>
                     <a href="{{ route('contact.show') }}" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-lg hover:border-light-primary transition-colors">

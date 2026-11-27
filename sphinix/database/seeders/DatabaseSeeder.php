@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -15,11 +16,21 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        $adminEmail = env('ADMIN_EMAIL', 'admin@sphinixmarketing.com');
+        $adminPassword = env('ADMIN_PASSWORD', 'Sphinix@2026');
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+        User::query()->updateOrCreate(
+            ['email' => $adminEmail],
+            [
+                'name' => 'Sphinix Admin',
+                'password' => Hash::make($adminPassword),
+                'email_verified_at' => now(),
+                'is_admin' => true,
+            ]
+        );
+
+        $this->call([
+            AgencyContentSeeder::class,
         ]);
     }
 }

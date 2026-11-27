@@ -19,11 +19,11 @@
         <div class="max-w-7xl mx-auto flex flex-col gap-12">
             <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12 items-start">
                 <div class="lg:col-span-5">
-                    <h1 class="font-display font-extrabold text-[38px] sm:text-[46px] lg:text-[52px] leading-[1.06] tracking-[-0.03em] text-[#18181B]">
+                    <h1 class="hero-pose-1 font-display font-extrabold text-[38px] sm:text-[46px] lg:text-[52px] leading-[1.06] tracking-[-0.03em] text-[#18181B]">
                         Selected<br><span class="text-[#E85D2A]">Work</span>
                     </h1>
                 </div>
-                <p class="lg:col-span-6 lg:col-start-7 font-body text-[15.5px] leading-[1.7] text-[#3F3F46] max-w-[54ch]">
+                <p class="hero-pose-2 lg:col-span-6 lg:col-start-7 font-body text-[15.5px] leading-[1.7] text-[#3F3F46] max-w-[54ch]">
                     Since 2017, Sphinix Marketing has partnered with 150+ businesses across 15+ industries on campaigns, websites, social media, and video production. Browse by category or click any project to open the case study, video, and gallery.
                 </p>
             </div>
@@ -49,7 +49,7 @@
         <div class="max-w-7xl mx-auto">
             <div id="projects-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" aria-live="polite">
                 @foreach ($caseStudies as $idx => $project)
-                    <article data-category="{{ $project['categories'] }}" class="project-card">
+                    <article data-category="{{ $project->categories }}" data-reveal style="--stagger: {{ $idx % 4 }};" class="project-card">
                         <x-work.cover-card :project="$project" :eager="$idx < 4" />
                     </article>
                 @endforeach
@@ -74,11 +74,14 @@
 
             <ul class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-x-6 border-t border-[#D4D0C8]">
                 @foreach ($clients as $client)
-                    <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B]">
-                        @if ($client['slug'])
-                            <a href="{{ route('work.show', $client['slug']) }}" class="hover:text-[#A83300]">{{ $client['name'] }}</a>
+                    <li class="py-4 border-b border-[#D4D0C8] font-body font-semibold text-[15px] text-[#18181B] flex items-center gap-2.5">
+                        @if ($client->logo_url)
+                            <img src="{{ $client->logo_url }}" alt="{{ $client->name }}" class="h-5 w-auto max-w-[36px] object-contain shrink-0" loading="lazy">
+                        @endif
+                        @if ($client->case_study_slug)
+                            <a href="{{ route('work.show', $client->case_study_slug) }}" class="hover:text-[#A83300] truncate">{{ $client->name }}</a>
                         @else
-                            {{ $client['name'] }}
+                            <span class="truncate">{{ $client->name }}</span>
                         @endif
                     </li>
                 @endforeach

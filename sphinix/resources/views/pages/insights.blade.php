@@ -75,27 +75,26 @@
 
             <!-- Horizontal Insights Row List -->
             <div id="articles-grid" class="flex flex-col divide-y divide-[#D4D0C8] border-t border-b border-[#D4D0C8]" aria-live="polite">
-                @foreach ($articles as $article)
-                    @php
-                        $ctaUrl = route($article['cta_route'], $article['cta_params'] ?? []) . ($article['cta_hash'] ?? '');
-                    @endphp
-                    <div data-category="{{ $article['category'] }}" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
+                @forelse ($articles as $article)
+                    <div data-category="{{ $article->category }}" class="article-card insight-row py-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4 sm:gap-8">
                         <div class="flex flex-col gap-1.5 min-w-0">
                             <h3 class="insight-row-title font-display font-bold text-[19px] sm:text-[21px] leading-[1.3]">
-                                {{ $article['title'] }}
+                                <a href="{{ $article->target_url }}" class="hover:underline">{{ $article->title }}</a>
                             </h3>
                             <p class="font-body text-[14px] text-[#52525B]">
-                                {{ $article['label'] }} • [ADD AUTHOR] • [ADD DATE] • [ADD READ TIME]
+                                {{ $article->category_label }} • {{ $article->author_name }} • {{ $article->formatted_date }} • {{ $article->read_time }}
                             </p>
                         </div>
-                        <a href="{{ $ctaUrl }}" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
-                            <span>View Details</span>
+                        <a href="{{ $article->target_url }}" class="inline-flex items-center justify-center gap-3 px-5 py-2.5 rounded-full bg-[#E85D2A] hover:bg-[#18181B] text-[#18181B] hover:text-white font-body font-semibold text-[14px] transition-colors shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] focus-visible:ring-offset-2">
+                            <span>Read Article</span>
                             <span class="w-5 h-5 rounded-full border border-current flex items-center justify-center" aria-hidden="true">
                                 <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
                             </span>
                         </a>
                     </div>
-                @endforeach
+                @empty
+                    <p class="py-10 text-center font-body text-[15px] text-[#52525B]">No insights published yet.</p>
+                @endforelse
             </div>
         </div>
     </section>

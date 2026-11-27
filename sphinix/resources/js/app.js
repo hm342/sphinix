@@ -201,23 +201,13 @@
 
         const TESTIMONIAL_AUTOPLAY_MS = 4500;
         const TESTIMONIAL_RESUME_DELAY_MS = 1000;
-        const testimonials = [
-            {
-                quote: '[ADD REAL CLIENT QUOTE — Healthcare / Video Production review from verified client]',
-                author: '[ADD CLIENT NAME]',
-                role: '[ADD CLINIC OR COMPANY NAME]',
-            },
-            {
-                quote: '[ADD REAL CLIENT QUOTE — Social Media or Facebook campaign review from verified client]',
-                author: '[ADD CLIENT NAME]',
-                role: '[ADD BUSINESS OR BRAND NAME]',
-            },
-            {
-                quote: '[ADD REAL CLIENT QUOTE — Ongoing support and communication review from verified client]',
-                author: '[ADD CLIENT NAME]',
-                role: '[ADD CLIENT ROLE & COMPANY]',
-            },
-        ];
+        let testimonials = [];
+        try {
+            testimonials = JSON.parse(carouselEl.dataset.testimonials || '[]');
+        } catch {
+            testimonials = [];
+        }
+        if (!Array.isArray(testimonials) || testimonials.length === 0) return;
 
         let current = 0;
         let autoplayTimer = null;
@@ -299,14 +289,14 @@
 
             if (reducedMotionQuery.matches) {
                 applySlideContent(current);
-                stageEl.style.opacity = '1';
+                stageEl.classList.remove('is-transitioning');
             } else {
-                stageEl.style.opacity = '0';
+                stageEl.classList.add('is-transitioning');
                 fadeTimer = setTimeout(() => {
                     fadeTimer = null;
                     applySlideContent(current);
-                    stageEl.style.opacity = '1';
-                }, 150);
+                    stageEl.classList.remove('is-transitioning');
+                }, 170);
             }
 
             if (isManual) startAutoplay();
@@ -387,15 +377,15 @@
 
         const journalEntries = {
             featured: {
-                badge: 'Featured Note',
-                kicker: 'Editorial Cover',
-                readTime: '[ADD READ TIME]',
-                title: '[ADD REAL FEATURED ARTICLE TITLE]',
-                desc: '[ADD REAL ONE-LINE SUMMARY AND VERIFIED METRIC]',
-                cta: 'Read Featured Note',
+                badge: featuredCard.dataset.featuredBadge || stageBadge?.textContent?.trim() || 'Featured Note',
+                kicker: featuredCard.dataset.featuredKicker || stageKicker?.textContent?.trim() || 'Editorial Cover',
+                readTime: featuredCard.dataset.featuredReadtime || stageReadtime?.textContent?.trim() || '',
+                title: featuredCard.dataset.featuredTitle || stageTitle?.textContent?.trim() || '',
+                desc: featuredCard.dataset.featuredDesc || stageDesc?.textContent?.trim() || '',
+                cta: featuredCard.dataset.featuredCta || stageCta?.textContent?.trim() || 'Read Featured Note',
                 href: baseInsightsUrl,
-                img: coverPrimary.dataset.featuredSrc || '/images/insight_featured_cover.jpg',
-                alt: 'Warm directional sunlight across dark architectural desk and editorial proofs',
+                img: coverPrimary.dataset.featuredSrc || coverPrimary.getAttribute('src') || '',
+                alt: featuredCard.dataset.featuredAlt || coverPrimary.getAttribute('alt') || '',
             },
         };
 
@@ -405,7 +395,7 @@
             journalEntries[key] = {
                 badge: row.dataset.badge || key,
                 kicker: 'Selected Entry',
-                readTime: row.dataset.readTime || '[ADD READ TIME]',
+                readTime: row.dataset.readTime || '',
                 title: row.dataset.title || '',
                 desc: row.dataset.desc || '',
                 cta: row.dataset.cta || 'Read Note',
@@ -685,10 +675,23 @@
         applyFilter(initialHash || 'all', false);
     }
 
+    function normalizeVideoEmbedUrl(url) {
+        const ytWatch = url.match(/(?:youtube\.com\/watch\?v=|youtu\.be\/|youtube\.com\/shorts\/)([A-Za-z0-9_-]{6,})/i);
+        if (ytWatch && ytWatch[1]) {
+            return `https://www.youtube.com/embed/${ytWatch[1]}?rel=0`;
+        }
+        const vimeo = url.match(/vimeo\.com\/(?:video\/)?(\d+)/i);
+        if (vimeo && vimeo[1]) {
+            return `https://player.vimeo.com/video/${vimeo[1]}`;
+        }
+        return url;
+    }
+
     function initCaseStudyMedia() {
         document.querySelectorAll('.case-video-stage').forEach((stage) => {
-            const src = (stage.dataset.videoSrc || '').trim();
-            if (!src) return;
+            const rawSrc = (stage.dataset.videoSrc || '').trim();
+            if (!rawSrc) return;
+            const src = normalizeVideoEmbedUrl(rawSrc);
             const title = stage.dataset.videoTitle || 'Campaign Video';
             const poster = (stage.dataset.videoPoster || '').trim();
             stage.innerHTML = '';
@@ -835,7 +838,7 @@
 
             filterPills.forEach((pill) => {
                 const filter = pill.dataset.blogFilter;
-                if (filter !== 'all' && (categoryCounts[filter] || 0) < 3) {
+                if (filter !== 'all' && (categoryCounts[filter] || 0) < 1) {
                     pill.hidden = true;
                     pill.style.display = 'none';
                 }
@@ -843,7 +846,7 @@
 
             function applyFilter(filterKey, updateUrl) {
                 const validCategories = ['ads', 'seo', 'strategy'];
-                const activeFilter = validCategories.includes(filterKey) && (categoryCounts[filterKey] || 0) >= 3 ? filterKey : 'all';
+                const activeFilter = validCategories.includes(filterKey) && (categoryCounts[filterKey] || 0) >= 1 ? filterKey : 'all';
 
                 filterPills.forEach((pill) => {
                     const isMatch = pill.dataset.blogFilter === activeFilter;
@@ -885,6 +888,51 @@
         }
     }
 
+    function initMotionChoreography() {
+        const targets = Array.from(document.querySelectorAll('[data-reveal]'));
+        if (targets.length === 0) return;
+
+        if (reducedMotionQuery.matches || typeof IntersectionObserver === 'undefined') {
+            targets.forEach((el) => el.classList.add('is-revealed'));
+            return;
+        }
+
+        document.documentElement.classList.add('js-motion');
+
+        const reveal = (el) => el.classList.add('is-revealed');
+        const viewportH = window.innerHeight || document.documentElement.clientHeight;
+
+        const observer = new IntersectionObserver((entries, obs) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    reveal(entry.target);
+                    obs.unobserve(entry.target);
+                }
+            });
+        }, {
+            rootMargin: '0px 0px -6% 0px',
+            threshold: 0.06,
+        });
+
+        targets.forEach((el) => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < viewportH * 0.95) {
+                reveal(el);
+            } else {
+                observer.observe(el);
+            }
+        });
+
+        window.addEventListener('pageshow', () => {
+            targets.forEach((el) => {
+                if (!el.classList.contains('is-revealed') && el.getBoundingClientRect().top < (window.innerHeight || 900)) {
+                    reveal(el);
+                }
+            });
+        }, { passive: true });
+    }
+
+    initMotionChoreography();
     initNavigation();
     initNewsletterForms();
     initContactForm();

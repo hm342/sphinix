@@ -1,5 +1,6 @@
 @props([
     'activeNav' => 'none',
+    'siteSettings' => [],
 ])
 @php
     $footerLinks = [
@@ -17,21 +18,17 @@
             <div class="flex flex-col gap-3">
                 <span class="font-title text-title-md text-light-on-surface">Head Office</span>
                 <p class="font-body text-body-md text-light-on-surface-variant">
-                    B-3, Shantiniketan Complex,<br>
-                    Parimal Chowk, Waghawadi Road,<br>
-                    Bhavnagar - 364001, Gujarat, India
+                    {{ $siteSettings['head_office_address'] ?? 'B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road, Bhavnagar - 364001, Gujarat, India' }}
                 </p>
-                <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">+91 7048239155</span>
+                <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">{{ $siteSettings['primary_phone'] ?? '+91 7048239155' }}</span>
             </div>
 
             <div class="flex flex-col gap-3">
                 <span class="font-title text-title-md text-light-on-surface">Creative Studio</span>
                 <p class="font-body text-body-md text-light-on-surface-variant">
-                    Swastik Complex,<br>
-                    Mokhdaji Circle,<br>
-                    Bhavnagar, Gujarat, India
+                    {{ $siteSettings['studio_address'] ?? 'Swastik Complex, Mokhdaji Circle, Bhavnagar, Gujarat, India' }}
                 </p>
-                <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">+91 9081711900</span>
+                <span class="font-mono text-mono-sm text-light-on-surface tabular-nums">{{ $siteSettings['studio_phone'] ?? '+91 9081711900' }}</span>
             </div>
 
             <div class="flex flex-col gap-3">
@@ -46,7 +43,7 @@
 
             <div class="flex flex-col gap-3">
                 <span class="font-title text-title-md text-light-on-surface">Stay Updated</span>
-                <p class="font-body text-body-md text-light-on-surface-variant">Direct updates and product questions: info@sphinixmarketing.com</p>
+                <p class="font-body text-body-md text-light-on-surface-variant">Direct updates and product questions: {{ $siteSettings['primary_email'] ?? 'info@sphinixmarketing.com' }}</p>
                 <form action="{{ route('newsletter.subscribe') }}" method="POST" class="newsletter-form flex gap-2" novalidate>
                     @csrf
                     <input type="email" name="email" placeholder="Work email" aria-label="Work email address" class="flex-1 min-w-0 px-3 py-2 rounded border border-light-outline-variant bg-light-surface text-light-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">

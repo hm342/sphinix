@@ -1,11 +1,11 @@
 @props([
     'activeNav' => 'none',
     'solid' => false,
+    'megaServices' => null,
+    'siteSettings' => [],
 ])
 @php
-    use App\Data\AgencyData;
-
-    $megaServices = AgencyData::services();
+    $servicesMenu = collect($megaServices ?? []);
     $desktopClass = static fn (string $key): string => $activeNav === $key
         ? 'nav-link px-3.5 py-1.5 rounded-full font-body font-semibold text-[14px] text-[#A83300] hover:text-[#202020] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]'
         : 'nav-link px-3.5 py-1.5 rounded-full font-body font-medium text-[14px] text-[#202020] hover:text-[#A83300] transition-colors duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]';
@@ -37,21 +37,18 @@
                 <!-- Mega Menu Panel -->
                 <div id="services-mega" class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[540px] bg-white border border-light-outline-variant rounded-xl shadow-lg shadow-black/8 opacity-0 invisible translate-y-1 transition-all duration-200 ease-out pointer-events-none">
                     <div class="p-4 grid grid-cols-2 gap-1">
-                        @foreach ($megaServices as $svc)
-                            @php
-                                $href = route($svc['route_name']) . ($svc['anchor'] ? '#' . $svc['anchor'] : '');
-                            @endphp
-                            <a href="{{ $href }}" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
-                                <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">{{ $svc['nav_icon'] }}</span>
+                        @foreach ($servicesMenu as $svc)
+                            <a href="{{ $svc->public_href }}" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">
+                                <span class="material-symbols-outlined text-[20px] text-[#E85C27] mt-0.5 shrink-0" aria-hidden="true">{{ $svc->nav_icon }}</span>
                                 <span class="flex flex-col gap-0.5">
-                                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">{{ $svc['nav_title'] }}</span>
-                                    <span class="font-body text-[12px] text-[#444444] leading-snug">{{ $svc['nav_desc'] }}</span>
+                                    <span class="font-body font-semibold text-[14px] text-[#202020] group-hover/item:text-[#A83300] transition-colors duration-150">{{ $svc->nav_title }}</span>
+                                    <span class="font-body text-[12px] text-[#444444] leading-snug">{{ $svc->nav_desc }}</span>
                                 </span>
                             </a>
                         @endforeach
                     </div>
                     <div class="border-t border-light-outline-variant px-4 py-2.5 flex items-center justify-between bg-[#FAF8F5] rounded-b-xl">
-                        <span class="font-body text-[12px] text-[#52525B]">150+ clients across 15+ industries</span>
+                        <span class="font-body text-[12px] text-[#52525B]">{{ $siteSettings['clients_count_label'] ?? '150+' }} clients across {{ $siteSettings['industries_count_label'] ?? '15+' }} industries</span>
                         <a href="{{ route('services.index') }}" class="font-body font-semibold text-[13px] text-[#A83300] hover:text-[#202020] flex items-center gap-1 transition-colors duration-150">
                             View all services
                             <span class="material-symbols-outlined text-[15px]" aria-hidden="true">arrow_forward</span>
@@ -98,12 +95,9 @@
                     <span id="mobile-services-chevron" class="material-symbols-outlined text-[18px] text-[#52525B] transition-transform duration-150">keyboard_arrow_down</span>
                 </button>
                 <div id="mobile-services-panel" class="hidden flex-col pl-4 py-2 gap-0.5">
-                    @foreach ($megaServices as $svc)
-                        @php
-                            $href = route($svc['route_name']) . ($svc['anchor'] ? '#' . $svc['anchor'] : '');
-                        @endphp
-                        <a href="{{ $href }}" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">
-                            {{ $svc['nav_title'] === 'Social Media' ? 'Social Media Marketing' : $svc['nav_title'] }}
+                    @foreach ($servicesMenu as $svc)
+                        <a href="{{ $svc->public_href }}" class="py-2 font-medium text-[14px] text-[#444444] hover:text-[#A83300] transition-colors">
+                            {{ $svc->nav_title === 'Social Media' ? 'Social Media Marketing' : $svc->nav_title }}
                         </a>
                     @endforeach
                 </div>

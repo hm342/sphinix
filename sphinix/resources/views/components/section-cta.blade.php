@@ -24,10 +24,10 @@
             @endif
         </div>
 
-        <div class="flex flex-wrap items-center gap-4 shrink-0">
-            <a href="{{ $primaryHref }}" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] {{ $isDark ? 'hover:bg-white hover:text-[#18181B]' : 'hover:bg-[#18181B]' }} text-white font-semibold text-[15px] transition-colors">
+        <div data-reveal class="flex flex-wrap items-center gap-4 shrink-0">
+            <a href="{{ $primaryHref }}" class="btn-anticipate inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-[#A83300] {{ $isDark ? 'hover:bg-white hover:text-[#18181B]' : 'hover:bg-[#18181B]' }} text-white font-semibold text-[15px] transition-colors">
                 <span>{{ $primaryLabel }}</span>
-                <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                <span class="btn-arrow material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
             </a>
 
             @if ($secondaryLabel && $secondaryHref)

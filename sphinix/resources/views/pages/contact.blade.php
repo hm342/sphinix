@@ -1,23 +1,3 @@
-@php
-    $servicesList = [
-        'Social Media Management',
-        'Search Engine Optimization (SEO)',
-        'Google Ads Performance',
-        'Branding & Design',
-        'Video Production & Reels',
-        'E-Commerce Management',
-        'Email Marketing Automation',
-        'Web & App Development',
-        'ChatBox 360 Suite (WhatsApp API)',
-        'Social 360 Suite Demo',
-    ];
-    $faqs = [
-        ['q' => 'How soon can we begin working together?', 'a' => 'After an intro call and scope sign-off, onboarding starts with account access, an initial audit, and a calendar. [CONFIRM ONBOARDING TIMELINE]', 'open' => true],
-        ['q' => 'Can we bundle agency services with ChatBox 360 Suite?', 'a' => 'Yes. Ad campaigns can connect directly to ChatBox 360 Suite so inbound WhatsApp inquiries get automated replies and routing.', 'open' => false],
-        ['q' => 'Do you work with businesses outside India?', 'a' => 'Yes. Our offices are in Bhavnagar, Gujarat, and we work with 150+ clients remotely across India and abroad. [CONFIRM COUNTRIES SERVED]', 'open' => false],
-        ['q' => 'How do you handle reporting and communication?', 'a' => 'You get a shared WhatsApp group with your account team and regular campaign updates. [CONFIRM REPORTING CADENCE]', 'open' => false],
-    ];
-@endphp
 <x-layouts.app
     title="Contact Us — Sphinix Marketing | Book a Consultation"
     description="Get in touch with Sphinix Marketing in Bhavnagar. Talk to our strategy team or chat directly on WhatsApp."
@@ -39,7 +19,7 @@
                 <div class="lg:col-span-7 bg-[#FFFFFF] border border-[#E4E4E7] rounded-xl p-8 md:p-10 flex flex-col gap-6">
                     <div class="flex flex-col gap-1.5">
                         <h2 class="font-headline font-bold text-[24px] text-[#18181B]">Request a Consultation</h2>
-                        <p class="font-body text-[14.5px] text-[#52525B]">Send your details below [CONFIRM TYPICAL RESPONSE TIME].</p>
+                        <p class="font-body text-[14.5px] text-[#52525B]">Send your details below and our Bhavnagar team will follow up directly.</p>
                     </div>
 
                     <form id="contact-form" action="{{ route('contact.submit') }}" method="POST" class="flex flex-col gap-5" novalidate>
@@ -100,9 +80,9 @@
                         <p class="font-body text-[14.5px] leading-[1.6] text-white/75">
                             Connect with our strategy team immediately to get quick answers, check availability, or discuss urgent campaigns.
                         </p>
-                        <a href="https://wa.me/917048239155?text=Hi%20Sphinix%20team,%20I%20would%20like%20to%20discuss%20a%20digital%20marketing%20project" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-success text-white font-semibold text-[15px] hover:bg-success/90 transition-colors">
+                        <a href="https://wa.me/{{ $settings['whatsapp_number'] ?? '917048239155' }}?text=Hi%20Sphinix%20team,%20I%20would%20like%20to%20discuss%20a%20digital%20marketing%20project" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-success text-white font-semibold text-[15px] hover:bg-success/90 transition-colors">
                             <span class="material-symbols-outlined text-[18px]" aria-hidden="true">chat</span>
-                            <span>Message +91 7048239155</span>
+                            <span>Message {{ $settings['primary_phone'] ?? '+91 7048239155' }}</span>
                         </a>
                     </div>
 
@@ -110,22 +90,22 @@
                         <div class="py-6 flex flex-col gap-2">
                             <h3 class="font-title font-bold text-[19px] text-[#18181B]">Head Office</h3>
                             <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
-                                B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road, Bhavnagar - 364001, Gujarat, India.
+                                {{ $settings['head_office_address'] ?? 'B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road, Bhavnagar - 364001, Gujarat, India.' }}
                             </p>
                             <div class="pt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[12.5px] text-[#18181B]">
-                                <a href="tel:+917048239155" class="hover:text-[#A83300]">+91 7048239155</a>
-                                <a href="mailto:info@sphinixmarketing.com" class="hover:text-[#A83300]">info@sphinixmarketing.com</a>
+                                <a href="tel:{{ preg_replace('/\s+/', '', $settings['primary_phone'] ?? '+917048239155') }}" class="hover:text-[#A83300]">{{ $settings['primary_phone'] ?? '+91 7048239155' }}</a>
+                                <a href="mailto:{{ $settings['primary_email'] ?? 'info@sphinixmarketing.com' }}" class="hover:text-[#A83300]">{{ $settings['primary_email'] ?? 'info@sphinixmarketing.com' }}</a>
                             </div>
                         </div>
 
                         <div class="py-6 flex flex-col gap-2">
                             <h3 class="font-title font-bold text-[19px] text-[#18181B]">Creative Studio</h3>
                             <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
-                                Swastik Complex, Mokhdaji Circle, Bhavnagar, Gujarat, India.
+                                {{ $settings['studio_address'] ?? 'Swastik Complex, Mokhdaji Circle, Bhavnagar, Gujarat, India.' }}
                             </p>
                             <div class="pt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[12.5px] text-[#18181B]">
-                                <a href="tel:+919081711900" class="hover:text-[#A83300]">+91 9081711900</a>
-                                <span class="text-[#A83300]">[ADD VERIFIED STUDIO HOURS]</span>
+                                <a href="tel:{{ preg_replace('/\s+/', '', $settings['studio_phone'] ?? '+919081711900') }}" class="hover:text-[#A83300]">{{ $settings['studio_phone'] ?? '+91 9081711900' }}</a>
+                                <span class="text-[#52525B]">{{ $settings['studio_hours'] ?? 'Mon - Sat · 10:00 AM - 7:00 PM IST' }}</span>
                             </div>
                         </div>
                     </div>
@@ -143,13 +123,13 @@
 
             <div class="flex flex-col divide-y divide-light-outline-variant border-y border-light-outline-variant">
                 @foreach ($faqs as $faq)
-                    <details name="contact-faq" class="group py-5" @if($faq['open']) open @endif>
+                    <details name="contact-faq" class="group py-5" @if($faq->is_open_by_default) open @endif>
                         <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-label text-label-lg text-light-on-surface">
-                            <span>{{ $faq['q'] }}</span>
+                            <span>{{ $faq->question }}</span>
                             <span class="material-symbols-outlined text-title-md text-light-on-surface-variant transition-transform group-open:rotate-45" aria-hidden="true">add</span>
                         </summary>
                         <div class="pt-3">
-                            <p class="font-body text-body-md text-light-on-surface-variant">{{ $faq['a'] }}</p>
+                            <p class="font-body text-body-md text-light-on-surface-variant">{{ $faq->answer }}</p>
                         </div>
                     </details>
                 @endforeach
