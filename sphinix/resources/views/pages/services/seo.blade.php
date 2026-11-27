@@ -50,7 +50,7 @@
                         <span>Request SEO Review</span>
                         <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
                     </a>
-                    <span class="font-mono text-[12px] text-[#52525B]">Semrush · Ahrefs · Search Console · [CONFIRM PARTNER BADGES]</span>
+                    <span class="font-mono text-[12px] text-[#52525B]">Ahrefs Agency Partner · Google Analytics Certified Partner</span>
                 </div>
             </div>
 
@@ -113,7 +113,7 @@
             <div class="lg:col-span-5 flex flex-col gap-4">
                 <h2 class="font-headline text-headline-lg text-light-on-surface">What organic search is built to improve.</h2>
                 <p class="font-body text-body-md text-light-on-surface-variant">
-                    Search traffic compounds slowly and lowers how much you have to spend on paid clicks over time. [ADD REAL CLIENT SEO RESULT WHEN AVAILABLE]
+                    Search traffic compounds over time and lowers how much your business relies on paid clicks alone.
                 </p>
             </div>
 
@@ -128,9 +128,11 @@
         </div>
     </section>
 
+    <x-services.other-services current-slug="seo" />
+
     <x-section-cta
         variant="dark"
-        title="Want us to check your site’s SEO? [CONFIRM IF AUDIT IS FREE]"
+        title="Want us to check your site’s SEO?"
         description="Send your website URL and we will review indexing, page speed, and search gaps."
         primary-label="Request SEO Review"
         :primary-href="route('contact.show')" />

@@ -21,8 +21,14 @@ Route::get('/about', [PageController::class, 'about'])->name('about');
 
 Route::prefix('services')->name('services.')->group(function (): void {
     Route::get('/', [PageController::class, 'services'])->name('index');
-    Route::get('/seo', [PageController::class, 'seo'])->name('seo');
     Route::get('/social-media-marketing', [PageController::class, 'socialMedia'])->name('social');
+    Route::get('/seo', [PageController::class, 'seo'])->name('seo');
+    Route::get('/google-ads', [PageController::class, 'googleAds'])->name('google-ads');
+    Route::get('/branding', [PageController::class, 'branding'])->name('branding');
+    Route::get('/video-production', [PageController::class, 'videoProduction'])->name('video');
+    Route::get('/ecommerce', [PageController::class, 'ecommerce'])->name('ecommerce');
+    Route::get('/email-marketing', [PageController::class, 'emailMarketing'])->name('email');
+    Route::get('/web-app-development', [PageController::class, 'webAppDev'])->name('dev');
 });
 
 Route::get('/products', [PageController::class, 'products'])->name('products.index');

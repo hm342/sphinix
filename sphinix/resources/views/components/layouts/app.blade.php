@@ -14,6 +14,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>{{ $title }}</title>
     <meta name="description" content="{{ $description }}">
+    <link id="site-favicon" rel="icon" type="image/webp" href="{{ asset('images/sphinix_logo.webp') }}">
     <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&amp;family=Manrope:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400;500&amp;display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=block" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])

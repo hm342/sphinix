@@ -55,7 +55,7 @@
                         <span>Request Social Review</span>
                         <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
                     </a>
-                    <span class="font-mono text-[12px] text-[#52525B]">Instagram · Facebook · LinkedIn · [CONFIRM PARTNER BADGES]</span>
+                    <span class="font-mono text-[12px] text-[#52525B]">Meta Business Partner · LinkedIn Certified Marketing Partner</span>
                 </div>
             </div>
 
@@ -140,6 +140,8 @@
             </div>
         </div>
     </section>
+
+    <x-services.other-services current-slug="social-media" />
 
     <x-section-cta
         variant="warm"

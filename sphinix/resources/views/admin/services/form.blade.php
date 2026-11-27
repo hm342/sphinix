@@ -86,8 +86,14 @@
                 <label for="route_name" class="font-semibold text-[13px]">Target Route *</label>
                 <select id="route_name" name="route_name" class="h-10 px-3 rounded border border-[#D4D0C8] bg-[#F7F6F4] text-[14px]">
                     <option value="services.index" @selected(old('route_name', $service->route_name) === 'services.index')>All Services (/services)</option>
-                    <option value="services.seo" @selected(old('route_name', $service->route_name) === 'services.seo')>SEO Page (/services/seo)</option>
                     <option value="services.social" @selected(old('route_name', $service->route_name) === 'services.social')>Social Media (/services/social-media-marketing)</option>
+                    <option value="services.seo" @selected(old('route_name', $service->route_name) === 'services.seo')>SEO Page (/services/seo)</option>
+                    <option value="services.google-ads" @selected(old('route_name', $service->route_name) === 'services.google-ads')>Google Ads (/services/google-ads)</option>
+                    <option value="services.branding" @selected(old('route_name', $service->route_name) === 'services.branding')>Branding &amp; Design (/services/branding)</option>
+                    <option value="services.video" @selected(old('route_name', $service->route_name) === 'services.video')>Video Production (/services/video-production)</option>
+                    <option value="services.ecommerce" @selected(old('route_name', $service->route_name) === 'services.ecommerce')>E-Commerce (/services/ecommerce)</option>
+                    <option value="services.email" @selected(old('route_name', $service->route_name) === 'services.email')>Email Marketing (/services/email-marketing)</option>
+                    <option value="services.dev" @selected(old('route_name', $service->route_name) === 'services.dev')>Web &amp; App Dev (/services/web-app-development)</option>
                 </select>
             </div>
             <div class="flex flex-col gap-1.5">

@@ -932,7 +932,60 @@
         }, { passive: true });
     }
 
+    function initTabVisibilityAttention() {
+        const originalTitle = document.title;
+        let faviconLink = document.getElementById('site-favicon') || document.querySelector("link[rel~='icon']");
+        if (!faviconLink) {
+            faviconLink = document.createElement('link');
+            faviconLink.id = 'site-favicon';
+            faviconLink.rel = 'icon';
+            faviconLink.type = 'image/webp';
+            faviconLink.href = '/images/sphinix_logo.webp';
+            document.head.appendChild(faviconLink);
+        }
+        const originalFavicon = faviconLink.getAttribute('href') || '/images/sphinix_logo.webp';
+        const originalType = faviconLink.getAttribute('type') || 'image/webp';
+        const awayFavicon = 'data:image/svg+xml,' + encodeURIComponent(
+            '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">'
+            + '<circle cx="32" cy="32" r="28" fill="#FACC15"/>'
+            + '<path d="M18 27q4 4 8 0M38 27q4 4 8 0" fill="none" stroke="#3F2E1E" stroke-width="3.2" stroke-linecap="round"/>'
+            + '<path d="M23 44q9-8 18 0" fill="none" stroke="#3F2E1E" stroke-width="3.5" stroke-linecap="round"/>'
+            + '</svg>'
+        );
+
+        function showActiveTab() {
+            document.title = originalTitle;
+            faviconLink.setAttribute('type', originalType);
+            faviconLink.setAttribute('href', originalFavicon);
+        }
+
+        function showAwayTab() {
+            document.title = 'Missing you already';
+            faviconLink.setAttribute('type', 'image/svg+xml');
+            faviconLink.setAttribute('href', awayFavicon);
+        }
+
+        function syncTabState() {
+            if (document.hidden) {
+                showAwayTab();
+            } else {
+                showActiveTab();
+            }
+        }
+
+        document.addEventListener('visibilitychange', syncTabState);
+        window.addEventListener('focus', () => {
+            if (!document.hidden) showActiveTab();
+        }, { passive: true });
+        window.addEventListener('pageshow', () => {
+            if (!document.hidden) showActiveTab();
+        }, { passive: true });
+
+        syncTabState();
+    }
+
     initMotionChoreography();
+    initTabVisibilityAttention();
     initNavigation();
     initNewsletterForms();
     initContactForm();

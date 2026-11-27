@@ -82,6 +82,36 @@ class PageController extends Controller
         return view('pages.services.social-media');
     }
 
+    public function googleAds(): View
+    {
+        return view('pages.services.google-ads');
+    }
+
+    public function branding(): View
+    {
+        return view('pages.services.branding');
+    }
+
+    public function videoProduction(): View
+    {
+        return view('pages.services.video-production');
+    }
+
+    public function ecommerce(): View
+    {
+        return view('pages.services.ecommerce');
+    }
+
+    public function emailMarketing(): View
+    {
+        return view('pages.services.email-marketing');
+    }
+
+    public function webAppDev(): View
+    {
+        return view('pages.services.web-app-development');
+    }
+
     public function products(): View
     {
         return view('pages.products');

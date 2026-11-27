@@ -133,6 +133,10 @@ class AgencyContentSeeder extends Seeder
 
     private function seedClientLogos(): void
     {
+        if (ClientLogo::query()->exists()) {
+            return;
+        }
+
         $logos = [
             // Row 1 (LTR Marquee)
             ['name' => 'aabo.', 'subtitle' => 'Tech & Product', 'case_study_slug' => 'aabo', 'row' => 1, 'marquee' => true, 'dir' => true],
