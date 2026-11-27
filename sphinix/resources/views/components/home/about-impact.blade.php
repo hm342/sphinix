@@ -6,14 +6,14 @@
         <!-- Left Image + Dual Stat Cards -->
         <div class="relative min-h-96 overflow-hidden bg-brand-charcoal">
             <img src="{{ asset('images/impact_collaboration.jpg') }}" alt="Sphinix Marketing team reviewing client campaigns in Bhavnagar" class="w-full h-full object-cover object-center" loading="lazy" decoding="async">
-            <div data-reveal style="--stagger: 1;" class="absolute left-12 sm:left-16 right-3 sm:right-4 bottom-3 sm:bottom-4 grid grid-cols-1 sm:grid-cols-2">
-                <div class="bg-light-primary/95 text-light-on-primary p-8 flex flex-col justify-center gap-3">
+            <div data-reveal style="--stagger: 1;" class="absolute left-4 sm:left-16 right-4 bottom-3 sm:bottom-4 grid grid-cols-1 sm:grid-cols-2 items-stretch">
+                <div class="bg-light-primary/95 text-light-on-primary p-6 sm:p-8 flex flex-col justify-center gap-3">
                     <div class="flex items-center gap-3">
-                        <span class="font-display text-display-lg tabular-nums">{{ $settings['projects_count_label'] ?? '700+' }}</span>
+                        <span class="font-display font-bold text-display-lg tabular-nums">{{ $settings['projects_count_label'] ?? '700+' }}</span>
                     </div>
                     <p class="font-body text-body-md text-light-on-primary">Projects delivered across {{ $settings['industries_count_label'] ?? '15+' }} industries.</p>
                 </div>
-                <div class="bg-brand-charcoal/90 text-light-on-secondary p-8 flex flex-col justify-center">
+                <div class="bg-brand-charcoal/90 backdrop-blur-sm border-t sm:border-t-0 sm:border-l border-white/10 text-light-on-secondary p-6 sm:p-8 flex flex-col justify-center">
                     <p class="font-body text-body-md text-light-on-secondary">Affordable marketing and web builds for small businesses since 2017.</p>
                 </div>
             </div>

@@ -8,11 +8,11 @@
     <div class="max-w-7xl mx-auto flex flex-col gap-12">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div class="flex flex-col gap-3 max-w-2xl">
-                <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
+                <h2 class="font-display font-bold tracking-[-0.025em] text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
                     Marketing tools built in-house for <span class="text-brand-orange">everyday business use.</span>
                 </h2>
             </div>
-            <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface font-label text-label-lg hover:bg-light-surface-container-low transition-colors duration-state-change">
+            <a href="#contact" class="inline-flex items-center justify-center px-5 py-2.5 rounded-[6px] border border-light-outline-variant bg-light-surface-container-lowest text-light-on-surface font-label text-label-lg hover:bg-light-surface-container-low transition-colors duration-state-change">
                 Request Product Demo
             </a>
         </div>
@@ -29,14 +29,14 @@
                         <ul class="flex flex-col gap-3 border-t border-light-outline-variant pt-4">
                             @foreach (['SmartBot & 24/7 AI Agent', 'Built-in CRM & Follow-up Tracking', 'Order & Appointment Management', 'Shared Team Inbox & Broadcasts'] as $item)
                                 <li class="flex items-center gap-2.5 font-body text-body-md text-light-on-surface">
-                                    <span class="material-symbols-outlined text-title-md text-brand-orange" aria-hidden="true">check_circle</span>
+                                    <span class="material-symbols-outlined text-title-md text-brand-orange shrink-0" aria-hidden="true">check_circle</span>
                                     <span>{{ $item }}</span>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                     <footer>
-                        <a href="{{ route('products.index') }}#chatbox360" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-secondary text-light-on-secondary font-label text-label-lg transition-colors duration-state-change hover:bg-light-primary">
+                        <a href="{{ route('products.index') }}#chatbox360" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-light-secondary text-light-on-secondary font-label text-label-lg transition-colors duration-state-change hover:bg-light-primary">
                             <span>Explore ChatBox 360</span>
                         </a>
                     </footer>
@@ -54,14 +54,14 @@
                         <ul class="flex flex-col gap-3 border-t border-light-on-primary/20 pt-4">
                             @foreach (['AI Studio Content Drafts', 'Multi-Platform Publishing & Bulk Posts', 'Visual Social Media Calendar', 'Team Collaboration & Reports'] as $item)
                                 <li class="flex items-center gap-2.5 font-body text-body-md text-light-on-primary">
-                                    <span class="material-symbols-outlined text-title-md text-light-on-primary" aria-hidden="true">check_circle</span>
+                                    <span class="material-symbols-outlined text-title-md text-light-on-primary shrink-0" aria-hidden="true">check_circle</span>
                                     <span>{{ $item }}</span>
                                 </li>
                             @endforeach
                         </ul>
                     </div>
                     <footer>
-                        <a href="{{ route('products.index') }}#social360" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded bg-light-surface-container-lowest text-light-on-surface font-label text-label-lg transition-colors duration-state-change hover:bg-light-surface-container-low">
+                        <a href="{{ route('products.index') }}#social360" class="w-full inline-flex items-center justify-center gap-2 px-6 py-3 rounded-[6px] bg-light-surface-container-lowest text-light-on-surface font-label text-label-lg transition-colors duration-state-change hover:bg-light-surface-container-low">
                             <span>Explore Social 360</span>
                         </a>
                     </footer>
@@ -79,7 +79,7 @@
                         <details name="faq-group" class="group py-4" @if($faq->is_open_by_default) open @endif>
                             <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-label text-label-lg text-light-on-surface">
                                 <span>{{ $faq->question }}</span>
-                                <span class="material-symbols-outlined text-title-md text-light-on-surface-variant transition-transform duration-state-change group-open:rotate-45" aria-hidden="true">add</span>
+                                <span class="material-symbols-outlined text-title-md text-light-on-surface-variant shrink-0 transition-transform duration-state-change group-open:rotate-45" aria-hidden="true">add</span>
                             </summary>
                             <div class="pt-3">
                                 <p class="font-body text-body-md text-light-on-surface-variant">{{ $faq->answer }}</p>

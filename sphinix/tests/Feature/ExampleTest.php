@@ -20,7 +20,7 @@ class ExampleTest extends TestCase
     public function test_public_pages_render_cleanly(): void
     {
         $pages = [
-            '/' => 'Turning attention into',
+            '/' => 'We serve you with',
             '/about' => 'Digital marketing &amp; web builds',
             '/services' => 'Eight services, all in-house.',
             '/services/social-media-marketing' => 'Social media built around',
@@ -102,5 +102,17 @@ class ExampleTest extends TestCase
             'email' => 'team@example.com',
             'status' => 'active',
         ]);
+    }
+
+    public function test_home_hero_renders_all_three_rotating_headlines(): void
+    {
+        $response = $this->get('/');
+        $response->assertStatus(200);
+        $response->assertSee('We serve you with', false);
+        $response->assertSee('360 degree digital marketing services.', false);
+        $response->assertSee('We deliver', false);
+        $response->assertSee('nothing but best.', false);
+        $response->assertSee('And get your', false);
+        $response->assertSee('digital marketing done.', false);
     }
 }

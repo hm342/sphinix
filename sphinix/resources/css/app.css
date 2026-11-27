@@ -296,7 +296,7 @@ button[type="submit"]:active,
 @media (hover: hover) and (pointer: fine) {
     #insights-list:has(.journal-row:hover) .journal-row:not(:hover),
     #insights-list:has(.journal-row:focus-visible) .journal-row:not(:focus-visible) {
-        opacity: 0.62;
+        opacity: 0.78;
     }
 
     #projects-grid:has(.project-card:hover) .project-card:not(:hover) {
@@ -341,6 +341,55 @@ button[type="submit"]:active,
 
 .hero-pose-1 {
     animation: heroPoseUp 580ms var(--ease-editorial) 40ms both;
+}
+
+.hero-headline-slide {
+    pointer-events: none;
+}
+
+.hero-headline-slide.is-active {
+    pointer-events: auto;
+}
+
+.hero-quote-lead,
+.hero-quote-accent {
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 520ms var(--ease-editorial), transform 560ms var(--ease-editorial);
+    will-change: opacity, transform;
+}
+
+.hero-headline-slide.is-active .hero-quote-lead {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 120ms;
+}
+
+.hero-headline-slide.is-active .hero-quote-accent {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 195ms;
+}
+
+.hero-headline-slide.is-leaving .hero-quote-lead {
+    opacity: 0;
+    transform: translateY(-14px);
+    transition-duration: 360ms;
+    transition-timing-function: var(--ease-slow-inout);
+    transition-delay: 0ms;
+}
+
+.hero-headline-slide.is-leaving .hero-quote-accent {
+    opacity: 0;
+    transform: translateY(-14px);
+    transition-duration: 360ms;
+    transition-timing-function: var(--ease-slow-inout);
+    transition-delay: 55ms;
+}
+
+.hero-headline-slide.is-resetting .hero-quote-lead,
+.hero-headline-slide.is-resetting .hero-quote-accent {
+    transition: none !important;
 }
 
 .hero-pose-2 {
@@ -837,6 +886,9 @@ html:not(.js-insights) #category-strategy:target ~ section .insight-pill[data-bl
     #nav-pill,
     #site-header *,
     .hero-canvas *,
+    .hero-headline-slide,
+    .hero-quote-lead,
+    .hero-quote-accent,
     #gallery-track,
     .service-carousel-card,
     .service-carousel-card *,

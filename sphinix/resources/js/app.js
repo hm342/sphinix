@@ -984,7 +984,114 @@
         syncTabState();
     }
 
+    function initHeroHeadlineRotator() {
+        const container = document.getElementById('hero-headline-rotator');
+        if (!container) return;
+
+        const slides = Array.from(container.querySelectorAll('.hero-headline-slide'));
+        if (slides.length < 2) return;
+
+        const ROTATE_INTERVAL_MS = 2800;
+        const EXIT_RESET_MS = 480;
+        let currentIndex = 0;
+        let rotateTimer = null;
+        let resetTimer = null;
+
+        function resetInactiveSlides() {
+            if (resetTimer !== null) {
+                clearTimeout(resetTimer);
+                resetTimer = null;
+            }
+            slides.forEach((slide, idx) => {
+                if (idx === currentIndex) return;
+                slide.classList.add('is-resetting');
+                slide.classList.remove('is-leaving');
+                void slide.offsetWidth;
+                slide.classList.remove('is-resetting');
+            });
+        }
+
+        function goToSlide(nextIndex, immediate = false) {
+            const targetIndex = (nextIndex + slides.length) % slides.length;
+            if (targetIndex === currentIndex && !immediate) return;
+
+            const prevSlide = slides[currentIndex];
+            const nextSlide = slides[targetIndex];
+            currentIndex = targetIndex;
+
+            resetInactiveSlides();
+
+            if (immediate || reducedMotionQuery.matches) {
+                slides.forEach((slide, idx) => {
+                    const active = idx === currentIndex;
+                    slide.classList.toggle('is-active', active);
+                    slide.setAttribute('aria-hidden', String(!active));
+                });
+                return;
+            }
+
+            // Park incoming slide cleanly at rest before entering
+            nextSlide.classList.add('is-resetting');
+            nextSlide.classList.remove('is-leaving', 'is-active');
+            void nextSlide.offsetWidth;
+            nextSlide.classList.remove('is-resetting');
+
+            // Stagger outgoing upward glide while incoming glides up from below
+            prevSlide.classList.remove('is-active');
+            prevSlide.classList.add('is-leaving');
+            prevSlide.setAttribute('aria-hidden', 'true');
+
+            nextSlide.classList.add('is-active');
+            nextSlide.setAttribute('aria-hidden', 'false');
+
+            resetTimer = setTimeout(() => {
+                resetTimer = null;
+                prevSlide.classList.add('is-resetting');
+                prevSlide.classList.remove('is-leaving');
+                void prevSlide.offsetWidth;
+                prevSlide.classList.remove('is-resetting');
+            }, EXIT_RESET_MS);
+        }
+
+        function stopRotation() {
+            if (rotateTimer !== null) {
+                clearInterval(rotateTimer);
+                rotateTimer = null;
+            }
+        }
+
+        function startRotation() {
+            stopRotation();
+            if (reducedMotionQuery.matches || document.hidden) return;
+            rotateTimer = setInterval(() => {
+                goToSlide(currentIndex + 1);
+            }, ROTATE_INTERVAL_MS);
+        }
+
+        document.addEventListener('visibilitychange', () => {
+            if (document.hidden) {
+                stopRotation();
+                resetInactiveSlides();
+            } else {
+                startRotation();
+            }
+        });
+
+        reducedMotionQuery.addEventListener('change', () => {
+            if (reducedMotionQuery.matches) {
+                stopRotation();
+                resetInactiveSlides();
+                goToSlide(0, true);
+            } else {
+                startRotation();
+            }
+        });
+
+        startRotation();
+    }
+
     initMotionChoreography();
+    initHeroHeadlineRotator();
     initTabVisibilityAttention();
     initNavigation();
     initNewsletterForms();

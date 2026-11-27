@@ -18,7 +18,7 @@
          aria-roledescription="carousel"
          aria-label="Client testimonials">
         <div class="flex flex-col items-center gap-3">
-            <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
+            <h2 class="font-display font-bold tracking-[-0.025em] text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
                 What clients say <span class="text-brand-orange">about working with us.</span>
             </h2>
         </div>
@@ -30,7 +30,7 @@
                         role="tab"
                         aria-selected="{{ $idx === 0 ? 'true' : 'false' }}"
                         data-tab="{{ $idx }}"
-                        class="testimonial-tab px-4 py-1.5 rounded font-label text-label-md {{ $idx === 0 ? 'bg-light-primary text-light-on-primary' : 'bg-light-surface-container-low text-light-on-surface-variant hover:text-light-on-surface' }} transition-colors duration-state-change">
+                        class="testimonial-tab px-4 py-1.5 rounded-[6px] font-label text-label-md {{ $idx === 0 ? 'bg-light-primary text-light-on-primary' : 'bg-light-surface-container-low text-light-on-surface-variant hover:text-light-on-surface' }} transition-colors duration-state-change">
                     {{ $item->tab_label }}
                 </button>
             @endforeach

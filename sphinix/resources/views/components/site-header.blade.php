@@ -35,7 +35,7 @@
                 </button>
 
                 <!-- Mega Menu Panel -->
-                <div id="services-mega" class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[540px] bg-white border border-light-outline-variant rounded-xl shadow-lg shadow-black/8 opacity-0 invisible translate-y-1 transition-all duration-200 ease-out pointer-events-none">
+                <div id="services-mega" class="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-[540px] bg-white border border-[#E6E3DC] rounded-xl shadow-[0_14px_32px_-12px_rgba(32,32,32,0.12)] opacity-0 invisible translate-y-1 transition-all duration-200 ease-out pointer-events-none">
                     <div class="p-4 grid grid-cols-2 gap-1">
                         @foreach ($servicesMenu as $svc)
                             <a href="{{ $svc->public_href }}" class="mega-item flex items-start gap-3 p-2.5 rounded-lg hover:bg-[#FFF8F1] transition-colors duration-150 group/item">

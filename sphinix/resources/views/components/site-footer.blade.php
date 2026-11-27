@@ -34,10 +34,10 @@
             <div class="flex flex-col gap-3">
                 <span class="font-title text-title-md text-light-on-surface">Products &amp; Web</span>
                 <ul class="flex flex-col gap-2 font-body text-body-md text-light-on-surface-variant">
-                    <li><a href="{{ route('products.index') }}#chatbox360" class="hover:text-light-primary">ChatBox 360 Suite</a></li>
-                    <li><a href="{{ route('products.index') }}#social360" class="hover:text-light-primary">Social 360 Suite</a></li>
-                    <li><a href="{{ route('products.index') }}#aajkagraphic" class="hover:text-light-primary">Aaj Ka Graphic</a></li>
-                    <li><a href="{{ route('services.index') }}" class="hover:text-light-primary">All Services</a></li>
+                    <li><a href="{{ route('products.index') }}#chatbox360" class="hover:text-light-primary transition-colors">ChatBox 360 Suite</a></li>
+                    <li><a href="{{ route('products.index') }}#social360" class="hover:text-light-primary transition-colors">Social 360 Suite</a></li>
+                    <li><a href="{{ route('products.index') }}#aajkagraphic" class="hover:text-light-primary transition-colors">Aaj Ka Graphic</a></li>
+                    <li><a href="{{ route('services.index') }}" class="hover:text-light-primary transition-colors">All Services</a></li>
                 </ul>
             </div>
 
@@ -46,8 +46,8 @@
                 <p class="font-body text-body-md text-light-on-surface-variant">Direct updates and product questions: {{ $siteSettings['primary_email'] ?? 'info@sphinixmarketing.com' }}</p>
                 <form action="{{ route('newsletter.subscribe') }}" method="POST" class="newsletter-form flex gap-2" novalidate>
                     @csrf
-                    <input type="email" name="email" placeholder="Work email" aria-label="Work email address" class="flex-1 min-w-0 px-3 py-2 rounded border border-light-outline-variant bg-light-surface text-light-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
-                    <button type="submit" class="px-4 py-2 rounded bg-light-secondary text-light-on-secondary font-label text-label-md hover:bg-light-primary transition-colors duration-state-change">
+                    <input type="email" name="email" placeholder="Work email" aria-label="Work email address" class="flex-1 min-w-0 px-3 py-2 rounded-[6px] border border-light-outline-variant bg-light-surface text-light-on-surface font-body text-body-md focus:outline-none focus:ring-2 focus:ring-light-primary">
+                    <button type="submit" class="px-4 py-2 rounded-[6px] bg-light-secondary text-light-on-secondary font-label text-label-md hover:bg-light-primary transition-colors duration-state-change">
                         Join
                     </button>
                 </form>

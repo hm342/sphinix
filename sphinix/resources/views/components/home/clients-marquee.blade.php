@@ -27,7 +27,7 @@
     <div class="max-w-7xl mx-auto flex flex-col gap-12">
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div class="flex flex-col gap-3 max-w-2xl">
-                <h2 class="font-display text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
+                <h2 class="font-display font-bold tracking-[-0.025em] text-display-lg-mobile lg:text-display-lg text-light-on-surface text-balance">
                     Worked with <span class="text-brand-orange tabular-nums">{{ $clientsCount }}</span> businesses.
                 </h2>
                 <p class="font-body text-body-md text-light-on-surface-variant">
