@@ -18,7 +18,7 @@
                 <span>/</span>
                 <a href="{{ route('services.index') }}" class="hover:text-[#A83300]">Services</a>
                 <span>/</span>
-                <span class="text-[#18181B]">{{ $serviceNum }} · {{ $serviceName }}</span>
+                <span class="text-[#18181B]">{{ $serviceName }}</span>
             </nav>
 
             <h1 class="hero-pose-1 font-display font-extrabold text-[34px] sm:text-[44px] lg:text-[50px] leading-[1.06] tracking-[-0.028em] text-[#18181B] text-balance">
@@ -32,8 +32,7 @@
             @if (count($partnerBadges) > 0)
                 <div class="hero-pose-2 flex flex-wrap items-center gap-2.5">
                     @foreach ($partnerBadges as $badge)
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 bg-white border border-[#D4D0C8] font-mono text-[11.5px] font-medium text-[#18181B]">
-                            <span class="w-1.5 h-1.5 rounded-full bg-[#ec7a2d]" aria-hidden="true"></span>
+                        <span class="inline-flex items-center px-3 py-1 bg-white border border-[#D4D0C8] font-mono text-[11.5px] font-semibold text-[#18181B]">
                             {{ $badge }}
                         </span>
                     @endforeach

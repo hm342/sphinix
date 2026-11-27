@@ -23,7 +23,7 @@
                    style="--stagger: {{ $idx }};"
                    class="group p-5 bg-white border border-[#E4E4E7] hover:border-[#ec7a2d] flex flex-col justify-between gap-3 transition-colors">
                     <div class="flex flex-col gap-1.5">
-                        <span class="font-mono text-[11.5px] font-semibold text-[#A83300]">{{ $svc->num }} · {{ $svc->eyebrow }}</span>
+                        <span class="font-mono text-[11.5px] font-semibold text-[#A83300]">{{ $svc->eyebrow }}</span>
                         <h3 class="font-display font-bold text-[17px] text-[#18181B] group-hover:text-[#A83300] transition-colors">{{ $svc->title }}</h3>
                         <p class="font-body text-[13px] leading-[1.5] text-[#52525B] line-clamp-2">{{ $svc->short_desc }}</p>
                     </div>

@@ -14,7 +14,7 @@
                 </h2>
             </div>
             <div class="flex items-center gap-3 shrink-0">
-                <span id="gallery-counter" class="font-mono text-[12.5px] font-medium text-[#52525B] tabular-nums" aria-live="polite">01 / {{ str_pad((string) max(1, $slideItems->count()), 2, '0', STR_PAD_LEFT) }}</span>
+                <span id="gallery-counter" class="font-mono text-[12.5px] font-medium text-[#52525B] tabular-nums" aria-live="polite">1 / {{ max(1, $slideItems->count()) }}</span>
                 <div class="flex items-center gap-2">
                     <button type="button" id="gallery-prev" aria-label="Previous visual" class="w-10 h-10 rounded-full border border-[#D4D0C8] bg-white text-[#18181B] hover:border-[#A83300] hover:text-[#A83300] flex items-center justify-center transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A]">
                         <span class="material-symbols-outlined text-[20px]" aria-hidden="true">arrow_back</span>

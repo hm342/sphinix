@@ -23,10 +23,7 @@
         <ul class="grid grid-cols-1 md:grid-cols-3 gap-x-10 lg:gap-x-14 border-t border-[#D4D0C8]">
             @foreach ($industries as $idx => $industry)
                 <li tabindex="0" data-reveal style="--stagger: {{ $idx % 6 }};" class="industry-item min-h-[48px] py-4 sm:py-5 border-b border-[#D4D0C8] flex items-center justify-between gap-3 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85D2A] rounded-sm">
-                    <span class="flex items-baseline gap-3.5 min-w-0">
-                        <span class="font-mono text-[12px] font-semibold text-[#A83300] tabular-nums shrink-0">{{ str_pad((string) ($idx + 1), 2, '0', STR_PAD_LEFT) }}</span>
-                        <span class="industry-name font-body font-medium text-[18px] sm:text-[19px] text-[#18181B]">{{ $industry }}</span>
-                    </span>
+                    <span class="industry-name font-body font-medium text-[18px] sm:text-[19px] text-[#18181B]">{{ $industry }}</span>
                     <span class="industry-arrow font-mono text-[16px] text-[#71717A] shrink-0" aria-hidden="true">→</span>
                 </li>
             @endforeach

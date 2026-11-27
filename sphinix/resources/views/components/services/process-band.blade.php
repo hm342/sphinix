@@ -26,7 +26,6 @@
         <div class="grid grid-cols-1 {{ $colsClass }} gap-x-8 gap-y-8 border-t {{ $isDark ? 'border-white/15' : 'border-[#D4D0C8]' }} pt-8">
             @foreach ($steps as $idx => $step)
                 <div data-reveal style="--stagger: {{ $idx }};" class="flex flex-col gap-2.5">
-                    <span class="font-mono text-[13px] font-semibold text-[#E85D2A] tabular-nums">{{ $step['num'] }}</span>
                     <h3 class="font-title font-bold text-[19px] {{ $isDark ? 'text-white' : 'text-[#18181B]' }}">{{ $step['title'] }}</h3>
                     <p class="font-body text-[14.5px] leading-[1.6] {{ $isDark ? 'text-white/75' : 'text-[#52525B]' }}">{{ $step['desc'] }}</p>
                 </div>

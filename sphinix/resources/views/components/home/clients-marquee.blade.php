@@ -35,8 +35,7 @@
                 </p>
             </div>
 
-            <div class="flex items-center gap-4 shrink-0">
-                <span class="px-3.5 py-1.5 rounded bg-light-surface-container-lowest border border-light-outline-variant font-mono text-mono-sm text-light-on-surface tabular-nums">{{ $clientsCount }} Clients</span>
+            <div class="flex items-center shrink-0">
                 <a href="{{ route('work.index') }}" class="font-body font-semibold text-[14px] text-[#A83300] hover:underline whitespace-nowrap">
                     Explore portfolio →
                 </a>

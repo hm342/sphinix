@@ -77,7 +77,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 @foreach ($strengths as $idx => $item)
                     <div data-reveal style="--stagger: {{ $idx }};" class="p-8 rounded-lg bg-light-surface-container-lowest border border-light-outline-variant flex flex-col gap-3">
-                        <span class="font-mono text-[12px] font-semibold tracking-[0.08em] text-[#A83300]">{{ $item['num'] }}</span>
                         <h3 class="font-title text-title-md text-light-on-surface">{{ $item['title'] }}</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">{{ $item['desc'] }}</p>
                     </div>
@@ -93,8 +92,7 @@
                 <h2 class="font-headline text-headline-lg text-light-on-surface">Channels we handle for clients.</h2>
                 <div class="grid grid-cols-2 gap-3 pt-2">
                     @foreach ($channels as $channel)
-                        <div class="p-4 rounded border border-light-outline-variant bg-light-surface font-label text-label-md text-light-on-surface flex items-center gap-2">
-                            <span class="w-2.5 h-2.5 rounded-full bg-brand-orange"></span>
+                        <div class="p-4 rounded border border-light-outline-variant bg-light-surface font-label text-label-md text-light-on-surface flex items-center">
                             {{ $channel }}
                         </div>
                     @endforeach
@@ -132,7 +130,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-10 gap-y-8 border-t border-white/15 pt-8">
                 @foreach ($process as $step)
                     <div class="flex flex-col gap-2.5">
-                        <span class="font-mono text-[13px] font-semibold text-[#E85D2A]">{{ $step['num'] }}</span>
                         <h3 class="font-title font-bold text-[19px] text-white">{{ $step['title'] }}</h3>
                         <p class="font-body text-[14.5px] leading-[1.6] text-white/70">{{ $step['desc'] }}</p>
                     </div>

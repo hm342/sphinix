@@ -33,10 +33,7 @@
                                 </div>
                                 <div class="p-4 sm:p-5 flex flex-col justify-between gap-3.5 flex-1">
                                     <div class="flex flex-col gap-2">
-                                        <div class="flex items-center gap-2">
-                                            <span class="w-1.5 h-1.5 rounded-full shrink-0" style="background-color: {{ $svc->dot_color }};" aria-hidden="true"></span>
-                                            <span class="font-mono text-[10.5px] font-medium tracking-[0.05em] text-[#52525B] uppercase">{{ $svc->eyebrow }}</span>
-                                        </div>
+                                        <span class="font-mono text-[10.5px] font-semibold tracking-[0.06em] text-[#52525B] uppercase">{{ $svc->eyebrow }}</span>
                                         <h3 class="font-display font-bold text-[18.5px] leading-[1.22] tracking-[-0.02em] text-[#18181B]">{{ $svc->card_title }}</h3>
                                         <p class="font-body text-[13.5px] leading-[1.52] text-[#52525B]">{{ $svc->short_desc }}</p>
                                         <div class="pt-0.5 flex flex-wrap gap-1.5">

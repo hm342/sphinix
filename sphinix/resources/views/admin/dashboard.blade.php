@@ -68,7 +68,7 @@
                             $tickVal = (int) round($chartMax - ($chartMax / 3) * $g);
                         @endphp
                         <line x1="{{ $padLeft }}" y1="{{ $gy }}" x2="{{ $chartWidth - $padRight }}" y2="{{ $gy }}" stroke="rgba(0,0,0,0.07)" stroke-width="1" />
-                        <text x="{{ $padLeft - 8 }}" y="{{ $gy + 4 }}" text-anchor="end" fill="#737373" font-family="IBM Plex Mono, monospace" font-size="11">{{ $tickVal }}</text>
+                        <text x="{{ $padLeft - 8 }}" y="{{ $gy + 4 }}" text-anchor="end" fill="#737373" font-family="Plus Jakarta Sans, sans-serif" font-size="11">{{ $tickVal }}</text>
                     @endfor
 
                     @foreach ($inquirySeries as $idx => $bar)
@@ -80,9 +80,9 @@
                         @endphp
                         <rect x="{{ $bx }}" y="{{ $by }}" width="{{ $barW }}" height="{{ $barH }}" rx="4" fill="{{ $fill }}" />
                         @if ($bar['count'] > 0)
-                            <text x="{{ $bx + $barW / 2 }}" y="{{ $by - 6 }}" text-anchor="middle" fill="#171717" font-family="IBM Plex Mono, monospace" font-size="11">{{ $bar['count'] }}</text>
+                            <text x="{{ $bx + $barW / 2 }}" y="{{ $by - 6 }}" text-anchor="middle" fill="#171717" font-family="Plus Jakarta Sans, sans-serif" font-size="11">{{ $bar['count'] }}</text>
                         @endif
-                        <text x="{{ $bx + $barW / 2 }}" y="{{ $chartHeight - 10 }}" text-anchor="middle" fill="{{ $bar['is_today'] ? '#171717' : '#737373' }}" font-family="IBM Plex Mono, monospace" font-size="11">{{ $bar['date'] }}</text>
+                        <text x="{{ $bx + $barW / 2 }}" y="{{ $chartHeight - 10 }}" text-anchor="middle" fill="{{ $bar['is_today'] ? '#171717' : '#737373' }}" font-family="Plus Jakarta Sans, sans-serif" font-size="11">{{ $bar['date'] }}</text>
                     @endforeach
                 </svg>
             </div>

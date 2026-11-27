@@ -52,7 +52,6 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 border-t border-[#D4D0C8]">
                 @foreach ($formats as $idx => $item)
                     <div data-reveal style="--stagger: {{ $idx % 4 }};" class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2">
-                        <span class="font-mono text-[12px] font-semibold text-[#A83300]">{{ $item['num'] }}</span>
                         <h3 class="font-title font-bold text-[21px] text-[#18181B]">{{ $item['title'] }}</h3>
                         <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">{{ $item['desc'] }}</p>
                     </div>

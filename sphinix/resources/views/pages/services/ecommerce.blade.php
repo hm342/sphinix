@@ -52,7 +52,6 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 border-t border-[#D4D0C8]">
                 @foreach ($servicesList as $idx => $item)
                     <div data-reveal style="--stagger: {{ $idx % 4 }};" class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2">
-                        <span class="font-mono text-[12px] font-semibold text-[#A83300]">{{ $item['num'] }}</span>
                         <h3 class="font-title font-bold text-[21px] text-[#18181B]">{{ $item['title'] }}</h3>
                         <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">{{ $item['desc'] }}</p>
                     </div>
@@ -75,8 +74,7 @@
 
             <div class="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-3">
                 @foreach ($marketplaces as $idx => $mp)
-                    <div data-reveal style="--stagger: {{ $idx }};" class="p-4 bg-white border border-light-outline-variant font-title font-semibold text-[15px] text-[#18181B] flex items-center gap-2.5">
-                        <span class="w-2 h-2 rounded-full bg-[#E85D2A] shrink-0" aria-hidden="true"></span>
+                    <div data-reveal style="--stagger: {{ $idx }};" class="p-4 bg-white border border-light-outline-variant font-title font-semibold text-[15px] text-[#18181B] flex items-center">
                         <span>{{ $mp }}</span>
                     </div>
                 @endforeach

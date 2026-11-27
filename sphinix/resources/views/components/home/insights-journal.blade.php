@@ -43,7 +43,7 @@
                 <div class="flex flex-col divide-y divide-[#D4D0C8] border-b border-[#D4D0C8]">
                     @forelse ($entries as $entry)
                         @php
-                            $badge = str_pad((string) $loop->iteration, 2, '0', STR_PAD_LEFT) . ' · ' . $entry->category_label;
+                            $badge = $entry->category_label;
                         @endphp
                         <a href="{{ $entry->target_url }}"
                            data-insight-key="{{ $entry->slug }}"
@@ -90,8 +90,7 @@
 
                 <!-- Editorial Footer Strip -->
                 <div class="hidden lg:flex items-center justify-between gap-4 pt-2">
-                    <span class="inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.08em] text-[#71717A]">
-                        <span class="w-1.5 h-1.5 bg-[#ec7a2d] inline-block" aria-hidden="true"></span>
+                    <span class="font-mono text-[11px] uppercase tracking-[0.08em] text-[#71717A]">
                         Hover any entry to preview cover
                     </span>
                     <button type="button" id="insight-reset-featured" class="font-mono text-[11px] uppercase tracking-[0.08em] text-[#18181B] hover:text-[#A83300] border-b border-[#18181B] hover:border-[#A83300] pb-0.5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#E85C27]">

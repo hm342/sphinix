@@ -735,7 +735,7 @@
                 currentSlide = ((idx % totalSlides) + totalSlides) % totalSlides;
                 galleryTrack.style.transform = `translateX(-${currentSlide * 100}%)`;
                 if (galleryCounter) {
-                    galleryCounter.textContent = `${String(currentSlide + 1).padStart(2, '0')} / ${String(totalSlides).padStart(2, '0')}`;
+                    galleryCounter.textContent = `${currentSlide + 1} / ${totalSlides}`;
                 }
                 galleryDots.forEach((dot, dIdx) => {
                     const active = dIdx === currentSlide;

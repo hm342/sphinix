@@ -40,7 +40,7 @@
     --font-title: 'Archivo', system-ui, -apple-system, sans-serif;
     --font-body: 'Manrope', system-ui, -apple-system, sans-serif;
     --font-label: 'Manrope', system-ui, -apple-system, sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 
     --text-display-xl: clamp(2.25rem, 1.5rem + 2.4vw, 3.35rem);
     --text-display-xl--line-height: 1.06;
@@ -144,7 +144,7 @@
 :root {
     --font-display: 'Archivo', system-ui, -apple-system, sans-serif;
     --font-sans: 'Manrope', system-ui, -apple-system, sans-serif;
-    --font-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, monospace;
+    --font-mono: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
     --text-display: clamp(2.25rem, 1.5rem + 2.4vw, 3.5rem);
     --text-h1: clamp(2.1rem, 1.4rem + 2vw, 3.25rem);
 

@@ -77,7 +77,6 @@
             <div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 border-t border-[#D4D0C8]">
                 @foreach ($areas as $area)
                     <div class="py-7 border-b border-[#D4D0C8] flex flex-col gap-2.5">
-                        <span class="font-mono text-[12px] font-semibold text-[#A83300]">{{ $area['num'] }}</span>
                         <h3 class="font-title font-bold text-[21px] text-[#18181B]">{{ $area['title'] }}</h3>
                         <p class="font-body text-[15px] leading-[1.6] text-[#52525B]">{{ $area['desc'] }}</p>
                     </div>
@@ -98,7 +97,6 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
                 @foreach ($steps as $idx => $step)
                     <div data-reveal style="--stagger: {{ $idx }};" class="p-6 rounded-lg bg-light-surface border border-light-outline-variant flex flex-col gap-3">
-                        <span class="font-display font-extrabold text-display-lg text-brand-orange">{{ $step['num'] }}</span>
                         <h3 class="font-title text-title-md text-light-on-surface">{{ $step['title'] }}</h3>
                         <p class="font-body text-body-sm text-light-on-surface-variant">{{ $step['desc'] }}</p>
                     </div>

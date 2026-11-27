@@ -6,9 +6,9 @@
         ['value' => $settings['industries_count_label'] ?? '15+', 'label' => 'Industries Served'],
     ];
     $pillars = [
-        ['num' => '01 · In-House Team', 'title' => 'In-House Team', 'desc' => 'Copywriters, designers, video editors, ad buyers, and software developers working together in Bhavnagar.'],
-        ['num' => '02 · Workflow', 'title' => 'Systematic Process', 'desc' => 'Every account follows a documented path: audit and research, setup, monthly production calendar, monitoring, and reporting.'],
-        ['num' => '03 · Tools & Software', 'title' => 'Standard Tools + Own SaaS', 'desc' => 'Google Analytics, Semrush, Ahrefs, and Adobe Creative Cloud alongside our own products: ChatBox 360 Suite and Social 360 Suite.'],
+        ['num' => 'In-House Team', 'title' => 'In-House Team', 'desc' => 'Copywriters, designers, video editors, ad buyers, and software developers working together in Bhavnagar.'],
+        ['num' => 'Workflow', 'title' => 'Systematic Process', 'desc' => 'Every account follows a documented path: audit and research, setup, monthly production calendar, monitoring, and reporting.'],
+        ['num' => 'Tools & Software', 'title' => 'Standard Tools + Own SaaS', 'desc' => 'Google Analytics, Semrush, Ahrefs, and Adobe Creative Cloud alongside our own products: ChatBox 360 Suite and Social 360 Suite.'],
     ];
 @endphp
 <x-layouts.app
@@ -134,14 +134,14 @@
                 <div class="p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-charcoal text-light-on-secondary font-label text-label-sm uppercase tracking-wider">Head Office</span>
-                            <span class="font-mono text-mono-sm text-light-outline">HQ &amp; Operations</span>
+                            <span class="font-mono text-[11.5px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">Head Office</span>
+                            <span class="font-mono text-[12px] text-light-outline">HQ &amp; Operations</span>
                         </div>
                         <h3 class="font-headline text-headline-md text-light-on-surface">Parimal Chowk Office</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">
                             {{ $settings['head_office_address'] ?? 'B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road, Bhavnagar - 364001, Gujarat, India.' }}
                         </p>
-                        <div class="flex flex-col gap-2 pt-2 border-t border-light-outline-variant font-mono text-mono-sm text-light-on-surface">
+                        <div class="flex flex-col gap-2 pt-2 border-t border-light-outline-variant font-mono text-[14px] font-medium text-light-on-surface tabular-nums">
                             <span>{{ $settings['primary_phone'] ?? '+91 7048239155' }}</span>
                             <span>{{ $settings['primary_email'] ?? 'info@sphinixmarketing.com' }}</span>
                         </div>
@@ -154,16 +154,16 @@
                 <div class="p-8 rounded-xl bg-light-surface border border-light-outline-variant flex flex-col justify-between gap-6">
                     <div class="flex flex-col gap-4">
                         <div class="flex items-center justify-between">
-                            <span class="inline-flex items-center gap-2 px-3 py-1 rounded bg-brand-charcoal text-light-on-secondary font-label text-label-sm uppercase tracking-wider">Creative Studio</span>
-                            <span class="font-mono text-mono-sm text-light-outline">Production &amp; Media</span>
+                            <span class="font-mono text-[11.5px] font-semibold uppercase tracking-[0.08em] text-[#A83300]">Creative Studio</span>
+                            <span class="font-mono text-[12px] text-light-outline">Production &amp; Media</span>
                         </div>
                         <h3 class="font-headline text-headline-md text-light-on-surface">Mokhdaji Circle Studio</h3>
                         <p class="font-body text-body-md text-light-on-surface-variant">
                             {{ $settings['studio_address'] ?? 'Swastik Complex, Mokhdaji Circle, Bhavnagar, Gujarat, India.' }}
                         </p>
-                        <div class="flex flex-col gap-2 pt-2 border-t border-light-outline-variant font-mono text-mono-sm text-light-on-surface">
+                        <div class="flex flex-col gap-2 pt-2 border-t border-light-outline-variant font-mono text-[14px] font-medium text-light-on-surface tabular-nums">
                             <span>{{ $settings['studio_phone'] ?? '+91 9081711900' }}</span>
-                            <span>{{ $settings['studio_hours'] ?? 'Mon - Sat · 10:00 AM - 7:00 PM IST' }}</span>
+                            <span class="font-normal text-[#52525B]">{{ $settings['studio_hours'] ?? 'Mon - Sat · 10:00 AM - 7:00 PM IST' }}</span>
                         </div>
                     </div>
                     <a href="{{ route('contact.show') }}" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded bg-light-surface-container-lowest border border-light-outline-variant text-light-on-surface font-label text-label-lg hover:border-light-primary transition-colors">

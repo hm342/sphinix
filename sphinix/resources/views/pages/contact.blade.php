@@ -92,7 +92,7 @@
                             <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
                                 {{ $settings['head_office_address'] ?? 'B-3, Shantiniketan Complex, Parimal Chowk, Waghawadi Road, Bhavnagar - 364001, Gujarat, India.' }}
                             </p>
-                            <div class="pt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[12.5px] text-[#18181B]">
+                            <div class="pt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[14px] font-medium text-[#18181B] tabular-nums">
                                 <a href="tel:{{ preg_replace('/\s+/', '', $settings['primary_phone'] ?? '+917048239155') }}" class="hover:text-[#A83300]">{{ $settings['primary_phone'] ?? '+91 7048239155' }}</a>
                                 <a href="mailto:{{ $settings['primary_email'] ?? 'info@sphinixmarketing.com' }}" class="hover:text-[#A83300]">{{ $settings['primary_email'] ?? 'info@sphinixmarketing.com' }}</a>
                             </div>
@@ -103,9 +103,9 @@
                             <p class="font-body text-[14.5px] leading-[1.6] text-[#52525B]">
                                 {{ $settings['studio_address'] ?? 'Swastik Complex, Mokhdaji Circle, Bhavnagar, Gujarat, India.' }}
                             </p>
-                            <div class="pt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[12.5px] text-[#18181B]">
+                            <div class="pt-2 flex flex-wrap gap-x-5 gap-y-1 font-mono text-[14px] font-medium text-[#18181B] tabular-nums">
                                 <a href="tel:{{ preg_replace('/\s+/', '', $settings['studio_phone'] ?? '+919081711900') }}" class="hover:text-[#A83300]">{{ $settings['studio_phone'] ?? '+91 9081711900' }}</a>
-                                <span class="text-[#52525B]">{{ $settings['studio_hours'] ?? 'Mon - Sat · 10:00 AM - 7:00 PM IST' }}</span>
+                                <span class="text-[#52525B] font-normal">{{ $settings['studio_hours'] ?? 'Mon - Sat · 10:00 AM - 7:00 PM IST' }}</span>
                             </div>
                         </div>
                     </div>

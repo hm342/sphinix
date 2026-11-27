@@ -30,10 +30,7 @@
                                     aria-expanded="{{ $isOpen ? 'true' : 'false' }}"
                                     aria-controls="panel-{{ $svc->slug }}"
                                     class="service-trigger w-full py-5 sm:py-6 flex items-center justify-between gap-4 text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#A83300] rounded-sm">
-                                <span class="flex items-baseline gap-3 sm:gap-5 min-w-0">
-                                    <span class="service-num font-mono text-[12px] sm:text-[13px] tabular-nums shrink-0">{{ $svc->num }}</span>
-                                    <span class="service-title text-[22px] sm:text-[25px] lg:text-[27px] leading-[1.18] tracking-[-0.02em] text-[#18181B]">{{ $svc->title }}</span>
-                                </span>
+                                <span class="service-title text-[22px] sm:text-[25px] lg:text-[27px] leading-[1.18] tracking-[-0.02em] text-[#18181B]">{{ $svc->title }}</span>
                                 <span class="service-toggle-icon inline-flex items-center justify-center w-6 h-6 shrink-0" aria-hidden="true">
                                     <span class="material-symbols-outlined text-[22px] font-light">add</span>
                                 </span>
@@ -41,7 +38,7 @@
 
                             <div id="panel-{{ $svc->slug }}" class="service-panel">
                                 <div class="service-panel-inner">
-                                    <div class="pb-8 pt-1 pl-7 sm:pl-9 pr-2 flex flex-col gap-5 max-w-[60ch]">
+                                    <div class="pb-8 pt-1 pr-2 flex flex-col gap-5 max-w-[60ch]">
                                         <p class="text-[15.5px] leading-[1.65] text-[#444444]">
                                             {{ $svc->full_desc }}
                                         </p>
